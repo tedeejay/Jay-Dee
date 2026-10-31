@@ -5,37 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Jay & Dee 💞</title>
 
-<!-- ═══ LOGO / ICONS ═══ -->
 <link rel="icon" type="image/png" href="https://cdn.dbimg.app/Q7cRoVmy.png">
 <link rel="shortcut icon" type="image/png" href="https://cdn.dbimg.app/Q7cRoVmy.png">
 <link rel="apple-touch-icon" href="https://cdn.dbimg.app/Q7cRoVmy.png">
 <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.dbimg.app/Q7cRoVmy.png">
-<link rel="apple-touch-icon" sizes="152x152" href="https://cdn.dbimg.app/Q7cRoVmy.png">
-<link rel="apple-touch-icon" sizes="120x120" href="https://cdn.dbimg.app/Q7cRoVmy.png">
 
-<!-- ═══ iOS APP MODE ═══ -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Jay & Dee">
-
-<!-- ═══ ANDROID / PWA ═══ -->
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#ff9ec2">
 
-<!-- ═══ PWA MANIFEST (generated at runtime) ═══ -->
 <script>
 (function(){
   try {
     var manifest = {
-      name: "Jay & Dee",
-      short_name: "J & D",
+      name: "Jay & Dee", short_name: "J & D",
       description: "Our little world 💞",
       start_url: window.location.href,
       scope: window.location.href.replace(/\/[^/]*$/, '/'),
-      display: "standalone",
-      orientation: "portrait",
-      background_color: "#1c0f16",
-      theme_color: "#ff9ec2",
+      display: "standalone", orientation: "portrait",
+      background_color: "#1c0f16", theme_color: "#ff9ec2",
       icons: [
         { src: "https://cdn.dbimg.app/Q7cRoVmy.png", sizes: "192x192", type: "image/png", purpose: "any" },
         { src: "https://cdn.dbimg.app/Q7cRoVmy.png", sizes: "512x512", type: "image/png", purpose: "any" },
@@ -44,24 +34,26 @@
       ]
     };
     var blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
-    var url = URL.createObjectURL(blob);
     var link = document.createElement('link');
     link.rel = 'manifest';
-    link.href = url;
+    link.href = URL.createObjectURL(blob);
     document.head.appendChild(link);
-  } catch (e) { console.warn('[OLW] manifest generation failed:', e); }
+  } catch (e) {}
 })();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --pink:#ff9ec2; --pink-2:#ff7aa8; --pink-soft:#ffd6e4;
+  --gold:#e8c9a8;
   --txt:#fbeef4; --muted:#c9a9b8;
   --glass:rgba(255,255,255,.07); --stroke:rgba(255,255,255,.15);
+  --paper:#fffafc; --paper-2:#ffeef5;
+  --ink:#3a1626; --ink-soft:#7a4d5f;
 }
 html{scroll-behavior:smooth}
 body{
@@ -76,6 +68,8 @@ body{
 }
 .hidden{display:none !important}
 button{font-family:inherit}
+
+/* LOCK */
 .lock{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:20px;transition:opacity .7s ease,visibility .7s}
 .lock.gone{opacity:0;visibility:hidden;pointer-events:none}
 .lock__bg{position:absolute;inset:0;background:center/cover no-repeat;transform:scale(1.06);filter:saturate(.9) brightness(1.05);animation:slowzoom 22s ease-in-out infinite alternate}
@@ -83,19 +77,9 @@ button{font-family:inherit}
 .lock__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,8,14,.18) 0%,rgba(20,8,14,.42) 60%,rgba(20,8,14,.62) 100%)}
 .lock__card{position:relative;width:min(380px,100%);background:rgba(46,20,33,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);border-radius:30px;padding:30px 26px 26px;text-align:center;box-shadow:0 30px 90px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.18);animation:pop .6s cubic-bezier(.2,.9,.3,1.3)}
 @keyframes pop{from{opacity:0;transform:translateY(24px) scale(.94)}to{opacity:1;transform:none}}
-
-/* LOGO on lock screen */
-.lock__logo{
-  width:76px;height:76px;margin:0 auto 14px;
-  border-radius:22px;overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 3px rgba(255,255,255,.18);
-  animation:beat 2.4s infinite;
-  background:rgba(255,255,255,.06);
-  display:grid;place-items:center;
-}
+.lock__logo{width:76px;height:76px;margin:0 auto 14px;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 3px rgba(255,255,255,.18);animation:beat 2.4s infinite;background:rgba(255,255,255,.06);display:grid;place-items:center}
 .lock__logo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:22px}
 @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.06)}30%{transform:scale(1)}45%{transform:scale(1.04)}}
-
 .lock__card h1{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;letter-spacing:.4px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.65),0 0 26px rgba(255,158,194,.5)}
 .lock__sub{color:#f7e4ec;font-size:.86rem;margin-top:6px;font-weight:300;text-shadow:0 2px 10px rgba(0,0,0,.6)}
 .dots{display:flex;justify-content:center;gap:12px;margin:22px 0 20px;flex-wrap:wrap}
@@ -116,23 +100,25 @@ button{font-family:inherit}
 .brand-logo{width:34px;height:34px;border-radius:10px;object-fit:cover;display:block;box-shadow:0 4px 14px rgba(255,120,170,.45),0 0 0 1.5px rgba(255,255,255,.15);background:rgba(255,255,255,.06)}
 .brand-text{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;letter-spacing:.3px;background:linear-gradient(135deg,#fff,#ffb3cf);-webkit-background-clip:text;background-clip:text;color:transparent}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
-.tabs button{background:transparent;border:1px solid transparent;color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer;font-size:.85rem;font-weight:400;transition:.25s;white-space:nowrap}
+.tabs button{background:transparent;border:1px solid transparent;color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer;font-size:.85rem;font-weight:400;transition:.25s;white-space:nowrap;position:relative;display:flex;align-items:center;gap:6px}
 .tabs button:hover{color:#fff;background:rgba(255,255,255,.07)}
 .tabs button.active{background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;font-weight:600;box-shadow:0 8px 24px rgba(255,120,170,.4)}
+.tab-badge{display:none;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#fff;color:#ff4d7d;font-size:.65rem;font-weight:700;align-items:center;justify-content:center;line-height:1;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.tab-badge.show{display:inline-flex;animation:badgePulse 2s infinite}
+@keyframes badgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.tabs button.active .tab-badge{background:rgba(42,15,26,.85);color:#fff}
 .lockbtn{background:transparent;border:1px solid var(--stroke);color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.82rem;transition:.25s}
 .lockbtn:hover{color:#fff;border-color:var(--pink);background:rgba(255,158,194,.12)}
+
+/* LAYOUT */
 .wrap{max-width:1120px;margin:0 auto;padding:30px 22px calc(90px + env(safe-area-inset-bottom))}
 .panel{display:none}
 .panel.active{display:block;animation:fade .45s ease}
 @keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .section-title{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;margin-bottom:6px}
 .section-sub{color:var(--muted);font-size:.86rem;font-weight:300;margin-bottom:24px}
-.mem-tabs{display:flex;gap:6px;margin-bottom:22px;background:rgba(255,255,255,.04);padding:6px;border-radius:999px;max-width:440px;border:1px solid var(--stroke)}
-.mem-tab{flex:1;padding:10px 18px;border-radius:999px;border:none;cursor:pointer;font-family:inherit;font-size:.84rem;color:var(--muted);background:transparent;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
-.mem-tab:hover{color:#fff}
-.mem-tab.active{background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;font-weight:600;box-shadow:0 8px 20px rgba(255,120,170,.35)}
-.mem-count{font-size:.7rem;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.12);font-weight:500;min-width:22px;text-align:center}
-.mem-tab.active .mem-count{background:rgba(42,15,26,.22);color:#2a0f1a}
+
+/* HERO */
 .hero{position:relative;border-radius:28px;overflow:hidden;min-height:330px;display:grid;place-items:center;text-align:center;border:1px solid var(--stroke);margin-bottom:26px;box-shadow:0 24px 70px rgba(0,0,0,.45);background:#2a1120}
 .hero__bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease;will-change:opacity}
 .hero__bg.on{opacity:1}
@@ -145,6 +131,8 @@ button{font-family:inherit}
 .together{display:inline-flex;align-items:baseline;gap:10px;margin-top:22px;padding:12px 26px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--stroke);backdrop-filter:blur(8px)}
 .together span{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--pink)}
 .together small{font-size:.78rem;color:var(--muted);letter-spacing:.5px}
+
+/* CARDS */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:18px}
 .card{background:var(--glass);border:1px solid var(--stroke);border-radius:24px;padding:24px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,.3);transition:.3s}
 .card:hover{transform:translateY(-3px);border-color:rgba(255,158,194,.4);box-shadow:0 24px 60px rgba(255,120,170,.16)}
@@ -154,6 +142,27 @@ button{font-family:inherit}
 .timer div{text-align:center;padding:14px 4px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)}
 .timer b{display:block;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--pink-soft);font-variant-numeric:tabular-nums}
 .timer span{font-size:.64rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+
+/* LETTER NOTIFICATION ON HOME */
+.letter-notif{display:none;margin-top:18px;background:linear-gradient(135deg,rgba(255,158,194,.16),rgba(232,201,168,.12));border:1px solid rgba(255,158,194,.4);border-radius:22px;padding:20px 24px;cursor:pointer;transition:.3s;position:relative;overflow:hidden;box-shadow:0 16px 44px rgba(255,120,170,.22);align-items:center;gap:18px}
+.letter-notif.show{display:flex;animation:notifIn .6s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes notifIn{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+.letter-notif:hover{transform:translateY(-2px);border-color:var(--pink);box-shadow:0 22px 54px rgba(255,120,170,.35);background:linear-gradient(135deg,rgba(255,158,194,.24),rgba(232,201,168,.18))}
+.letter-notif::before{content:'';position:absolute;top:-40%;right:-10%;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(255,158,194,.4),transparent 70%);filter:blur(20px);pointer-events:none}
+.notif-icon{width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:1.7rem;flex-shrink:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.2);position:relative;animation:beat 2s infinite}
+.notif-body{flex:1;min-width:0;position:relative}
+.notif-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:3px;letter-spacing:.2px}
+.notif-sub{font-size:.8rem;color:var(--pink-soft);font-weight:400}
+.notif-arrow{font-size:1.3rem;color:var(--pink-soft);flex-shrink:0;transition:.25s;position:relative}
+.letter-notif:hover .notif-arrow{transform:translateX(5px);color:#fff}
+
+/* MEMORIES */
+.mem-tabs{display:flex;gap:6px;margin-bottom:22px;background:rgba(255,255,255,.04);padding:6px;border-radius:999px;max-width:440px;border:1px solid var(--stroke)}
+.mem-tab{flex:1;padding:10px 18px;border-radius:999px;border:none;cursor:pointer;font-family:inherit;font-size:.84rem;color:var(--muted);background:transparent;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
+.mem-tab:hover{color:#fff}
+.mem-tab.active{background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;font-weight:600;box-shadow:0 8px 20px rgba(255,120,170,.35)}
+.mem-count{font-size:.7rem;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.12);font-weight:500;min-width:22px;text-align:center}
+.mem-tab.active .mem-count{background:rgba(42,15,26,.22);color:#2a0f1a}
 .gallery{columns:3 230px;column-gap:14px}
 .gallery figure{break-inside:avoid;margin:0 0 14px;position:relative;border-radius:20px;overflow:hidden;cursor:pointer;border:1px solid var(--stroke);transition:.35s;background:#2a1120}
 .gallery img,.gallery video{width:100%;display:block;transition:.5s ease;background:#000}
@@ -167,6 +176,8 @@ button{font-family:inherit}
 .play-overlay::before{content:'';width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 8px 30px rgba(0,0,0,.5)}
 .play-overlay::after{content:'';position:absolute;width:0;height:0;border-left:20px solid #2a0f1a;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
 .gallery figure.is-video:hover .play-overlay::before{background:var(--pink)}
+
+/* LIGHTBOX */
 .lightbox{position:fixed;inset:0;z-index:300;display:none;place-items:center;padding:24px;background:rgba(12,4,9,.93);backdrop-filter:blur(10px)}
 .lightbox.open{display:grid;animation:fade .3s}
 .lb-media{display:grid;place-items:center;max-width:92vw;max-height:82vh}
@@ -176,7 +187,61 @@ button{font-family:inherit}
 .lb-prev{left:18px}.lb-next{right:18px}
 .lb-close{position:absolute;top:calc(20px + env(safe-area-inset-top));right:20px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid var(--stroke);color:#fff;font-size:1.2rem;cursor:pointer;transition:.25s;z-index:2}
 .lb-close:hover{background:var(--pink-2);color:#2a0f1a}
-.empty{text-align:center;padding:44px 20px;color:var(--muted);font-size:.87rem;font-weight:300;border:1px dashed rgba(255,255,255,.16);border-radius:22px}
+
+/* ═══ LETTERS — ELEGANT ═══ */
+.composer{background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--stroke);border-radius:24px;padding:22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);margin-bottom:32px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.composer-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.composer-header-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--pink-soft);letter-spacing:.3px}
+.sender-row{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.sender-static{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:linear-gradient(135deg,rgba(255,158,194,.18),rgba(255,158,194,.08));border:1px solid rgba(255,158,194,.35);font-size:.85rem;color:#fff;font-weight:500}
+.sender-static-label{text-transform:uppercase;letter-spacing:1.2px;font-size:.66rem;color:var(--muted);font-weight:500}
+.sender-static-name{font-weight:600;color:#fff}
+.composer textarea{width:100%;min-height:110px;resize:vertical;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px 18px;color:var(--txt);font-family:'Cormorant Garamond',serif;font-size:1.05rem;line-height:1.6;outline:none;transition:.25s;letter-spacing:.2px}
+.composer textarea::placeholder{color:#8d6b7a;font-style:italic}
+.composer textarea:focus{border-color:var(--pink);background:rgba(255,158,194,.06);box-shadow:0 0 0 4px rgba(255,158,194,.08)}
+.composer-foot{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.switch{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-size:.82rem;color:var(--muted);user-select:none}
+.switch input{display:none}
+.switch .track{width:42px;height:23px;border-radius:999px;background:rgba(255,255,255,.13);position:relative;transition:.25s;border:1px solid var(--stroke)}
+.switch .track::after{content:'';position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;background:#fff;transition:.25s;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.switch input:checked + .track{background:linear-gradient(135deg,var(--pink),var(--pink-2));border-color:transparent}
+.switch input:checked + .track::after{left:21px}
+.send-btn{margin-left:auto;padding:11px 28px;border-radius:999px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;font-weight:600;font-size:.86rem;box-shadow:0 10px 26px rgba(255,120,170,.4);transition:.25s;display:flex;align-items:center;gap:8px;letter-spacing:.3px}
+.send-btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(255,120,170,.55)}
+.send-btn:active{transform:scale(.97)}
+.send-btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+
+.timeline-header{display:flex;align-items:center;gap:14px;margin-bottom:22px;margin-top:8px}
+.timeline-header h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--txt);letter-spacing:.2px}
+.timeline-header .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,158,194,.4),transparent)}
+.timeline-header .count-pill{font-size:.7rem;padding:5px 12px;border-radius:999px;background:rgba(255,158,194,.15);color:var(--pink-soft);font-weight:500;letter-spacing:.5px;border:1px solid rgba(255,158,194,.25)}
+
+.timeline{display:flex;flex-direction:column;gap:20px;padding-bottom:20px}
+.date-sep{display:flex;align-items:center;gap:12px;margin:12px 0 4px;font-family:'Playfair Display',serif;font-size:.78rem;font-weight:500;color:var(--pink-soft);text-transform:uppercase;letter-spacing:2px;opacity:.75}
+.date-sep::before,.date-sep::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,158,194,.3),transparent)}
+
+.letter-card{background:linear-gradient(160deg,var(--paper) 0%,var(--paper-2) 100%);color:var(--ink);border-radius:20px;padding:28px 32px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.35),0 2px 0 rgba(255,255,255,.3) inset,0 0 0 1px rgba(255,158,194,.35);animation:fade .5s;overflow:hidden}
+.letter-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--gold),var(--pink))}
+.letter-card::after{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(255,158,194,.18),transparent 70%);pointer-events:none}
+.letter-card-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(58,22,38,.08);position:relative}
+.letter-card-icon{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#ffe0ec,#ffd0e0);display:grid;place-items:center;font-size:1.35rem;box-shadow:0 4px 12px rgba(255,120,170,.25),inset 0 1px 0 rgba(255,255,255,.6);flex-shrink:0}
+.letter-card-meta{flex:1;min-width:0}
+.letter-card-sender{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--ink);letter-spacing:.2px;line-height:1.2;margin-bottom:2px}
+.letter-card-time{font-family:'Poppins',sans-serif;font-size:.7rem;color:var(--ink-soft);letter-spacing:.5px;text-transform:uppercase;font-weight:400}
+.letter-card-seal{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#d4a878);display:grid;place-items:center;font-size:.95rem;color:#fff;box-shadow:0 4px 12px rgba(212,168,120,.5);flex-shrink:0}
+.letter-card-body{font-family:'Cormorant Garamond',serif;font-size:1.15rem;line-height:1.75;color:var(--ink);white-space:pre-wrap;word-wrap:break-word;letter-spacing:.15px;position:relative;padding-left:4px}
+.letter-card-body::first-letter{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;float:left;line-height:.9;margin:6px 8px 0 0;color:var(--pink-2)}
+.letter-card-foot{margin-top:20px;padding-top:16px;border-top:1px solid rgba(58,22,38,.08);display:flex;justify-content:flex-end;font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--ink-soft);letter-spacing:.3px}
+
+.chat-bubble{max-width:min(78%,560px);padding:14px 20px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid var(--stroke);font-family:'Poppins',sans-serif;font-size:.92rem;line-height:1.55;word-wrap:break-word;white-space:pre-wrap;animation:fade .35s;box-shadow:0 8px 24px rgba(0,0,0,.2);position:relative}
+.chat-bubble .meta{display:block;font-family:'Poppins',sans-serif;font-size:.66rem;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;font-weight:500}
+.chat-bubble.me{align-self:flex-end;background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;border:none;border-bottom-right-radius:6px;box-shadow:0 10px 26px rgba(255,120,170,.28)}
+.chat-bubble.me .meta{color:rgba(42,15,26,.65)}
+.chat-bubble.them{align-self:flex-start;border-bottom-left-radius:6px}
+
+.empty{text-align:center;padding:56px 24px;color:var(--muted);font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;border:1px dashed rgba(255,255,255,.16);border-radius:22px;letter-spacing:.3px}
+
+/* BIRTHDAYS */
 .bday-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
 .bday{position:relative;overflow:hidden;background:var(--glass);border:1px solid var(--stroke);border-radius:26px;padding:26px;backdrop-filter:blur(14px);box-shadow:0 20px 54px rgba(0,0,0,.32);transition:.3s}
 .bday:hover{transform:translateY(-4px);border-color:rgba(255,158,194,.45)}
@@ -194,6 +259,7 @@ button{font-family:inherit}
 .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--pink),#ffc9dd);transition:width 1s ease}
 .bday__foot{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);margin-top:8px;letter-spacing:.4px}
 .today-badge{display:inline-block;margin-top:14px;padding:6px 14px;border-radius:999px;background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;font-size:.72rem;font-weight:700;letter-spacing:.6px;animation:beat 1.6s infinite}
+
 @media(max-width:720px){
   .wrap{padding:22px 15px calc(80px + env(safe-area-inset-bottom))}
   .topbar{padding:11px 15px;padding-top:calc(11px + env(safe-area-inset-top));gap:10px}
@@ -208,6 +274,13 @@ button{font-family:inherit}
   .mem-tab{padding:9px 12px;font-size:.78rem}
   .lock__logo{width:66px;height:66px}
   .lock__card h1{font-size:1.55rem}
+  .letter-card{padding:22px 20px}
+  .letter-card-body{font-size:1.02rem;line-height:1.7}
+  .letter-card-body::first-letter{font-size:2.3rem}
+  .chat-bubble{max-width:92%}
+  .composer{padding:18px}
+  .notif-icon{width:46px;height:46px;font-size:1.5rem}
+  .notif-title{font-size:.95rem}
 }
 </style>
 </head>
@@ -217,11 +290,9 @@ button{font-family:inherit}
   <div class="lock__bg"></div>
   <div class="lock__veil"></div>
   <div class="lock__card" id="lockCard">
-    <div class="lock__logo">
-      <img src="https://cdn.dbimg.app/Q7cRoVmy.png" alt="Jay & Dee">
-    </div>
+    <div class="lock__logo"><img src="https://cdn.dbimg.app/Q7cRoVmy.png" alt="Jay & Dee"></div>
     <h1>Jay &amp; Dee</h1>
-    <p class="lock__sub">Enter the passcode to come in</p>
+    <p class="lock__sub">Enter your passcode</p>
     <div class="dots" id="dots"><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="keypad" id="keypad"></div>
   </div>
@@ -231,12 +302,13 @@ button{font-family:inherit}
   <header class="topbar">
     <div class="brand">
       <img class="brand-logo" src="https://cdn.dbimg.app/Q7cRoVmy.png" alt="Jay & Dee">
-      <span class="brand-text">Jay &amp; Dee</span>
+      <span class="brand-text" id="brandText">Our room</span>
     </div>
     <button class="lockbtn" id="lockBtn">🔒 Lock</button>
     <nav class="tabs" id="tabs">
       <button data-tab="home" class="active">Home</button>
       <button data-tab="gallery">Memories</button>
+      <button data-tab="letters">Letters <span class="tab-badge" id="tabBadge">0</span></button>
       <button data-tab="birthdays">Birthdays</button>
     </nav>
   </header>
@@ -247,7 +319,7 @@ button{font-family:inherit}
         <div class="hero__bg" id="heroBgA"></div>
         <div class="hero__bg" id="heroBgB"></div>
         <div class="hero__content">
-          <p class="eyebrow">Welcome home, love</p>
+          <p class="eyebrow" id="heroEyebrow">Welcome home, love</p>
           <h2 id="heroNames">You &amp; Me</h2>
           <p class="hero__since">Together since <b id="sinceText">—</b></p>
           <div class="together"><span id="daysTogether">0</span><small>days together</small></div>
@@ -257,18 +329,60 @@ button{font-family:inherit}
         <div class="card"><h3>💍 Next Anniversary</h3><p class="sub" id="annivSub">—</p><div class="timer" id="annivTimer"></div></div>
         <div class="card"><h3>🎂 Next Birthday</h3><p class="sub" id="bdaySub">—</p><div class="timer" id="bdayTimer"></div></div>
       </div>
+
+      <div class="letter-notif" id="letterNotif">
+        <div class="notif-icon">💌</div>
+        <div class="notif-body">
+          <div class="notif-title" id="notifTitle">New letter</div>
+          <div class="notif-sub" id="notifSub">Tap to read</div>
+        </div>
+        <div class="notif-arrow">→</div>
+      </div>
     </section>
 
     <section class="panel" id="panel-gallery">
       <h2 class="section-title">Our Memories</h2>
       <p class="section-sub">Photos and videos of us — tap any to open.</p>
-
       <div class="mem-tabs">
         <button class="mem-tab active" data-mem="photos">📷 Photos <span class="mem-count" id="photoCount">0</span></button>
         <button class="mem-tab" data-mem="videos">🎬 Videos <span class="mem-count" id="videoCount">0</span></button>
       </div>
-
       <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="panel" id="panel-letters">
+      <h2 class="section-title" id="lettersTitle">Our Letters</h2>
+      <p class="section-sub" id="lettersSub">Little notes and words worth keeping.</p>
+
+      <div class="composer">
+        <div class="composer-header">
+          <span style="font-size:1.15rem">✍️</span>
+          <span class="composer-header-title" id="composerTitle">Write something</span>
+        </div>
+        <div class="sender-row">
+          <span class="sender-static">
+            <span class="sender-static-label">From</span>
+            <span class="sender-static-name" id="senderChipName">—</span>
+          </span>
+        </div>
+        <textarea id="msgInput" placeholder="Write a little note…"></textarea>
+        <div class="composer-foot">
+          <label class="switch">
+            <input type="checkbox" id="asLetter">
+            <span class="track"></span>
+            <span>Send as a letter 💌</span>
+          </label>
+          <button class="send-btn" id="sendBtn">Send <span>→</span></button>
+        </div>
+      </div>
+
+      <div class="timeline-header">
+        <h3>All letters</h3>
+        <span class="line"></span>
+        <span class="count-pill" id="lettersCount">0</span>
+      </div>
+
+      <div class="timeline" id="timeline"></div>
     </section>
 
     <section class="panel" id="panel-birthdays">
@@ -293,36 +407,41 @@ button{font-family:inherit}
   'use strict';
   console.log('[OLW] script loaded');
 
-  /* ========== FIREBASE CONFIG ========== */
+  /* ============================================================
+     🔥 FIREBASE
+     ============================================================ */
   var firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyBwLwM98bPOurSjd3H4aRFVYpajiuBdGc8",
+    authDomain: "jay-dee-89f72.firebaseapp.com",
+    projectId: "jay-dee-89f72",
+    storageBucket: "jay-dee-89f72.firebasestorage.app",
+    messagingSenderId: "221843851378",
+    appId: "1:221843851378:web:c041ac58575e35f7101aeb"
   };
 
-  var FIREBASE_READY = !!firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY";
+  var FIREBASE_READY = false;
   var db = null;
-  if (FIREBASE_READY) {
-    try {
-      firebase.initializeApp(firebaseConfig);
-      db = firebase.firestore();
-      console.log('[OLW] Firebase connected');
-    } catch (e) {
-      console.error('[OLW] Firebase init failed:', e);
-      FIREBASE_READY = false;
-    }
-  } else {
-    console.warn('[OLW] Firebase not configured — using local fallback');
+  try {
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.firestore();
+    FIREBASE_READY = true;
+    console.log('[OLW] Firebase connected');
+  } catch (e) {
+    console.error('[OLW] Firebase init failed:', e);
   }
+
+  /* ============================================================
+     🚪 ROOMS — each passcode opens a different identity
+     ============================================================ */
+  var ROOMS = {
+    '200716': { id: 'jay', name: 'Jay', partner: 'Dee', emoji: '🎈', welcome: 'Welcome home, Jay' },
+    '200706': { id: 'dee', name: 'Dee', partner: 'Jay', emoji: '🎂', welcome: 'Welcome home, Dee' }
+  };
+  var ROOM_KEY = 'olw_room_v1';
+  var currentRoom = null;
 
   /* ========== CONFIG ========== */
   var CONFIG = {
-    passcode: '200706',
-    yourName: 'Jay',
-    partnerName: 'Dee',
     togetherSince: '2026-10-03',
     lockBg: 'https://cdn.dbimg.app/baOgBUVC.jpg',
     birthdays: [
@@ -353,6 +472,31 @@ button{font-family:inherit}
     if (cls) e.className = cls;
     if (text !== undefined && text !== null) e.textContent = text;
     return e;
+  }
+  function fmtLetterTime(ts){
+    var d = new Date(ts), now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var msgDay = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    var diffDays = Math.round((today - msgDay) / 86400000);
+    var time = d.toLocaleTimeString(undefined, { hour:'numeric', minute:'2-digit' });
+    if (diffDays === 0) return 'Today · ' + time;
+    if (diffDays === 1) return 'Yesterday · ' + time;
+    if (diffDays < 7) return d.toLocaleDateString(undefined, { weekday:'long' }) + ' · ' + time;
+    return d.toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' }) + ' · ' + time;
+  }
+  function dateKey(ts){
+    var d = new Date(ts);
+    return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate());
+  }
+  function fmtDateSep(ts){
+    var d = new Date(ts), now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var msgDay = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    var diffDays = Math.round((today - msgDay) / 86400000);
+    if (diffDays === 0) return 'Today';
+    if (diffDays === 1) return 'Yesterday';
+    if (diffDays < 7) return d.toLocaleDateString(undefined, { weekday:'long' });
+    return d.toLocaleDateString(undefined, { month:'long', day:'numeric', year:'numeric' });
   }
 
   /* ========== DOM ========== */
@@ -401,8 +545,12 @@ button{font-family:inherit}
   function backspace(){ entry = entry.slice(0, -1); paintDots(); }
 
   function checkCode(){
-    if (entry === CONFIG.passcode){ unlock(); }
-    else {
+    var room = ROOMS[entry];
+    if (room){
+      entry = '';
+      paintDots();
+      activateRoom(room, false);
+    } else {
       lockCard.classList.add('shake');
       if (navigator.vibrate) navigator.vibrate(180);
       setTimeout(function(){
@@ -412,20 +560,76 @@ button{font-family:inherit}
       }, 430);
     }
   }
-  function unlock(){
-    lockEl.classList.add('gone');
-    lockEl.style.display = 'none';
-    appEl.classList.remove('hidden');
-    appEl.style.display = 'block';
-    document.body.style.overflow = 'auto';
-    try { initApp(); } catch (e) { console.error('[OLW] initApp error', e); }
-  }
 
   document.addEventListener('keydown', function(e){
     if (lockEl.classList.contains('gone')) return;
     if (/^[0-9]$/.test(e.key)) press(e.key);
     else if (e.key === 'Backspace') backspace();
   });
+
+  /* ========== ROOM ACTIVATION ========== */
+  function activateRoom(room, skipLock){
+    currentRoom = room;
+    try { localStorage.setItem(ROOM_KEY, JSON.stringify({ id: room.id })); } catch(e){}
+    applyRoomUI();
+    if (skipLock){
+      lockEl.classList.add('gone');
+      lockEl.style.display = 'none';
+      appEl.classList.remove('hidden');
+      appEl.style.display = 'block';
+      document.body.style.overflow = 'auto';
+      initApp();
+    } else {
+      lockEl.classList.add('gone');
+      lockEl.style.display = 'none';
+      appEl.classList.remove('hidden');
+      appEl.style.display = 'block';
+      document.body.style.overflow = 'auto';
+      initApp();
+    }
+  }
+
+  function applyRoomUI(){
+    if (!currentRoom) return;
+
+    var brandText = document.getElementById('brandText');
+    if (brandText) brandText.textContent = currentRoom.name + "'s room " + currentRoom.emoji;
+
+    var eyebrow = document.getElementById('heroEyebrow');
+    if (eyebrow) eyebrow.textContent = currentRoom.welcome;
+
+    var heroNames = document.getElementById('heroNames');
+    if (heroNames) heroNames.textContent = currentRoom.name + ' & ' + currentRoom.partner;
+
+    var chipName = document.getElementById('senderChipName');
+    if (chipName) chipName.textContent = currentRoom.name + ' ' + currentRoom.emoji;
+
+    var lettersTitle = document.getElementById('lettersTitle');
+    if (lettersTitle) lettersTitle.textContent = 'Letters to ' + currentRoom.partner;
+
+    var lettersSub = document.getElementById('lettersSub');
+    if (lettersSub) lettersSub.textContent = 'Words just for ' + currentRoom.partner + '.';
+
+    var composerTitle = document.getElementById('composerTitle');
+    if (composerTitle) composerTitle.textContent = 'Write to ' + currentRoom.partner;
+
+    var msgInput = document.getElementById('msgInput');
+    if (msgInput) msgInput.placeholder = 'Write a note to ' + currentRoom.partner + '…';
+  }
+
+  function restoreRoomIfPossible(){
+    try {
+      var raw = localStorage.getItem(ROOM_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      for (var k in ROOMS){
+        if (ROOMS[k].id === data.id){
+          activateRoom(ROOMS[k], true);
+          return;
+        }
+      }
+    } catch(e){}
+  }
 
   /* ========== APP INIT ========== */
   var initialized = false;
@@ -438,16 +642,16 @@ button{font-family:inherit}
     try { wireMemTabs(); }      catch(e){ console.error('[OLW] wireMemTabs', e); }
     try { wireLightbox(); }     catch(e){ console.error('[OLW] wireLightbox', e); }
     try { wireLockButton(); }   catch(e){ console.error('[OLW] wireLockButton', e); }
+    try { wireMessages(); }     catch(e){ console.error('[OLW] wireMessages', e); }
+    try { wireLetterNotif(); }  catch(e){ console.error('[OLW] wireLetterNotif', e); }
     try { startClock(); }       catch(e){ console.error('[OLW] startClock', e); }
     try { loadMemories(); }     catch(e){ console.error('[OLW] loadMemories', e); }
-    console.log('[OLW] app ready');
+    console.log('[OLW] app ready in room:', currentRoom ? currentRoom.id : 'none');
   }
 
   /* ========== HERO ========== */
   var heroTimer = null;
   function buildHero(){
-    var hn = document.getElementById('heroNames');
-    if (hn) hn.textContent = CONFIG.yourName + ' & ' + CONFIG.partnerName;
     var st = document.getElementById('sinceText');
     if (st) st.textContent = fmtDate(new Date(CONFIG.togetherSince + 'T00:00:00'));
   }
@@ -465,8 +669,7 @@ button{font-family:inherit}
       layerB.classList.remove('on');
       return;
     }
-    var current = 0;
-    var showingA = true;
+    var current = 0, showingA = true;
     layerA.style.backgroundImage = "url('" + imgs[0] + "')";
     setTimeout(function(){ layerA.classList.add('on'); }, 60);
     heroTimer = setInterval(function(){
@@ -547,30 +750,19 @@ button{font-family:inherit}
       memories = [];
       snap.forEach(function(doc){
         var d = doc.data();
-        memories.push({
-          id: doc.id,
-          type: d.type || 'image',
-          url: d.url,
-          caption: d.caption || ''
-        });
+        memories.push({ id: doc.id, type: d.type || 'image', url: d.url, caption: d.caption || '' });
       });
-      console.log('[OLW] memories updated:', memories.length);
       renderGalleryAndHero();
     }, function(err){
       console.error('[OLW] memories listen failed:', err);
       var g = document.getElementById('gallery');
-      if (g) {
-        g.innerHTML = '';
-        g.appendChild(make('div', 'empty', 'Could not load memories. (' + err.code + ')'));
-      }
+      if (g) { g.innerHTML = ''; g.appendChild(make('div', 'empty', 'Could not load memories.')); }
     });
   }
 
   function renderGalleryAndHero(){
     var photoCount = 0, videoCount = 0;
-    memories.forEach(function(m){
-      if (m.type === 'video') videoCount++; else photoCount++;
-    });
+    memories.forEach(function(m){ if (m.type === 'video') videoCount++; else photoCount++; });
     var pc = document.getElementById('photoCount');
     var vc = document.getElementById('videoCount');
     if (pc) pc.textContent = photoCount;
@@ -591,10 +783,7 @@ button{font-family:inherit}
     }
     g.innerHTML = '';
     if (!visibleMemories.length){
-      g.appendChild(make('div', 'empty',
-        activeMemTab === 'videos'
-          ? 'No videos yet — add some from the admin page 🎬'
-          : 'No photos yet — add some from the admin page 📷'));
+      g.appendChild(make('div', 'empty', activeMemTab === 'videos' ? 'No videos yet — add some from the admin page 🎬' : 'No photos yet — add some from the admin page 📷'));
       return;
     }
     visibleMemories.forEach(function(m, i){
@@ -603,23 +792,17 @@ button{font-family:inherit}
       if (isVideo) fig.classList.add('is-video');
       if (isVideo){
         var vid = document.createElement('video');
-        vid.src = m.url;
-        vid.muted = true;
-        vid.playsInline = true;
-        vid.preload = 'metadata';
-        vid.setAttribute('muted','');
-        vid.setAttribute('playsinline','');
+        vid.src = m.url; vid.muted = true; vid.playsInline = true; vid.preload = 'metadata';
+        vid.setAttribute('muted',''); vid.setAttribute('playsinline','');
         fig.appendChild(vid);
-        var ov = document.createElement('div'); ov.className = 'play-overlay'; fig.appendChild(ov);
-        var bd = document.createElement('div'); bd.className = 'video-badge'; bd.textContent = 'VIDEO'; fig.appendChild(bd);
+        fig.appendChild(make('div', 'play-overlay'));
+        fig.appendChild(make('div', 'video-badge', 'VIDEO'));
       } else {
         var img = document.createElement('img');
         img.src = m.url; img.alt = m.caption; img.loading = 'lazy';
         fig.appendChild(img);
       }
-      var cap = document.createElement('figcaption');
-      cap.textContent = m.caption;
-      fig.appendChild(cap);
+      fig.appendChild(make('figcaption', null, m.caption));
       fig.addEventListener('click', function(){ openLightbox(i); });
       g.appendChild(fig);
     });
@@ -704,6 +887,243 @@ button{font-family:inherit}
     });
   }
 
+  /* ========== LETTERS ========== */
+  var messages = [];
+  var lastSeenTs = 0;
+  var SEEN_KEY = 'olw_letters_seen_v1';
+
+  function loadSeenTs(){
+    try { var v = localStorage.getItem(SEEN_KEY); lastSeenTs = v ? parseInt(v, 10) : 0; }
+    catch(e) { lastSeenTs = 0; }
+  }
+  function saveSeenTs(ts){
+    lastSeenTs = ts;
+    try { localStorage.setItem(SEEN_KEY, String(ts)); } catch(e){}
+  }
+
+  function isOwnMessage(m){
+    if (!currentRoom) return false;
+    if (m.from === 'me') return true;    // legacy
+    if (m.from === 'them') return false; // legacy
+    return m.from === currentRoom.id;
+  }
+
+  function senderDisplayName(m){
+    if (!currentRoom) return m.from;
+    if (m.from === 'me') return currentRoom.name;
+    if (m.from === 'them') return currentRoom.partner;
+    if (m.from === currentRoom.id) return currentRoom.name;
+    return currentRoom.partner;
+  }
+
+  function unreadCount(){
+    if (!currentRoom) return 0;
+    var count = 0;
+    for (var i = 0; i < messages.length; i++){
+      if (messages[i].ts > lastSeenTs && !isOwnMessage(messages[i])) count++;
+    }
+    return count;
+  }
+
+  function latestUnread(){
+    if (!currentRoom) return null;
+    var latest = null;
+    for (var i = 0; i < messages.length; i++){
+      var m = messages[i];
+      if (m.ts > lastSeenTs && !isOwnMessage(m)){
+        if (!latest || m.ts > latest.ts) latest = m;
+      }
+    }
+    return latest;
+  }
+
+  function updateNotification(){
+    var badge = document.getElementById('tabBadge');
+    var notif = document.getElementById('letterNotif');
+    var title = document.getElementById('notifTitle');
+    var sub = document.getElementById('notifSub');
+    var count = unreadCount();
+
+    if (badge){
+      if (count > 0){ badge.textContent = count; badge.classList.add('show'); }
+      else { badge.classList.remove('show'); }
+    }
+    if (notif){
+      if (count > 0){
+        var latest = latestUnread();
+        var senderName = latest ? senderDisplayName(latest) : currentRoom.partner;
+        var isLetter = latest && latest.type === 'letter';
+        title.textContent = count === 1
+          ? 'New ' + (isLetter ? 'letter' : 'message') + ' from ' + senderName
+          : count + ' new ' + (isLetter ? 'letters' : 'messages') + ' from ' + senderName;
+        sub.textContent = count === 1 ? 'Tap to read' : 'Tap to read all';
+        notif.classList.add('show');
+      } else {
+        notif.classList.remove('show');
+      }
+    }
+  }
+
+  function loadMessages(){
+    if (!FIREBASE_READY){
+      messages = [
+        { from:'dee', type:'letter', ts: Date.now() - 86400000 * 2,
+          text: "Hey Jay,\n\nI made us this little corner of the internet so we always have somewhere to come back to.\n\nI love you more than the days we've counted.\n\n— always yours, Dee" }
+      ];
+      renderTimeline();
+      updateNotification();
+      return;
+    }
+    db.collection('messages').orderBy('ts', 'asc').onSnapshot(function(snap){
+      messages = [];
+      snap.forEach(function(doc){
+        var d = doc.data();
+        messages.push({
+          id: doc.id,
+          from: d.from || 'them',
+          type: d.type || 'chat',
+          ts: d.ts ? d.ts.toMillis() : Date.now(),
+          text: d.text || ''
+        });
+      });
+      renderTimeline();
+      // if on letters tab, auto-mark read
+      var activeTab = document.querySelector('#tabs button.active');
+      if (activeTab && activeTab.dataset.tab === 'letters'){
+        saveSeenTs(Date.now());
+      }
+      updateNotification();
+    }, function(err){
+      console.error('[OLW] messages listen failed:', err);
+      var tl = document.getElementById('timeline');
+      if (tl) { tl.innerHTML = ''; tl.appendChild(make('div', 'empty', 'Could not load letters. (' + err.code + ')')); }
+    });
+  }
+
+  function renderTimeline(){
+    var tl = document.getElementById('timeline');
+    var countPill = document.getElementById('lettersCount');
+    if (!tl) return;
+    if (countPill) countPill.textContent = messages.length;
+    tl.innerHTML = '';
+    if (!messages.length){
+      tl.appendChild(make('div', 'empty', 'No letters yet. Write the first one above. ✍️'));
+      return;
+    }
+    var lastDateKey = null;
+    messages.forEach(function(m){
+      var dk = dateKey(m.ts);
+      if (dk !== lastDateKey){
+        tl.appendChild(make('div', 'date-sep', fmtDateSep(m.ts)));
+        lastDateKey = dk;
+      }
+      var senderName = senderDisplayName(m);
+      var timeStr = fmtLetterTime(m.ts);
+      if (m.type === 'letter'){
+        var card = document.createElement('article');
+        card.className = 'letter-card';
+        var head = document.createElement('div');
+        head.className = 'letter-card-head';
+        head.appendChild(make('div', 'letter-card-icon', '💌'));
+        var meta = document.createElement('div');
+        meta.className = 'letter-card-meta';
+        meta.appendChild(make('div', 'letter-card-sender', senderName));
+        meta.appendChild(make('div', 'letter-card-time', timeStr));
+        head.appendChild(meta);
+        head.appendChild(make('div', 'letter-card-seal', '❤'));
+        var body = make('div', 'letter-card-body', m.text);
+        var foot = document.createElement('div');
+        foot.className = 'letter-card-foot';
+        foot.textContent = '— ' + senderName;
+        card.appendChild(head); card.appendChild(body); card.appendChild(foot);
+        tl.appendChild(card);
+      } else {
+        var bubble = document.createElement('div');
+        bubble.className = 'chat-bubble ' + (isOwnMessage(m) ? 'me' : 'them');
+        bubble.appendChild(make('span', 'meta', senderName + ' · ' + timeStr));
+        bubble.appendChild(document.createTextNode(m.text));
+        tl.appendChild(bubble);
+      }
+    });
+    setTimeout(function(){
+      if (tl.lastElementChild) tl.lastElementChild.scrollIntoView({ behavior:'smooth', block:'nearest' });
+    }, 80);
+  }
+
+  function sendMessage(){
+    var input = document.getElementById('msgInput');
+    var letter = document.getElementById('asLetter');
+    var btn = document.getElementById('sendBtn');
+    if (!input || !currentRoom) return;
+    var text = input.value.trim();
+    if (!text){ input.focus(); return; }
+
+    var type = (letter && letter.checked) ? 'letter' : 'chat';
+
+    if (!FIREBASE_READY){
+      messages.push({ from: currentRoom.id, type: type, ts: Date.now(), text: text });
+      input.value = '';
+      if (letter) letter.checked = false;
+      saveSeenTs(Date.now());
+      renderTimeline();
+      updateNotification();
+      return;
+    }
+
+    if (btn) btn.disabled = true;
+    db.collection('messages').add({
+      from: currentRoom.id,
+      type: type,
+      text: text,
+      ts: firebase.firestore.FieldValue.serverTimestamp()
+    }).then(function(){
+      input.value = '';
+      if (letter) letter.checked = false;
+      saveSeenTs(Date.now());
+      updateNotification();
+    }).catch(function(err){
+      console.error('[OLW] send failed:', err);
+      alert('Could not send: ' + err.message);
+    }).finally(function(){
+      if (btn) btn.disabled = false;
+    });
+  }
+
+  var msgWired = false;
+  function wireMessages(){
+    if (msgWired) return;
+    msgWired = true;
+    loadSeenTs();
+    var sb = document.getElementById('sendBtn');
+    if (sb) sb.addEventListener('click', sendMessage);
+    var mi = document.getElementById('msgInput');
+    if (mi) mi.addEventListener('keydown', function(e){
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') sendMessage();
+    });
+    loadMessages();
+  }
+
+  /* ========== LETTER NOTIFICATION CLICK ========== */
+  var notifWired = false;
+  function wireLetterNotif(){
+    if (notifWired) return;
+    notifWired = true;
+    var notif = document.getElementById('letterNotif');
+    if (!notif) return;
+    notif.addEventListener('click', function(){
+      Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function(b){ b.classList.remove('active'); });
+      var lettersBtn = document.querySelector('#tabs button[data-tab="letters"]');
+      if (lettersBtn) lettersBtn.classList.add('active');
+      Array.prototype.forEach.call(document.querySelectorAll('.panel'), function(p){ p.classList.remove('active'); });
+      var lettersPanel = document.getElementById('panel-letters');
+      if (lettersPanel) lettersPanel.classList.add('active');
+      saveSeenTs(Date.now());
+      updateNotification();
+      renderTimeline();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   /* ========== BIRTHDAYS ========== */
   function buildBirthdays(){
     var grid = document.getElementById('bdayGrid');
@@ -764,11 +1184,16 @@ button{font-family:inherit}
       if (panel) panel.classList.add('active');
       if (btn.dataset.tab === 'birthdays') buildBirthdays();
       if (btn.dataset.tab === 'gallery')   renderGallery();
+      if (btn.dataset.tab === 'letters'){
+        saveSeenTs(Date.now());
+        updateNotification();
+        renderTimeline();
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  /* ========== LOCK BUTTON ========== */
+  /* ========== LOCK BUTTON — clears room ========== */
   var lockBtnWired = false;
   function wireLockButton(){
     if (lockBtnWired) return;
@@ -776,6 +1201,9 @@ button{font-family:inherit}
     var lb = document.getElementById('lockBtn');
     if (!lb) return;
     lb.addEventListener('click', function(){
+      currentRoom = null;
+      try { localStorage.removeItem(ROOM_KEY); } catch(e){}
+      initialized = false;
       appEl.classList.add('hidden');
       appEl.style.display = 'none';
       lockEl.classList.remove('gone');
@@ -783,8 +1211,17 @@ button{font-family:inherit}
       document.body.style.overflow = 'hidden';
       entry = '';
       paintDots();
+      Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function(b){ b.classList.remove('active'); });
+      var homeBtn = document.querySelector('#tabs button[data-tab="home"]');
+      if (homeBtn) homeBtn.classList.add('active');
+      Array.prototype.forEach.call(document.querySelectorAll('.panel'), function(p){ p.classList.remove('active'); });
+      var homePanel = document.getElementById('panel-home');
+      if (homePanel) homePanel.classList.add('active');
     });
   }
+
+  /* ========== KICKOFF ========== */
+  restoreRoomIfPossible();
 
   console.log('[OLW] setup complete');
 })();
