@@ -5,6 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Jay & Dee 💞</title>
 
+<!-- ═════════════════════════════════════════════════════════════
+     ⚠️  IMPORTANT — READ THIS BEFORE TESTING DELETE
+     
+     For delete and edit to work, your Firestore rules MUST allow
+     update and delete on the /messages collection.
+     
+     Go to: Firebase Console → Firestore → Rules
+     Replace with this and click Publish:
+
+     rules_version = '2';
+     service cloud.firestore {
+       match /databases/{database}/documents {
+         match /messages/{messageId} {
+           allow read: if true;
+           allow create: if true;
+           allow update, delete: if true;
+         }
+         match /memories/{docId} {
+           allow read: if true;
+           allow write: if request.auth != null;
+         }
+       }
+     }
+
+     If you don't do this, delete will fail with "permission denied"
+     — the app will now show you a clear alert explaining this.
+     ═════════════════════════════════════════════════════════════ -->
+
 <link rel="icon" type="image/png" href="https://cdn.dbimg.app/Q7cRoVmy.png">
 <link rel="shortcut icon" type="image/png" href="https://cdn.dbimg.app/Q7cRoVmy.png">
 <link rel="apple-touch-icon" href="https://cdn.dbimg.app/Q7cRoVmy.png">
@@ -69,7 +97,7 @@ body{
 .hidden{display:none !important}
 button{font-family:inherit}
 
-/* LOCK */
+/* ── LOCK ── */
 .lock{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:20px;transition:opacity .7s ease,visibility .7s}
 .lock.gone{opacity:0;visibility:hidden;pointer-events:none}
 .lock__bg{position:absolute;inset:0;background:center/cover no-repeat;transform:scale(1.06);filter:saturate(.9) brightness(1.05);animation:slowzoom 22s ease-in-out infinite alternate}
@@ -94,7 +122,7 @@ button{font-family:inherit}
 .key.blank{visibility:hidden;pointer-events:none}
 .key.del{font-size:1.15rem}
 
-/* TOPBAR */
+/* ── TOPBAR ── */
 .topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:11px 22px;background:rgba(26,12,20,.62);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--stroke);padding-top:calc(11px + env(safe-area-inset-top))}
 .brand{display:flex;align-items:center;gap:10px;white-space:nowrap}
 .brand-logo{width:34px;height:34px;border-radius:10px;object-fit:cover;display:block;box-shadow:0 4px 14px rgba(255,120,170,.45),0 0 0 1.5px rgba(255,255,255,.15);background:rgba(255,255,255,.06)}
@@ -110,7 +138,14 @@ button{font-family:inherit}
 .lockbtn{background:transparent;border:1px solid var(--stroke);color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.82rem;transition:.25s}
 .lockbtn:hover{color:#fff;border-color:var(--pink);background:rgba(255,158,194,.12)}
 
-/* LAYOUT */
+/* ── CONNECTION BANNER ── */
+.conn-banner{display:none;margin:16px 22px 0;max-width:1120px;padding:14px 20px;border-radius:16px;background:rgba(255,80,120,.15);border:1px solid rgba(255,80,120,.4);color:#ffd0dd;font-size:.84rem;line-height:1.5;align-items:flex-start;gap:12px}
+.conn-banner.show{display:flex}
+.conn-banner .icon{font-size:1.3rem;flex-shrink:0}
+.conn-banner strong{display:block;margin-bottom:4px;color:#fff}
+.conn-banner code{background:rgba(0,0,0,.25);padding:2px 6px;border-radius:4px;font-size:.78rem}
+
+/* ── LAYOUT ── */
 .wrap{max-width:1120px;margin:0 auto;padding:30px 22px calc(90px + env(safe-area-inset-bottom))}
 .panel{display:none}
 .panel.active{display:block;animation:fade .45s ease}
@@ -118,7 +153,7 @@ button{font-family:inherit}
 .section-title{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;margin-bottom:6px}
 .section-sub{color:var(--muted);font-size:.86rem;font-weight:300;margin-bottom:24px}
 
-/* HERO */
+/* ── HERO ── */
 .hero{position:relative;border-radius:28px;overflow:hidden;min-height:330px;display:grid;place-items:center;text-align:center;border:1px solid var(--stroke);margin-bottom:26px;box-shadow:0 24px 70px rgba(0,0,0,.45);background:#2a1120}
 .hero__bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease;will-change:opacity}
 .hero__bg.on{opacity:1}
@@ -132,7 +167,7 @@ button{font-family:inherit}
 .together span{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--pink)}
 .together small{font-size:.78rem;color:var(--muted);letter-spacing:.5px}
 
-/* CARDS */
+/* ── CARDS ── */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:18px}
 .card{background:var(--glass);border:1px solid var(--stroke);border-radius:24px;padding:24px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,.3);transition:.3s}
 .card:hover{transform:translateY(-3px);border-color:rgba(255,158,194,.4);box-shadow:0 24px 60px rgba(255,120,170,.16)}
@@ -143,20 +178,19 @@ button{font-family:inherit}
 .timer b{display:block;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--pink-soft);font-variant-numeric:tabular-nums}
 .timer span{font-size:.64rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
 
-/* LETTER NOTIFICATION ON HOME */
+/* ── LETTER NOTIF ── */
 .letter-notif{display:none;margin-top:18px;background:linear-gradient(135deg,rgba(255,158,194,.16),rgba(232,201,168,.12));border:1px solid rgba(255,158,194,.4);border-radius:22px;padding:20px 24px;cursor:pointer;transition:.3s;position:relative;overflow:hidden;box-shadow:0 16px 44px rgba(255,120,170,.22);align-items:center;gap:18px}
 .letter-notif.show{display:flex;animation:notifIn .6s cubic-bezier(.2,.9,.3,1.3)}
 @keyframes notifIn{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
 .letter-notif:hover{transform:translateY(-2px);border-color:var(--pink);box-shadow:0 22px 54px rgba(255,120,170,.35);background:linear-gradient(135deg,rgba(255,158,194,.24),rgba(232,201,168,.18))}
-.letter-notif::before{content:'';position:absolute;top:-40%;right:-10%;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(255,158,194,.4),transparent 70%);filter:blur(20px);pointer-events:none}
-.notif-icon{width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:1.7rem;flex-shrink:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.2);position:relative;animation:beat 2s infinite}
+.notif-icon{width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:1.7rem;flex-shrink:0;position:relative;animation:beat 2s infinite}
 .notif-body{flex:1;min-width:0;position:relative}
 .notif-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:3px;letter-spacing:.2px}
 .notif-sub{font-size:.8rem;color:var(--pink-soft);font-weight:400}
 .notif-arrow{font-size:1.3rem;color:var(--pink-soft);flex-shrink:0;transition:.25s;position:relative}
 .letter-notif:hover .notif-arrow{transform:translateX(5px);color:#fff}
 
-/* MEMORIES */
+/* ── MEMORIES ── */
 .mem-tabs{display:flex;gap:6px;margin-bottom:22px;background:rgba(255,255,255,.04);padding:6px;border-radius:999px;max-width:440px;border:1px solid var(--stroke)}
 .mem-tab{flex:1;padding:10px 18px;border-radius:999px;border:none;cursor:pointer;font-family:inherit;font-size:.84rem;color:var(--muted);background:transparent;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
 .mem-tab:hover{color:#fff}
@@ -177,7 +211,7 @@ button{font-family:inherit}
 .play-overlay::after{content:'';position:absolute;width:0;height:0;border-left:20px solid #2a0f1a;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
 .gallery figure.is-video:hover .play-overlay::before{background:var(--pink)}
 
-/* LIGHTBOX */
+/* ── LIGHTBOX ── */
 .lightbox{position:fixed;inset:0;z-index:300;display:none;place-items:center;padding:24px;background:rgba(12,4,9,.93);backdrop-filter:blur(10px)}
 .lightbox.open{display:grid;animation:fade .3s}
 .lb-media{display:grid;place-items:center;max-width:92vw;max-height:82vh}
@@ -188,7 +222,7 @@ button{font-family:inherit}
 .lb-close{position:absolute;top:calc(20px + env(safe-area-inset-top));right:20px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid var(--stroke);color:#fff;font-size:1.2rem;cursor:pointer;transition:.25s;z-index:2}
 .lb-close:hover{background:var(--pink-2);color:#2a0f1a}
 
-/* ═══ LETTERS — ELEGANT ═══ */
+/* ── LETTERS ── */
 .composer{background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--stroke);border-radius:24px;padding:22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);margin-bottom:32px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
 .composer-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.08)}
 .composer-header-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--pink-soft);letter-spacing:.3px}
@@ -222,7 +256,6 @@ button{font-family:inherit}
 
 .letter-card{background:linear-gradient(160deg,var(--paper) 0%,var(--paper-2) 100%);color:var(--ink);border-radius:20px;padding:28px 32px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.35),0 2px 0 rgba(255,255,255,.3) inset,0 0 0 1px rgba(255,158,194,.35);animation:fade .5s;overflow:hidden}
 .letter-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--gold),var(--pink))}
-.letter-card::after{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(255,158,194,.18),transparent 70%);pointer-events:none}
 .letter-card-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(58,22,38,.08);position:relative}
 .letter-card-icon{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#ffe0ec,#ffd0e0);display:grid;place-items:center;font-size:1.35rem;box-shadow:0 4px 12px rgba(255,120,170,.25),inset 0 1px 0 rgba(255,255,255,.6);flex-shrink:0}
 .letter-card-meta{flex:1;min-width:0}
@@ -231,7 +264,8 @@ button{font-family:inherit}
 .letter-card-seal{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#d4a878);display:grid;place-items:center;font-size:.95rem;color:#fff;box-shadow:0 4px 12px rgba(212,168,120,.5);flex-shrink:0}
 .letter-card-body{font-family:'Cormorant Garamond',serif;font-size:1.15rem;line-height:1.75;color:var(--ink);white-space:pre-wrap;word-wrap:break-word;letter-spacing:.15px;position:relative;padding-left:4px}
 .letter-card-body::first-letter{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;float:left;line-height:.9;margin:6px 8px 0 0;color:var(--pink-2)}
-.letter-card-foot{margin-top:20px;padding-top:16px;border-top:1px solid rgba(58,22,38,.08);display:flex;justify-content:flex-end;font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--ink-soft);letter-spacing:.3px}
+.letter-card-foot{margin-top:20px;padding-top:16px;border-top:1px solid rgba(58,22,38,.08);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.letter-card-sig{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--ink-soft);letter-spacing:.3px;margin-left:auto}
 
 .chat-bubble{max-width:min(78%,560px);padding:14px 20px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid var(--stroke);font-family:'Poppins',sans-serif;font-size:.92rem;line-height:1.55;word-wrap:break-word;white-space:pre-wrap;animation:fade .35s;box-shadow:0 8px 24px rgba(0,0,0,.2);position:relative}
 .chat-bubble .meta{display:block;font-family:'Poppins',sans-serif;font-size:.66rem;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;font-weight:500}
@@ -241,7 +275,43 @@ button{font-family:inherit}
 
 .empty{text-align:center;padding:56px 24px;color:var(--muted);font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;border:1px dashed rgba(255,255,255,.16);border-radius:22px;letter-spacing:.3px}
 
-/* BIRTHDAYS */
+/* ── MSG ACTIONS ── */
+.msg-actions{display:inline-flex;gap:5px;flex-shrink:0}
+.msg-action{width:30px;height:30px;border-radius:8px;border:1px solid var(--stroke);background:rgba(255,255,255,.06);color:var(--txt);font-size:.82rem;cursor:pointer;display:inline-grid;place-items:center;transition:.18s;padding:0;line-height:1}
+.msg-action:hover{background:rgba(255,158,194,.25);border-color:var(--pink);color:#fff}
+.msg-action.danger:hover{background:rgba(255,80,120,.3);border-color:#ff6b95}
+.letter-card .msg-action{background:rgba(58,22,38,.06);border-color:rgba(58,22,38,.14);color:var(--ink-soft)}
+.letter-card .msg-action:hover{background:rgba(255,120,170,.2);border-color:var(--pink-2);color:var(--ink)}
+.letter-card .msg-action.danger:hover{background:rgba(255,80,120,.22);border-color:#ff6b95;color:#a01835}
+.chat-bubble.me .msg-action{background:rgba(42,15,26,.14);border-color:rgba(42,15,26,.18);color:var(--ink)}
+.chat-bubble.me .msg-action:hover{background:rgba(42,15,26,.24);color:var(--ink)}
+.chat-bubble.me .msg-action.danger:hover{background:rgba(200,40,80,.35);color:#fff;border-color:rgba(200,40,80,.6)}
+.bubble-foot{display:flex;justify-content:flex-end;gap:4px;margin-top:8px}
+
+/* ── EDIT ── */
+.edit-wrap{background:rgba(255,255,255,.05);border:1px solid rgba(255,158,194,.4);border-radius:16px;padding:16px 18px;animation:fade .3s;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.edit-wrap.on-light{background:linear-gradient(160deg,var(--paper) 0%,var(--paper-2) 100%);border-color:rgba(255,158,194,.5);box-shadow:0 20px 50px rgba(0,0,0,.35),0 0 0 1px rgba(255,158,194,.35);padding:24px 28px;color:var(--ink)}
+.edit-textarea{width:100%;min-height:100px;resize:vertical;background:rgba(0,0,0,.12);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;color:var(--txt);font-family:'Cormorant Garamond',serif;font-size:1.06rem;line-height:1.65;outline:none;transition:.2s;letter-spacing:.2px}
+.edit-wrap.on-light .edit-textarea{background:rgba(255,255,255,.75);border-color:rgba(58,22,38,.12);color:var(--ink);min-height:120px}
+.edit-textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,158,194,.12)}
+.edit-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+.edit-save-btn,.edit-cancel-btn{padding:8px 22px;border-radius:999px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;border:none;transition:.2s;letter-spacing:.2px}
+.edit-save-btn{background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;box-shadow:0 6px 18px rgba(255,120,170,.35)}
+.edit-save-btn:hover{transform:translateY(-1px)}
+.edit-cancel-btn{background:transparent;color:var(--muted);border:1px solid var(--stroke)}
+.edit-wrap.on-light .edit-cancel-btn{color:var(--ink-soft);border-color:rgba(58,22,38,.15)}
+.edit-cancel-btn:hover{color:#fff;border-color:var(--pink);background:rgba(255,158,194,.12)}
+.edit-wrap.on-light .edit-cancel-btn:hover{color:var(--ink);background:rgba(255,158,194,.2)}
+.edit-hint{font-size:.7rem;color:var(--muted);margin-top:8px;text-align:right;letter-spacing:.3px}
+.edit-wrap.on-light .edit-hint{color:var(--ink-soft)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%) translateY(120px);z-index:400;padding:12px 22px;border-radius:14px;background:rgba(30,16,24,.95);border:1px solid var(--stroke);color:#fff;font-size:.86rem;box-shadow:0 14px 40px rgba(0,0,0,.5);transition:transform .35s cubic-bezier(.2,.9,.3,1.3),opacity .3s;opacity:0;max-width:90vw;pointer-events:none;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.toast.success{background:rgba(40,90,60,.95);border-color:rgba(120,220,160,.5)}
+.toast.error{background:rgba(120,30,50,.95);border-color:rgba(255,120,160,.5)}
+
+/* ── BIRTHDAYS ── */
 .bday-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
 .bday{position:relative;overflow:hidden;background:var(--glass);border:1px solid var(--stroke);border-radius:26px;padding:26px;backdrop-filter:blur(14px);box-shadow:0 20px 54px rgba(0,0,0,.32);transition:.3s}
 .bday:hover{transform:translateY(-4px);border-color:rgba(255,158,194,.45)}
@@ -281,6 +351,9 @@ button{font-family:inherit}
   .composer{padding:18px}
   .notif-icon{width:46px;height:46px;font-size:1.5rem}
   .notif-title{font-size:.95rem}
+  .edit-wrap.on-light{padding:18px 20px}
+  .msg-action{width:28px;height:28px;font-size:.75rem}
+  .conn-banner{margin:12px 15px 0;padding:12px 16px;font-size:.78rem}
 }
 </style>
 </head>
@@ -312,6 +385,11 @@ button{font-family:inherit}
       <button data-tab="birthdays">Birthdays</button>
     </nav>
   </header>
+
+  <div class="conn-banner" id="connBanner">
+    <span class="icon">⚠️</span>
+    <div id="connMsg"></div>
+  </div>
 
   <div class="wrap">
     <section class="panel active" id="panel-home">
@@ -400,6 +478,8 @@ button{font-family:inherit}
   <button class="lb-btn lb-next" id="lbNext">›</button>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
@@ -407,9 +487,7 @@ button{font-family:inherit}
   'use strict';
   console.log('[OLW] script loaded');
 
-  /* ============================================================
-     🔥 FIREBASE
-     ============================================================ */
+  /* ═══ FIREBASE ═══ */
   var firebaseConfig = {
     apiKey: "AIzaSyBwLwM98bPOurSjd3H4aRFVYpajiuBdGc8",
     authDomain: "jay-dee-89f72.firebaseapp.com",
@@ -430,9 +508,7 @@ button{font-family:inherit}
     console.error('[OLW] Firebase init failed:', e);
   }
 
-  /* ============================================================
-     🚪 ROOMS — each passcode opens a different identity
-     ============================================================ */
+  /* ═══ ROOMS ═══ */
   var ROOMS = {
     '200716': { id: 'jay', name: 'Jay', partner: 'Dee', emoji: '🎈', welcome: 'Welcome home, Jay' },
     '200706': { id: 'dee', name: 'Dee', partner: 'Jay', emoji: '🎂', welcome: 'Welcome home, Dee' }
@@ -440,7 +516,7 @@ button{font-family:inherit}
   var ROOM_KEY = 'olw_room_v1';
   var currentRoom = null;
 
-  /* ========== CONFIG ========== */
+  /* ═══ CONFIG ═══ */
   var CONFIG = {
     togetherSince: '2026-10-03',
     lockBg: 'https://cdn.dbimg.app/baOgBUVC.jpg',
@@ -463,7 +539,7 @@ button{font-family:inherit}
     ]
   };
 
-  /* ========== HELPERS ========== */
+  /* ═══ HELPERS ═══ */
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function fmtDate(d){ return d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}); }
   function fmtShort(d){ return d.toLocaleDateString(undefined,{month:'long',day:'numeric'}); }
@@ -499,7 +575,33 @@ button{font-family:inherit}
     return d.toLocaleDateString(undefined, { month:'long', day:'numeric', year:'numeric' });
   }
 
-  /* ========== DOM ========== */
+  /* ═══ TOAST ═══ */
+  var toastTimer = null;
+  function showToast(msg, type){
+    var el = document.getElementById('toast');
+    if (!el) return;
+    el.textContent = msg;
+    el.className = 'toast show' + (type ? ' ' + type : '');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      el.className = 'toast';
+    }, 3500);
+  }
+
+  /* ═══ CONNECTION BANNER ═══ */
+  function showConnBanner(html){
+    var b = document.getElementById('connBanner');
+    var m = document.getElementById('connMsg');
+    if (!b || !m) return;
+    m.innerHTML = html;
+    b.classList.add('show');
+  }
+  function hideConnBanner(){
+    var b = document.getElementById('connBanner');
+    if (b) b.classList.remove('show');
+  }
+
+  /* ═══ DOM ═══ */
   var lockEl   = document.getElementById('lock');
   var appEl    = document.getElementById('app');
   var keypadEl = document.getElementById('keypad');
@@ -514,7 +616,7 @@ button{font-family:inherit}
   var lockBg = lockEl.querySelector('.lock__bg');
   if (lockBg) lockBg.style.backgroundImage = "url('" + CONFIG.lockBg + "')";
 
-  /* ========== KEYPAD ========== */
+  /* ═══ KEYPAD ═══ */
   var entry = '';
   var KEYS = ['1','2','3','4','5','6','7','8','9','','0','⌫'];
   KEYS.forEach(function(k){
@@ -549,7 +651,7 @@ button{font-family:inherit}
     if (room){
       entry = '';
       paintDots();
-      activateRoom(room, false);
+      activateRoom(room);
     } else {
       lockCard.classList.add('shake');
       if (navigator.vibrate) navigator.vibrate(180);
@@ -567,52 +669,35 @@ button{font-family:inherit}
     else if (e.key === 'Backspace') backspace();
   });
 
-  /* ========== ROOM ACTIVATION ========== */
-  function activateRoom(room, skipLock){
+  /* ═══ ROOM ═══ */
+  function activateRoom(room){
     currentRoom = room;
     try { localStorage.setItem(ROOM_KEY, JSON.stringify({ id: room.id })); } catch(e){}
     applyRoomUI();
-    if (skipLock){
-      lockEl.classList.add('gone');
-      lockEl.style.display = 'none';
-      appEl.classList.remove('hidden');
-      appEl.style.display = 'block';
-      document.body.style.overflow = 'auto';
-      initApp();
-    } else {
-      lockEl.classList.add('gone');
-      lockEl.style.display = 'none';
-      appEl.classList.remove('hidden');
-      appEl.style.display = 'block';
-      document.body.style.overflow = 'auto';
-      initApp();
-    }
+    lockEl.classList.add('gone');
+    lockEl.style.display = 'none';
+    appEl.classList.remove('hidden');
+    appEl.style.display = 'block';
+    document.body.style.overflow = 'auto';
+    initApp();
   }
 
   function applyRoomUI(){
     if (!currentRoom) return;
-
     var brandText = document.getElementById('brandText');
     if (brandText) brandText.textContent = currentRoom.name + "'s room " + currentRoom.emoji;
-
     var eyebrow = document.getElementById('heroEyebrow');
     if (eyebrow) eyebrow.textContent = currentRoom.welcome;
-
     var heroNames = document.getElementById('heroNames');
     if (heroNames) heroNames.textContent = currentRoom.name + ' & ' + currentRoom.partner;
-
     var chipName = document.getElementById('senderChipName');
     if (chipName) chipName.textContent = currentRoom.name + ' ' + currentRoom.emoji;
-
     var lettersTitle = document.getElementById('lettersTitle');
     if (lettersTitle) lettersTitle.textContent = 'Letters to ' + currentRoom.partner;
-
     var lettersSub = document.getElementById('lettersSub');
     if (lettersSub) lettersSub.textContent = 'Words just for ' + currentRoom.partner + '.';
-
     var composerTitle = document.getElementById('composerTitle');
     if (composerTitle) composerTitle.textContent = 'Write to ' + currentRoom.partner;
-
     var msgInput = document.getElementById('msgInput');
     if (msgInput) msgInput.placeholder = 'Write a note to ' + currentRoom.partner + '…';
   }
@@ -623,15 +708,12 @@ button{font-family:inherit}
       if (!raw) return;
       var data = JSON.parse(raw);
       for (var k in ROOMS){
-        if (ROOMS[k].id === data.id){
-          activateRoom(ROOMS[k], true);
-          return;
-        }
+        if (ROOMS[k].id === data.id){ activateRoom(ROOMS[k]); return; }
       }
     } catch(e){}
   }
 
-  /* ========== APP INIT ========== */
+  /* ═══ APP INIT ═══ */
   var initialized = false;
   function initApp(){
     if (initialized) return;
@@ -649,7 +731,7 @@ button{font-family:inherit}
     console.log('[OLW] app ready in room:', currentRoom ? currentRoom.id : 'none');
   }
 
-  /* ========== HERO ========== */
+  /* ═══ HERO ═══ */
   var heroTimer = null;
   function buildHero(){
     var st = document.getElementById('sinceText');
@@ -688,7 +770,7 @@ button{font-family:inherit}
     }, 5000);
   }
 
-  /* ========== CLOCK ========== */
+  /* ═══ CLOCK ═══ */
   function startClock(){ tick(); setInterval(tick, 1000); }
   function tick(){
     var now = new Date();
@@ -734,7 +816,7 @@ button{font-family:inherit}
     });
   }
 
-  /* ========== MEMORIES ========== */
+  /* ═══ MEMORIES ═══ */
   var memories = [];
   var visibleMemories = [];
   var activeMemTab = 'photos';
@@ -824,7 +906,7 @@ button{font-family:inherit}
     });
   }
 
-  /* ========== LIGHTBOX ========== */
+  /* ═══ LIGHTBOX ═══ */
   function clearLightboxMedia(){
     var host = document.getElementById('lbMedia');
     if (!host) return;
@@ -887,9 +969,10 @@ button{font-family:inherit}
     });
   }
 
-  /* ========== LETTERS ========== */
+  /* ═══ LETTERS ═══ */
   var messages = [];
   var lastSeenTs = 0;
+  var editingId = null;
   var SEEN_KEY = 'olw_letters_seen_v1';
 
   function loadSeenTs(){
@@ -903,8 +986,8 @@ button{font-family:inherit}
 
   function isOwnMessage(m){
     if (!currentRoom) return false;
-    if (m.from === 'me') return true;    // legacy
-    if (m.from === 'them') return false; // legacy
+    if (m.from === 'me') return true;
+    if (m.from === 'them') return false;
     return m.from === currentRoom.id;
   }
 
@@ -943,7 +1026,6 @@ button{font-family:inherit}
     var title = document.getElementById('notifTitle');
     var sub = document.getElementById('notifSub');
     var count = unreadCount();
-
     if (badge){
       if (count > 0){ badge.textContent = count; badge.classList.add('show'); }
       else { badge.classList.remove('show'); }
@@ -967,7 +1049,7 @@ button{font-family:inherit}
   function loadMessages(){
     if (!FIREBASE_READY){
       messages = [
-        { from:'dee', type:'letter', ts: Date.now() - 86400000 * 2,
+        { id: 'local-1', from:'dee', type:'letter', ts: Date.now() - 86400000 * 2,
           text: "Hey Jay,\n\nI made us this little corner of the internet so we always have somewhere to come back to.\n\nI love you more than the days we've counted.\n\n— always yours, Dee" }
       ];
       renderTimeline();
@@ -987,17 +1069,227 @@ button{font-family:inherit}
         });
       });
       renderTimeline();
-      // if on letters tab, auto-mark read
       var activeTab = document.querySelector('#tabs button.active');
       if (activeTab && activeTab.dataset.tab === 'letters'){
         saveSeenTs(Date.now());
       }
       updateNotification();
+      // If we can read messages, rules probably allow it
+      hideConnBanner();
     }, function(err){
       console.error('[OLW] messages listen failed:', err);
       var tl = document.getElementById('timeline');
       if (tl) { tl.innerHTML = ''; tl.appendChild(make('div', 'empty', 'Could not load letters. (' + err.code + ')')); }
+      if (err.code === 'permission-denied'){
+        showConnBanner(
+          '<strong>Firestore permission denied</strong>' +
+          'Your security rules are blocking reads. Fix them in Firebase Console → Firestore → Rules.'
+        );
+      }
     });
+  }
+
+  /* ═══ EDIT / DELETE (ROBUST) ═══ */
+  function buildActions(m){
+    var wrap = document.createElement('div');
+    wrap.className = 'msg-actions';
+
+    var editBtn = document.createElement('button');
+    editBtn.type = 'button';
+    editBtn.className = 'msg-action';
+    editBtn.title = 'Edit';
+    editBtn.setAttribute('aria-label', 'Edit message');
+    editBtn.textContent = '✎';
+    editBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      beginEdit(m);
+    });
+
+    var delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.className = 'msg-action danger';
+    delBtn.title = 'Delete';
+    delBtn.setAttribute('aria-label', 'Delete message');
+    delBtn.textContent = '🗑';
+    delBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      deleteMessage(m);
+    });
+
+    wrap.appendChild(editBtn);
+    wrap.appendChild(delBtn);
+    return wrap;
+  }
+
+  function beginEdit(m){
+    if (!isOwnMessage(m)) return;
+    editingId = m.id;
+    renderTimeline();
+  }
+
+  function cancelEdit(){
+    editingId = null;
+    renderTimeline();
+  }
+
+  function saveEdit(m){
+    var ta = document.querySelector('[data-edit-id="' + m.id + '"]');
+    if (!ta) return;
+    var newText = ta.value.trim();
+    if (!newText){ cancelEdit(); return; }
+    if (newText === m.text){ cancelEdit(); return; }
+
+    if (!FIREBASE_READY){
+      for (var i = 0; i < messages.length; i++){
+        if (messages[i].id === m.id){ messages[i].text = newText; break; }
+      }
+      editingId = null;
+      renderTimeline();
+      showToast('Updated ✔', 'success');
+      return;
+    }
+
+    db.collection('messages').doc(m.id).update({ text: newText })
+      .then(function(){
+        editingId = null;
+        showToast('Changes saved ✔', 'success');
+      })
+      .catch(function(err){
+        console.error('[OLW] edit failed:', err);
+        handleFirestoreError(err, 'save changes');
+      });
+  }
+
+  /* ═══ THE FIX: ROBUST DELETE ═══ */
+  function deleteMessage(m){
+    console.log('[OLW] delete requested:', m);
+
+    // Guard 1: valid object
+    if (!m || typeof m !== 'object'){
+      showToast('Cannot delete: invalid message', 'error');
+      return;
+    }
+
+    // Guard 2: valid ID (legacy / fallback data may not have one)
+    if (!m.id || typeof m.id !== 'string'){
+      showToast('Cannot delete: missing message ID', 'error');
+      console.error('[OLW] Message has no valid id. Delete manually from Firebase Console:', m);
+      alert(
+        'This message has no ID, so it cannot be deleted from the app.\n\n' +
+        'It is likely legacy data created before the current version. ' +
+        'Open Firebase Console → Firestore → messages and delete it manually.'
+      );
+      return;
+    }
+
+    // Confirm
+    var preview = (m.text || '').length > 70 ? m.text.slice(0, 70) + '…' : (m.text || '');
+    var ok = window.confirm(
+      'Delete this ' + (m.type === 'letter' ? 'letter' : 'message') + '?\n\n"' + preview + '"\n\nThis cannot be undone.'
+    );
+    if (!ok) return;
+
+    // Local fallback (no Firebase)
+    if (!FIREBASE_READY){
+      messages = messages.filter(function(x){ return x.id !== m.id; });
+      if (editingId === m.id) editingId = null;
+      renderTimeline();
+      updateNotification();
+      showToast('Deleted ✔', 'success');
+      return;
+    }
+
+    // Firestore delete
+    console.log('[OLW] Firestore delete →', m.id);
+    db.collection('messages').doc(m.id).delete()
+      .then(function(){
+        console.log('[OLW] delete succeeded:', m.id);
+        showToast('Deleted ✔', 'success');
+        // onSnapshot will update the UI automatically
+      })
+      .catch(function(err){
+        console.error('[OLW] delete failed:', err);
+        handleFirestoreError(err, 'delete');
+      });
+  }
+
+  /* ═══ FRIENDLY ERROR HANDLING ═══ */
+  function handleFirestoreError(err, action){
+    var code = (err && err.code) || '';
+    var msg = (err && err.message) || String(err);
+
+    if (code === 'permission-denied' || msg.indexOf('permission') > -1){
+      showToast('Delete failed: permission denied', 'error');
+      showConnBanner(
+        '<strong>Firestore rules are blocking ' + action + '</strong>' +
+        'Go to <b>Firebase Console → Firestore → Rules</b> and set:<br><br>' +
+        '<code>match /messages/{id} { allow read, create, update, delete: if true; }</code><br><br>' +
+        'Click <b>Publish</b>, wait 30 seconds, then try again.'
+      );
+      alert(
+        'Could not ' + action + ': Firestore rules are blocking it.\n\n' +
+        'Open Firebase Console → Firestore → Rules and allow update & delete on /messages.\n\n' +
+        'Detailed instructions are now shown in the banner at the top of the app.'
+      );
+    } else if (code === 'not-found' || msg.indexOf('No document') > -1){
+      showToast('Message no longer exists', 'error');
+      // Refresh
+      if (typeof loadMessages === 'function') setTimeout(loadMessages, 500);
+    } else if (code === 'unavailable' || code === 'deadline-exceeded'){
+      showToast('Network issue — check your connection', 'error');
+    } else {
+      showToast('Delete failed: ' + msg.slice(0, 80), 'error');
+      alert('Could not ' + action + ':\n\n' + msg);
+    }
+  }
+
+  function renderEditForm(m, isLetter){
+    var wrap = document.createElement('div');
+    wrap.className = 'edit-wrap' + (isLetter ? ' on-light' : '');
+
+    var ta = document.createElement('textarea');
+    ta.className = 'edit-textarea';
+    ta.value = m.text;
+    ta.setAttribute('data-edit-id', m.id);
+    ta.addEventListener('keydown', function(e){
+      if (e.key === 'Escape'){ e.preventDefault(); cancelEdit(); }
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter'){ e.preventDefault(); saveEdit(m); }
+    });
+
+    var actions = document.createElement('div');
+    actions.className = 'edit-actions';
+
+    var cancelBtn = document.createElement('button');
+    cancelBtn.type = 'button';
+    cancelBtn.className = 'edit-cancel-btn';
+    cancelBtn.textContent = 'Cancel';
+    cancelBtn.addEventListener('click', cancelEdit);
+
+    var saveBtn = document.createElement('button');
+    saveBtn.type = 'button';
+    saveBtn.className = 'edit-save-btn';
+    saveBtn.textContent = '✓ Save';
+    saveBtn.addEventListener('click', function(){ saveEdit(m); });
+
+    actions.appendChild(cancelBtn);
+    actions.appendChild(saveBtn);
+
+    var hint = document.createElement('div');
+    hint.className = 'edit-hint';
+    hint.textContent = 'Ctrl/⌘ + Enter to save · Esc to cancel';
+
+    wrap.appendChild(ta);
+    wrap.appendChild(actions);
+    wrap.appendChild(hint);
+
+    setTimeout(function(){
+      ta.focus();
+      ta.setSelectionRange(ta.value.length, ta.value.length);
+    }, 60);
+
+    return wrap;
   }
 
   function renderTimeline(){
@@ -1017,11 +1309,20 @@ button{font-family:inherit}
         tl.appendChild(make('div', 'date-sep', fmtDateSep(m.ts)));
         lastDateKey = dk;
       }
+
+      if (editingId === m.id){
+        tl.appendChild(renderEditForm(m, m.type === 'letter'));
+        return;
+      }
+
       var senderName = senderDisplayName(m);
       var timeStr = fmtLetterTime(m.ts);
+      var own = isOwnMessage(m);
+
       if (m.type === 'letter'){
         var card = document.createElement('article');
         card.className = 'letter-card';
+
         var head = document.createElement('div');
         head.className = 'letter-card-head';
         head.appendChild(make('div', 'letter-card-icon', '💌'));
@@ -1030,18 +1331,33 @@ button{font-family:inherit}
         meta.appendChild(make('div', 'letter-card-sender', senderName));
         meta.appendChild(make('div', 'letter-card-time', timeStr));
         head.appendChild(meta);
-        head.appendChild(make('div', 'letter-card-seal', '❤'));
+        if (own){
+          head.appendChild(buildActions(m));
+        } else {
+          head.appendChild(make('div', 'letter-card-seal', '❤'));
+        }
+
         var body = make('div', 'letter-card-body', m.text);
+
         var foot = document.createElement('div');
         foot.className = 'letter-card-foot';
-        foot.textContent = '— ' + senderName;
-        card.appendChild(head); card.appendChild(body); card.appendChild(foot);
+        foot.appendChild(make('span', 'letter-card-sig', '— ' + senderName));
+
+        card.appendChild(head);
+        card.appendChild(body);
+        card.appendChild(foot);
         tl.appendChild(card);
       } else {
         var bubble = document.createElement('div');
-        bubble.className = 'chat-bubble ' + (isOwnMessage(m) ? 'me' : 'them');
+        bubble.className = 'chat-bubble ' + (own ? 'me' : 'them');
         bubble.appendChild(make('span', 'meta', senderName + ' · ' + timeStr));
         bubble.appendChild(document.createTextNode(m.text));
+        if (own){
+          var bfoot = document.createElement('div');
+          bfoot.className = 'bubble-foot';
+          bfoot.appendChild(buildActions(m));
+          bubble.appendChild(bfoot);
+        }
         tl.appendChild(bubble);
       }
     });
@@ -1061,7 +1377,7 @@ button{font-family:inherit}
     var type = (letter && letter.checked) ? 'letter' : 'chat';
 
     if (!FIREBASE_READY){
-      messages.push({ from: currentRoom.id, type: type, ts: Date.now(), text: text });
+      messages.push({ id: 'local-' + Date.now(), from: currentRoom.id, type: type, ts: Date.now(), text: text });
       input.value = '';
       if (letter) letter.checked = false;
       saveSeenTs(Date.now());
@@ -1083,7 +1399,7 @@ button{font-family:inherit}
       updateNotification();
     }).catch(function(err){
       console.error('[OLW] send failed:', err);
-      alert('Could not send: ' + err.message);
+      handleFirestoreError(err, 'send');
     }).finally(function(){
       if (btn) btn.disabled = false;
     });
@@ -1103,7 +1419,7 @@ button{font-family:inherit}
     loadMessages();
   }
 
-  /* ========== LETTER NOTIFICATION CLICK ========== */
+  /* ═══ LETTER NOTIF ═══ */
   var notifWired = false;
   function wireLetterNotif(){
     if (notifWired) return;
@@ -1124,7 +1440,7 @@ button{font-family:inherit}
     });
   }
 
-  /* ========== BIRTHDAYS ========== */
+  /* ═══ BIRTHDAYS ═══ */
   function buildBirthdays(){
     var grid = document.getElementById('bdayGrid');
     if (!grid) return;
@@ -1167,7 +1483,7 @@ button{font-family:inherit}
     });
   }
 
-  /* ========== MAIN TABS ========== */
+  /* ═══ MAIN TABS ═══ */
   var tabsWired = false;
   function wireTabs(){
     if (tabsWired) return;
@@ -1193,7 +1509,7 @@ button{font-family:inherit}
     });
   }
 
-  /* ========== LOCK BUTTON — clears room ========== */
+  /* ═══ LOCK BUTTON ═══ */
   var lockBtnWired = false;
   function wireLockButton(){
     if (lockBtnWired) return;
@@ -1202,8 +1518,10 @@ button{font-family:inherit}
     if (!lb) return;
     lb.addEventListener('click', function(){
       currentRoom = null;
+      editingId = null;
       try { localStorage.removeItem(ROOM_KEY); } catch(e){}
       initialized = false;
+      hideConnBanner();
       appEl.classList.add('hidden');
       appEl.style.display = 'none';
       lockEl.classList.remove('gone');
@@ -1220,7 +1538,7 @@ button{font-family:inherit}
     });
   }
 
-  /* ========== KICKOFF ========== */
+  /* ═══ KICKOFF ═══ */
   restoreRoomIfPossible();
 
   console.log('[OLW] setup complete');
