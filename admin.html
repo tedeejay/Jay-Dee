@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin · Jay & Dee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#ff9ec2; --pink-2:#ff7aa8; --txt:#fbeef4; --muted:#c9a9b8;
+  --glass:rgba(255,255,255,.06); --stroke:rgba(255,255,255,.15);
+}
+body{
+  font-family:'Poppins',system-ui,-apple-system,sans-serif;
+  color:var(--txt); min-height:100vh;
+  background:
+    radial-gradient(1200px 800px at 5% -10%, #4a1c30 0%, transparent 55%),
+    radial-gradient(900px 700px at 110% 5%, #3a1a3d 0%, transparent 55%),
+    linear-gradient(160deg,#1c0f16 0%,#2a1120 55%,#160b12 100%);
+  background-attachment:fixed; padding:30px 18px 80px;
+}
+.container{max-width:850px;margin:0 auto}
+h1{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:6px;background:linear-gradient(135deg,#fff,#ffb3cf);-webkit-background-clip:text;background-clip:text;color:transparent}
+p.sub{color:var(--muted);font-size:.86rem;font-weight:300;margin-bottom:26px}
+
+/* CARDS */
+.card{background:var(--glass);border:1px solid var(--stroke);border-radius:22px;padding:24px;margin-bottom:18px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:6px;letter-spacing:.4px}
+input[type=text],input[type=email],input[type=password],select{
+  width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--stroke);
+  background:rgba(255,255,255,.05);color:var(--txt);font-family:inherit;font-size:.9rem;outline:none;transition:.2s;
+}
+input:focus,select:focus{border-color:var(--pink);background:rgba(255,158,194,.08)}
+.row{margin-bottom:14px}
+.btn{
+  padding:12px 24px;border-radius:999px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;
+  font-weight:600;font-size:.88rem;box-shadow:0 10px 26px rgba(255,120,170,.35);transition:.22s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--stroke);box-shadow:none}
+.btn.ghost:hover{color:#fff;border-color:var(--pink);background:rgba(255,158,194,.12)}
+.btn.sm{padding:8px 16px;font-size:.8rem}
+.msg{font-size:.82rem;margin-top:10px;min-height:18px}
+.msg.err{color:#ff8ea8}
+.msg.ok{color:#a8e6b8}
+.hint{font-size:.76rem;color:var(--muted);margin-top:6px;line-height:1.5}
+
+/* LIST ITEMS */
+.media-item{
+  display:flex; gap:16px; align-items:center; padding:16px; margin-bottom:12px;
+  border:1px solid var(--stroke); border-radius:16px; background:rgba(255,255,255,.04);
+  transition: .2s;
+}
+.media-item:hover{border-color:rgba(255,158,194,.3); background:rgba(255,255,255,.06)}
+.media-preview{
+  width:80px; height:80px; border-radius:12px; object-fit:cover; background:#000; flex-shrink:0;
+}
+.media-info{flex:1; min-width:0;}
+.media-caption-input{
+  width:100%; padding:10px 12px; border-radius:10px; border:1px solid transparent;
+  background:transparent; color:#fff; font-size:.95rem; font-weight:500;
+  transition:.2s;
+}
+.media-caption-input:hover{background:rgba(0,0,0,.2); border-color:var(--stroke)}
+.media-caption-input:focus{background:rgba(0,0,0,.4); border-color:var(--pink); outline:none}
+.media-meta{font-size:.65rem; color:var(--muted); letter-spacing:.5px; text-transform:uppercase; margin-top:4px; margin-left:12px;}
+.media-actions{display:flex; flex-direction:column; gap:6px; flex-shrink:0;}
+
+.icon-btn{
+  width:34px; height:34px; border-radius:10px; border:1px solid var(--stroke);
+  background:rgba(255,255,255,.05); color:var(--txt); cursor:pointer;
+  display:grid; place-items:center; font-size:1rem; transition:.2s;
+}
+.icon-btn:hover{background:rgba(255,158,194,.2); border-color:var(--pink)}
+.icon-btn.danger:hover{background:rgba(255,80,120,.25); border-color:#ff6b95}
+.icon-btn:disabled{opacity:.3; cursor:not-allowed}
+
+/* MODAL/LOGIN */
+.auth-screen{max-width:400px; margin:60px auto 0; text-align:center;}
+.hidden{display:none !important}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ LOGIN SCREEN ═══ -->
+  <div id="loginView" class="auth-screen">
+    <h1>Admin Login</h1>
+    <p class="sub">Manage your Memories</p>
+    <div class="card" style="text-align:left">
+      <div class="row">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="admin@example.com">
+      </div>
+      <div class="row">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="••••••••">
+      </div>
+      <button class="btn" id="loginBtn" style="width:100%">Sign In</button>
+      <p class="msg err" id="loginMsg"></p>
+    </div>
+  </div>
+
+  <!-- ═══ ADMIN DASHBOARD ═══ -->
+  <div id="adminView" class="hidden">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
+      <div>
+        <h1>Memories Manager</h1>
+        <p class="sub" style="margin-bottom:0">Add, edit, reorder, and delete media.</p>
+      </div>
+      <button class="btn ghost sm" id="logoutBtn">Sign Out</button>
+    </div>
+    <br>
+
+    <!-- ADD NEW MEMORY -->
+    <div class="card">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:14px;">➕ Add New Memory</h3>
+      
+      <div class="row">
+        <label>DBimg Direct Link (must end in .jpg, .png, or .mp4)</label>
+        <input type="text" id="addUrl" placeholder="https://cdn.dbimg.app/xxxxx.jpg">
+      </div>
+      <div class="row">
+        <label>Caption</label>
+        <input type="text" id="addCaption" placeholder="Our favorite day…">
+      </div>
+      <div class="row">
+        <label>Type</label>
+        <select id="addType">
+          <option value="image">📷 Image</option>
+          <option value="video">🎬 Video</option>
+        </select>
+      </div>
+      <button class="btn" id="addBtn">Add to Gallery</button>
+      <p class="msg" id="addMsg"></p>
+    </div>
+
+    <!-- CURRENT MEMORIES -->
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem;">📸 Current Memories</h3>
+        <span id="countBadge" style="background:rgba(255,158,194,.2); color:var(--pink); padding:4px 12px; border-radius:99px; font-size:.75rem; font-weight:600;">0</span>
+      </div>
+      
+      <div id="mediaList">
+        <!-- Items injected here via JS -->
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  /* ═══ FIREBASE CONFIG ═══ */
+  var firebaseConfig = {
+    apiKey: "AIzaSyBwLwM98bPOurSjd3H4aRFVYpajiuBdGc8",
+    authDomain: "jay-dee-89f72.firebaseapp.com",
+    projectId: "jay-dee-89f72",
+    storageBucket: "jay-dee-89f72.firebasestorage.app",
+    messagingSenderId: "221843851378",
+    appId: "1:221843851378:web:c041ac58575e35f7101aeb"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+  var auth = firebase.auth();
+
+  var currentUser = null;
+  var memories = [];
+  var unsubscribeList = null;
+
+  /* ═══ AUTHENTICATION ═══ */
+  auth.onAuthStateChanged(function(user){
+    currentUser = user;
+    if (user) {
+      document.getElementById('loginView').classList.add('hidden');
+      document.getElementById('adminView').classList.remove('hidden');
+      subscribeMemories();
+    } else {
+      document.getElementById('loginView').classList.remove('hidden');
+      document.getElementById('adminView').classList.add('hidden');
+      if (unsubscribeList) { unsubscribeList(); unsubscribeList = null; }
+    }
+  });
+
+  document.getElementById('loginBtn').addEventListener('click', function(){
+    var em = document.getElementById('email').value.trim();
+    var pw = document.getElementById('password').value;
+    var msg = document.getElementById('loginMsg');
+    msg.textContent = '';
+    
+    if (!em || !pw) { msg.textContent = 'Enter email and password'; return; }
+    
+    var btn = this; btn.disabled = true;
+    auth.signInWithEmailAndPassword(em, pw).catch(function(err){
+      msg.textContent = err.message;
+    }).finally(function(){ btn.disabled = false; });
+  });
+
+  document.getElementById('logoutBtn').addEventListener('click', function(){
+    auth.signOut();
+  });
+
+  /* ═══ LOAD DATA ═══ */
+  function subscribeMemories(){
+    if (unsubscribeList) unsubscribeList();
+    
+    unsubscribeList = db.collection('memories').onSnapshot(function(snap){
+      memories = [];
+      snap.forEach(function(doc){
+        var d = doc.data();
+        memories.push({
+          id: doc.id,
+          url: d.url || '',
+          type: d.type || 'image',
+          caption: d.caption || '',
+          order: typeof d.order === 'number' ? d.order : 999
+        });
+      });
+      
+      // Sort by order
+      memories.sort(function(a,b){ return a.order - b.order; });
+      renderList();
+      
+    }, function(err){
+      console.error('List error:', err);
+      document.getElementById('mediaList').innerHTML = '<div class="msg err">' + err.message + '</div>';
+    });
+  }
+
+  /* ═══ RENDER LIST ═══ */
+  function renderList(){
+    var host = document.getElementById('mediaList');
+    var badge = document.getElementById('countBadge');
+    
+    if (badge) badge.textContent = memories.length;
+    if (!host) return;
+    
+    host.innerHTML = '';
+    
+    if (!memories.length){
+      host.innerHTML = '<div class="msg" style="text-align:center; padding:20px;">No memories yet. Add the first one above.</div>';
+      return;
+    }
+
+    memories.forEach(function(m, i){
+      var row = document.createElement('div');
+      row.className = 'media-item';
+
+      // Preview
+      var preview;
+      if (m.type === 'video') {
+        preview = document.createElement('video');
+        preview.src = m.url;
+        preview.muted = true;
+        preview.playsInline = true;
+        preview.setAttribute('muted','');
+        preview.setAttribute('playsinline','');
+        preview.preload = 'metadata';
+      } else {
+        preview = document.createElement('img');
+        preview.src = m.url;
+        preview.alt = m.caption;
+      }
+      preview.className = 'media-preview';
+      row.appendChild(preview);
+
+      // Info & Inline Caption Edit
+      var info = document.createElement('div');
+      info.className = 'media-info';
+      
+      var input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'media-caption-input';
+      input.value = m.caption;
+      input.placeholder = 'Add a caption...';
+      
+      // Save on blur or Enter
+      input.addEventListener('blur', function(){ saveCaption(m.id, input.value, m.caption, input); });
+      input.addEventListener('keydown', function(e){
+        if (e.key === 'Enter') { input.blur(); }
+      });
+
+      var meta = document.createElement('div');
+      meta.className = 'media-meta';
+      meta.textContent = m.type + ' · order ' + m.order;
+
+      info.appendChild(input);
+      info.appendChild(meta);
+      row.appendChild(info);
+
+      // Actions (Up/Down/Delete)
+      var actions = document.createElement('div');
+      actions.className = 'media-actions';
+
+      var up = createIconBtn('↑', 'Move Up', i === 0, function(){ moveItem(i, -1); });
+      var down = createIconBtn('↓', 'Move Down', i === memories.length - 1, function(){ moveItem(i, 1); });
+      var del = createIconBtn('🗑', 'Delete', false, function(){ deleteItem(m); }, true);
+
+      actions.appendChild(up);
+      actions.appendChild(down);
+      actions.appendChild(del);
+      row.appendChild(actions);
+
+      host.appendChild(row);
+    });
+  }
+
+  function createIconBtn(text, title, disabled, onClick, isDanger){
+    var b = document.createElement('button');
+    b.className = 'icon-btn' + (isDanger ? ' danger' : '');
+    b.textContent = text;
+    b.title = title;
+    b.disabled = disabled;
+    b.addEventListener('click', onClick);
+    return b;
+  }
+
+  /* ═══ ACTIONS ═══ */
+
+  // 1. Edit Caption
+  function saveCaption(id, newCaption, oldCaption, inputEl){
+    if (newCaption === oldCaption) return; // No change
+    inputEl.style.borderColor = 'var(--pink)'; // Visual feedback
+    
+    db.collection('memories').doc(id).update({ caption: newCaption })
+      .then(function(){
+        inputEl.style.borderColor = 'transparent';
+      })
+      .catch(function(err){
+        alert('Failed to save caption: ' + err.message);
+        inputEl.value = oldCaption; // Revert
+        inputEl.style.borderColor = 'transparent';
+      });
+  }
+
+  // 2. Add Item
+  document.getElementById('addBtn').addEventListener('click', function(){
+    var url = document.getElementById('addUrl').value.trim();
+    var cap = document.getElementById('addCaption').value.trim();
+    var type = document.getElementById('addType').value;
+    var msg = document.getElementById('addMsg');
+    var btn = this;
+
+    msg.className = 'msg'; msg.textContent = '';
+    
+    if (!url) { msg.className = 'msg err'; msg.textContent = 'URL is required'; return; }
+    if (!/^https?:\/\//i.test(url)) { msg.className = 'msg err'; msg.textContent = 'URL must start with http:// or https://'; return; }
+
+    btn.disabled = true;
+    msg.textContent = 'Adding...';
+
+    // Find highest order to put new item at bottom
+    var maxOrder = memories.length > 0 ? Math.max.apply(Math, memories.map(function(m){ return m.order; })) : 0;
+
+    db.collection('memories').add({
+      url: url,
+      caption: cap,
+      type: type,
+      order: maxOrder + 1,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    }).then(function(){
+      msg.className = 'msg ok';
+      msg.textContent = 'Added successfully ✔';
+      document.getElementById('addUrl').value = '';
+      document.getElementById('addCaption').value = '';
+    }).catch(function(err){
+      msg.className = 'msg err';
+      msg.textContent = err.message;
+    }).finally(function(){
+      btn.disabled = false;
+    });
+  });
+
+  // 3. Reorder (Swap)
+  function moveItem(index, direction){
+    var swapIndex = index + direction;
+    if (swapIndex < 0 || swapIndex >= memories.length) return;
+
+    var itemA = memories[index];
+    var itemB = memories[swapIndex];
+
+    // If orders are identical for some reason, force a slight difference
+    var orderA = itemA.order;
+    var orderB = itemB.order;
+    if (orderA === orderB) orderB = orderA + 1;
+
+    // Batch update both
+    var batch = db.batch();
+    batch.update(db.collection('memories').doc(itemA.id), { order: orderB });
+    batch.update(db.collection('memories').doc(itemB.id), { order: orderA });
+    
+    batch.commit().catch(function(err){
+      alert('Reorder failed: ' + err.message);
+    });
+  }
+
+  // 4. Delete
+  function deleteItem(m){
+    if (!confirm('Delete this from the app?\n\n"' + (m.caption || m.url) + '"\n\nThe file on DBimg will NOT be deleted.')) return;
+
+    db.collection('memories').doc(m.id).delete()
+      .catch(function(err){
+        alert('Delete failed: ' + err.message);
+      });
+  }
+
+})();
+</script>
+</body>
+</html>
