@@ -125,7 +125,7 @@ button{font-family:inherit}
 .section-title{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;margin-bottom:6px}
 .section-sub{color:var(--muted);font-size:.86rem;font-weight:300;margin-bottom:24px}
 
-/* HERO */
+/* HERO & HOME WIDGETS */
 .hero{position:relative;border-radius:28px;overflow:hidden;min-height:330px;display:grid;place-items:center;text-align:center;border:1px solid var(--stroke);margin-bottom:26px;box-shadow:0 24px 70px rgba(0,0,0,.45);background:#2a1120}
 .hero__bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease;will-change:opacity}
 .hero__bg.on{opacity:1}
@@ -139,7 +139,6 @@ button{font-family:inherit}
 .together span{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--pink)}
 .together small{font-size:.78rem;color:var(--muted);letter-spacing:.5px}
 
-/* CARDS */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:18px}
 .card{background:var(--glass);border:1px solid var(--stroke);border-radius:24px;padding:24px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,.3);transition:.3s}
 .card:hover{transform:translateY(-3px);border-color:rgba(255,158,194,.4);box-shadow:0 24px 60px rgba(255,120,170,.16)}
@@ -149,6 +148,23 @@ button{font-family:inherit}
 .timer div{text-align:center;padding:14px 4px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)}
 .timer b{display:block;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--pink-soft);font-variant-numeric:tabular-nums}
 .timer span{font-size:.64rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+
+/* LOCATION WIDGET */
+.location-card{background:linear-gradient(135deg, rgba(255,158,194,.1), rgba(255,255,255,.03)); border:1px solid rgba(255,158,194,.3); border-radius:24px; padding:22px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;}
+.location-card h3{font-family:'Playfair Display',serif; font-size:1.1rem; color:#fff; margin-bottom:4px;}
+.location-card p{font-size:.8rem; color:var(--muted);}
+.loc-toggle-btn{
+  background:rgba(255,255,255,.08); border:1px solid var(--stroke); color:#fff; 
+  padding:10px 20px; border-radius:999px; font-size:.85rem; font-weight:500; 
+  cursor:pointer; transition:.25s; display:flex; align-items:center; gap:8px;
+}
+.loc-toggle-btn.active{background:linear-gradient(135deg,var(--pink),var(--pink-2)); color:#2a0f1a; border-color:transparent; box-shadow:0 4px 16px rgba(255,120,170,.4);}
+.loc-link-btn{
+  background:rgba(255,255,255,.05); border:1px solid var(--stroke); color:var(--pink-soft);
+  padding:8px 16px; border-radius:12px; font-size:.8rem; text-decoration:none; 
+  display:inline-flex; align-items:center; gap:6px; margin-top:8px;
+}
+.loc-link-btn:hover{background:rgba(255,158,194,.15);}
 
 /* LETTER NOTIF */
 .letter-notif{display:none;margin-top:18px;background:linear-gradient(135deg,rgba(255,158,194,.16),rgba(232,201,168,.12));border:1px solid rgba(255,158,194,.4);border-radius:22px;padding:20px 24px;cursor:pointer;transition:.3s;position:relative;overflow:hidden;box-shadow:0 16px 44px rgba(255,120,170,.22);align-items:center;gap:18px}
@@ -271,6 +287,20 @@ button{font-family:inherit}
 .chat-bubble.me .meta{color:rgba(42,15,26,.65)}
 .chat-bubble.them{align-self:flex-start;border-bottom-left-radius:6px}
 
+/* SEEN INDICATOR */
+.seen-indicator {
+  font-size: .65rem;
+  color: var(--muted);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  opacity: 0.8;
+}
+.chat-bubble.me .seen-indicator { color: rgba(42,15,26,.6); }
+.seen-indicator svg { width: 14px; height: 14px; fill: currentColor; }
+
 .empty{text-align:center;padding:56px 24px;color:var(--muted);font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;border:1px dashed rgba(255,255,255,.16);border-radius:22px;letter-spacing:.3px}
 
 /* MSG ACTIONS */
@@ -354,6 +384,8 @@ button{font-family:inherit}
   .conn-banner{margin:12px 15px 0;padding:12px 16px;font-size:.78rem}
   .mic-btn{width:40px;height:40px;font-size:1.1rem}
   .send-btn{padding:10px 22px;font-size:.82rem}
+  .location-card{flex-direction:column; align-items:flex-start;}
+  .loc-toggle-btn{width:100%; justify-content:center;}
 }
 </style>
 </head>
@@ -403,6 +435,15 @@ button{font-family:inherit}
           <div class="together"><span id="daysTogether">0</span><small>days together</small></div>
         </div>
       </div>
+      
+      <div class="location-card">
+        <div>
+          <h3>📍 Live Location</h3>
+          <p id="locStatusText">Share where you are right now.</p>
+        </div>
+        <button class="loc-toggle-btn" id="locToggleBtn">Enable Sharing</button>
+      </div>
+
       <div class="cards">
         <div class="card"><h3>💍 Next Anniversary</h3><p class="sub" id="annivSub">—</p><div class="timer" id="annivTimer"></div></div>
         <div class="card"><h3>🎂 Next Birthday</h3><p class="sub" id="bdaySub">—</p><div class="timer" id="bdayTimer"></div></div>
@@ -518,6 +559,11 @@ button{font-family:inherit}
   };
   var ROOM_KEY = 'olw_room_v1';
   var currentRoom = null;
+  var partnerLastRead = 0;
+  var myLocation = null;
+  var partnerLocation = null;
+  var isSharingLoc = false;
+  var locWatchId = null;
 
   /* ═══ CONFIG ═══ */
   var CONFIG = {
@@ -597,7 +643,7 @@ button{font-family:inherit}
   var isRecording = false;
 
   function resetIdleTimer() {
-    if (lockEl.classList.contains('gone') === false) return; // Don't run if already locked
+    if (lockEl.classList.contains('gone') === false) return;
     clearTimeout(idleTimer);
     idleTimer = setTimeout(function() {
       if (!isRecording) {
@@ -607,7 +653,6 @@ button{font-family:inherit}
     }, IDLE_TIMEOUT);
   }
 
-  // Reset on any interaction
   ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(function(evt) {
     document.addEventListener(evt, resetIdleTimer, true);
   });
@@ -615,10 +660,12 @@ button{font-family:inherit}
   function lockApp() {
     currentRoom = null;
     editingId = null;
+    isSharingLoc = false;
+    if (locWatchId) navigator.geolocation.clearWatch(locWatchId);
     try { localStorage.removeItem(ROOM_KEY); } catch(e){}
     initialized = false;
     hideConnBanner();
-    if (isRecording && mediaRecorder) { mediaRecorder.stop(); } // Stop recording if active
+    if (isRecording && mediaRecorder) { mediaRecorder.stop(); }
     appEl.classList.add('hidden');
     appEl.style.display = 'none';
     lockEl.classList.remove('gone');
@@ -727,7 +774,7 @@ button{font-family:inherit}
     appEl.style.display = 'block';
     document.body.style.overflow = 'auto';
     initApp();
-    resetIdleTimer(); // Start idle timer upon unlock
+    resetIdleTimer();
   }
 
   function applyRoomUI(){
@@ -776,8 +823,10 @@ button{font-family:inherit}
     try { wireLetterNotif(); }  catch(e){ console.error('[OLW] wireLetterNotif', e); }
     try { wireVoiceNotes(); }   catch(e){ console.error('[OLW] wireVoiceNotes', e); }
     try { wireSecretAdmin(); }  catch(e){ console.error('[OLW] wireSecretAdmin', e); }
+    try { wireLocation(); }     catch(e){ console.error('[OLW] wireLocation', e); }
     try { startClock(); }       catch(e){ console.error('[OLW] startClock', e); }
     try { loadMemories(); }     catch(e){ console.error('[OLW] loadMemories', e); }
+    try { listenPresence(); }   catch(e){ console.error('[OLW] listenPresence', e); }
     console.log('[OLW] app ready in room:', currentRoom ? currentRoom.id : 'none');
   }
 
@@ -790,19 +839,15 @@ button{font-family:inherit}
     var isHolding = false;
 
     var startPress = function(e) {
-      // Only allow in Jay's room
       if (!currentRoom || currentRoom.id !== 'jay') return;
-      
       isHolding = true;
       pressTimer = setTimeout(function() {
         if (isHolding) {
           isHolding = false;
           showToast('Opening Admin Panel...', 'success');
-          setTimeout(function() {
-            window.location.href = 'admin.html';
-          }, 800);
+          setTimeout(function() { window.location.href = 'admin.html'; }, 800);
         }
-      }, 2000); // 2 seconds long press
+      }, 2000);
     };
 
     var cancelPress = function() {
@@ -810,15 +855,141 @@ button{font-family:inherit}
       if (pressTimer) clearTimeout(pressTimer);
     };
 
-    // Desktop
     trigger.addEventListener('mousedown', startPress);
     trigger.addEventListener('mouseup', cancelPress);
     trigger.addEventListener('mouseleave', cancelPress);
-    
-    // Mobile
     trigger.addEventListener('touchstart', startPress, {passive: true});
     trigger.addEventListener('touchend', cancelPress);
     trigger.addEventListener('touchcancel', cancelPress);
+  }
+
+  /* ═══ PRESENCE & SEEN STATUS ═══ */
+  var presenceWired = false;
+  function listenPresence() {
+    if (!FIREBASE_READY || !currentRoom) return;
+    
+    // Listen to partner's presence
+    db.collection('presence').doc(currentRoom.partner.toLowerCase()).onSnapshot(function(doc) {
+      if (doc.exists) {
+        var data = doc.data();
+        partnerLastRead = data.lastRead || 0;
+        partnerLocation = data.location || null;
+        updateLocationUI();
+        renderTimeline(); // Re-render to update seen checks
+      }
+    });
+  }
+
+  function updateMyPresence(data) {
+    if (!FIREBASE_READY || !currentRoom) return;
+    db.collection('presence').doc(currentRoom.id).set(data, { merge: true }).catch(function(err){
+      console.error('[OLW] Presence update failed:', err);
+    });
+  }
+
+  /* ═══ LOCATION SHARING ═══ */
+  function wireLocation() {
+    var btn = document.getElementById('locToggleBtn');
+    if (!btn) return;
+
+    btn.addEventListener('click', function() {
+      if (isSharingLoc) {
+        stopLocationShare();
+      } else {
+        startLocationShare();
+      }
+    });
+  }
+
+  function startLocationShare() {
+    if (!navigator.geolocation) {
+      showToast('Location not supported on this browser', 'error');
+      return;
+    }
+
+    var btn = document.getElementById('locToggleBtn');
+    btn.textContent = 'Getting location...';
+    btn.disabled = true;
+
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      isSharingLoc = true;
+      btn.disabled = false;
+      btn.classList.add('active');
+      btn.innerHTML = '🛑 Stop Sharing';
+
+      // Start watching position
+      locWatchId = navigator.geolocation.watchPosition(function(position) {
+        var coords = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          updatedAt: Date.now()
+        };
+        myLocation = coords;
+        updateMyPresence({ location: coords });
+        updateLocationUI();
+      }, function(err) {
+        console.error("Watch error:", err);
+      }, { enableHighAccuracy: true, maximumAge: 10000, timeout: 5000 });
+      
+      // Save initial
+      myLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude, updatedAt: Date.now() };
+      updateMyPresence({ location: myLocation });
+      updateLocationUI();
+      showToast('Sharing live location 📍', 'success');
+
+    }, function(err) {
+      btn.disabled = false;
+      btn.textContent = 'Enable Sharing';
+      if (err.code === 1) {
+        showToast('Location permission denied', 'error');
+      } else {
+        showToast('Could not get location', 'error');
+      }
+    }, { enableHighAccuracy: true, timeout: 10000 });
+  }
+
+  function stopLocationShare() {
+    isSharingLoc = false;
+    if (locWatchId) {
+      navigator.geolocation.clearWatch(locWatchId);
+      locWatchId = null;
+    }
+    myLocation = null;
+    
+    var btn = document.getElementById('locToggleBtn');
+    btn.classList.remove('active');
+    btn.innerHTML = 'Enable Sharing';
+    
+    updateMyPresence({ location: firebase.firestore.FieldValue.delete() });
+    updateLocationUI();
+    showToast('Stopped sharing location', 'success');
+  }
+
+  function updateLocationUI() {
+    var statusText = document.getElementById('locStatusText');
+    var container = document.querySelector('.location-card');
+    
+    // Remove existing link if any
+    var oldLink = document.getElementById('partnerLocLink');
+    if (oldLink) oldLink.remove();
+
+    if (partnerLocation && (Date.now() - partnerLocation.updatedAt < 3600000)) { // Less than 1 hour old
+      statusText.innerHTML = `<b style="color:var(--pink-soft)">${currentRoom.partner}</b> is sharing their location right now.`;
+      
+      var link = document.createElement('a');
+      link.id = 'partnerLocLink';
+      link.className = 'loc-link-btn';
+      link.href = `https://www.google.com/maps?q=${partnerLocation.lat},${partnerLocation.lng}`;
+      link.target = '_blank';
+      link.innerHTML = '🗺️ View on Map';
+      container.appendChild(link);
+    } else {
+      if (isSharingLoc) {
+        statusText.textContent = "You are sharing your location. Waiting for " + currentRoom.partner + "...";
+      } else {
+        statusText.textContent = "Share where you are right now.";
+      }
+    }
   }
 
   /* ═══ HERO ═══ */
@@ -1075,18 +1246,7 @@ button{font-family:inherit}
 
   /* ═══ LETTERS & VOICE NOTES ═══ */
   var messages = [];
-  var lastSeenTs = 0;
   var editingId = null;
-  var SEEN_KEY = 'olw_letters_seen_v1';
-
-  function loadSeenTs(){
-    try { var v = localStorage.getItem(SEEN_KEY); lastSeenTs = v ? parseInt(v, 10) : 0; }
-    catch(e) { lastSeenTs = 0; }
-  }
-  function saveSeenTs(ts){
-    lastSeenTs = ts;
-    try { localStorage.setItem(SEEN_KEY, String(ts)); } catch(e){}
-  }
 
   function isOwnMessage(m){
     if (!currentRoom) return false;
@@ -1107,29 +1267,15 @@ button{font-family:inherit}
     if (!currentRoom) return 0;
     var count = 0;
     for (var i = 0; i < messages.length; i++){
-      if (messages[i].ts > lastSeenTs && !isOwnMessage(messages[i])) count++;
+      // Uses the presence API instead of localstorage now
+      if (messages[i].ts > partnerLastRead && !isOwnMessage(messages[i])) count++; 
     }
     return count;
   }
 
-  function latestUnread(){
-    if (!currentRoom) return null;
-    var latest = null;
-    for (var i = 0; i < messages.length; i++){
-      var m = messages[i];
-      if (m.ts > lastSeenTs && !isOwnMessage(m)){
-        if (!latest || m.ts > latest.ts) latest = m;
-      }
-    }
-    return latest;
-  }
-
   function markLettersAsRead() {
-    if (!messages.length) {
-      saveSeenTs(Date.now());
-    } else {
-      saveSeenTs(messages[messages.length - 1].ts + 1); 
-    }
+    var now = Date.now();
+    updateMyPresence({ lastRead: now });
     updateNotification();
   }
 
@@ -1150,7 +1296,12 @@ button{font-family:inherit}
     }
     if (notif){
       if (count > 0){
-        var latest = latestUnread();
+        var latest = null;
+        for (var i = 0; i < messages.length; i++){
+          if (messages[i].ts > partnerLastRead && !isOwnMessage(messages[i])){
+            if (!latest || messages[i].ts > latest.ts) latest = messages[i];
+          }
+        }
         var senderName = latest ? senderDisplayName(latest) : currentRoom.partner;
         var isLetter = latest && latest.type === 'letter';
         title.textContent = count === 1
@@ -1402,6 +1553,15 @@ button{font-family:inherit}
       var senderName = senderDisplayName(m);
       var timeStr = fmtLetterTime(m.ts);
       var own = isOwnMessage(m);
+      
+      // Determine seen status
+      var isSeen = own && (m.ts <= partnerLastRead);
+      var seenHtml = '';
+      if (own) {
+        seenHtml = isSeen 
+          ? `<div class="seen-indicator">✓✓ Seen</div>` 
+          : `<div class="seen-indicator" style="opacity:0.5">✓ Sent</div>`;
+      }
 
       if (m.type === 'letter'){
         var card = document.createElement('article');
@@ -1437,6 +1597,11 @@ button{font-family:inherit}
 
         var foot = document.createElement('div');
         foot.className = 'letter-card-foot';
+        if (own) {
+            var seenDiv = document.createElement('div');
+            seenDiv.innerHTML = seenHtml;
+            foot.appendChild(seenDiv);
+        }
         foot.appendChild(make('span', 'letter-card-sig', '— ' + senderName));
 
         card.appendChild(head);
@@ -1463,6 +1628,10 @@ button{font-family:inherit}
           bfoot.className = 'bubble-foot';
           bfoot.appendChild(buildActions(m));
           bubble.appendChild(bfoot);
+          
+          var seenDiv = document.createElement('div');
+          seenDiv.innerHTML = seenHtml;
+          bubble.appendChild(seenDiv);
         }
         tl.appendChild(bubble);
       }
@@ -1484,7 +1653,6 @@ button{font-family:inherit}
       messages.push({ id: 'local-' + Date.now(), from: currentRoom.id, type: type, ts: Date.now(), text: text });
       if (input) input.value = '';
       if (letter) letter.checked = false;
-      saveSeenTs(Date.now());
       renderTimeline();
       updateNotification();
       return;
@@ -1609,7 +1777,6 @@ button{font-family:inherit}
   function wireMessages(){
     if (msgWired) return;
     msgWired = true;
-    loadSeenTs();
     var sb = document.getElementById('sendBtn');
     if (sb) sb.addEventListener('click', handleSendClick);
     var mi = document.getElementById('msgInput');
