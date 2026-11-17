@@ -236,18 +236,15 @@ button{font-family:inherit}
 .letter-card .audio-player::-webkit-media-controls-panel{background-color:rgba(58,22,38,.05)}
 .chat-bubble .audio-player{margin-top:4px}
 
-.timeline-header{display:flex;align-items:center;gap:14px;margin-bottom:22px;margin-top:8px}
-.timeline-header h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--txt);letter-spacing:.2px}
-.timeline-header .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,158,194,.4),transparent)}
 .count-pill{font-size:.7rem;padding:5px 12px;border-radius:999px;background:rgba(255,158,194,.15);color:var(--pink-soft);font-weight:500;letter-spacing:.5px;border:1px solid rgba(255,158,194,.25);flex-shrink:0}
 
 .timeline{display:flex;flex-direction:column;gap:20px;padding-bottom:20px}
 .date-sep{display:flex;align-items:center;gap:12px;margin:12px 0 4px;font-family:'Playfair Display',serif;font-size:.78rem;font-weight:500;color:var(--pink-soft);text-transform:uppercase;letter-spacing:2px;opacity:.75}
 .date-sep::before,.date-sep::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,158,194,.3),transparent)}
 
-/* MESSAGES PANEL — messenger layout */
-.messages-head{display:flex;align-items:center;gap:12px;margin-bottom:4px}
-.messages-head .section-title{margin-bottom:0;flex:1;min-width:0}
+/* HEADERS FOR MESSAGES & LETTERS */
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+.section-head .section-title{margin-bottom:0;flex:1;min-width:0}
 
 #panel-messages.active{
   display:flex;
@@ -270,6 +267,30 @@ button{font-family:inherit}
 #panel-messages > .composer{
   flex-shrink:0;
   margin:0;
+}
+
+/* WHATSAPP NUDGE BTN */
+.nudge-btn {
+  background: #25D366;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+.nudge-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+}
+.nudge-btn:active {
+  transform: scale(0.96);
 }
 
 /* LETTER CARD */
@@ -473,8 +494,12 @@ button{font-family:inherit}
     </section>
 
     <section class="panel" id="panel-messages">
-      <div class="messages-head">
+      <div class="section-head">
         <h2 class="section-title" id="messagesTitle">Messages</h2>
+        <button class="nudge-btn" data-type="message" title="Send a WhatsApp nudge">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Nudge
+        </button>
         <span class="count-pill" id="msgCount">0</span>
       </div>
       <p class="section-sub" id="messagesSub">Quick messages back and forth.</p>
@@ -502,7 +527,14 @@ button{font-family:inherit}
     </section>
 
     <section class="panel" id="panel-letters">
-      <h2 class="section-title" id="lettersTitle">Letters</h2>
+      <div class="section-head">
+        <h2 class="section-title" id="lettersTitle">Letters</h2>
+        <button class="nudge-btn" data-type="letter" title="Send a WhatsApp nudge">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Nudge
+        </button>
+        <span class="count-pill" id="lettersCount">0</span>
+      </div>
       <p class="section-sub" id="lettersSub">Long-form words worth keeping.</p>
 
       <div class="composer">
@@ -520,12 +552,6 @@ button{font-family:inherit}
         <div class="composer-foot">
           <button class="send-btn" id="sendLetterBtn">Send letter 💌</button>
         </div>
-      </div>
-
-      <div class="timeline-header">
-        <h3>All letters</h3>
-        <span class="line"></span>
-        <span class="count-pill" id="lettersCount">0</span>
       </div>
 
       <div class="timeline" id="timeline"></div>
@@ -592,6 +618,10 @@ button{font-family:inherit}
   var CONFIG = {
     togetherSince: '2026-10-03',
     lockBg: 'https://cdn.dbimg.app/baOgBUVC.jpg',
+    phones: {
+      jay: '254717478188',
+      dee: '254141375640'
+    },
     birthdays: [
       { name: 'Dee', emoji: '🎂', date: '2007-12-06', glow: '#ff9ec2' },
       { name: 'Jay', emoji: '🎈', date: '2007-05-16', glow: '#a8b8f7' }
@@ -884,6 +914,7 @@ button{font-family:inherit}
     try { wireLightbox(); }     catch(e){ console.error('[OLW] wireLightbox', e); }
     try { wireLockButton(); }   catch(e){ console.error('[OLW] wireLockButton', e); }
     try { wireMessages(); }     catch(e){ console.error('[OLW] wireMessages', e); }
+    try { wireWhatsAppNudge(); }catch(e){ console.error('[OLW] wireWhatsAppNudge', e); }
     try { wireLetterNotif(); }  catch(e){ console.error('[OLW] wireLetterNotif', e); }
     try { wireVoiceNotes(); }   catch(e){ console.error('[OLW] wireVoiceNotes', e); }
     try { wireSecretAdmin(); }  catch(e){ console.error('[OLW] wireSecretAdmin', e); }
@@ -1208,6 +1239,34 @@ button{font-family:inherit}
     });
   }
 
+  /* ═══ WHATSAPP NUDGE ═══ */
+  var nudgeWired = false;
+  function wireWhatsAppNudge() {
+    if (nudgeWired) return;
+    nudgeWired = true;
+    
+    var btns = document.querySelectorAll('.nudge-btn');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (!currentRoom) return;
+
+        var partnerId = currentRoom.partner.toLowerCase();
+        var phone = CONFIG.phones[partnerId];
+
+        if (!phone) {
+          showToast('Phone number not configured.', 'error');
+          return;
+        }
+
+        var type = btn.getAttribute('data-type') || 'message';
+        var message = "Hey " + currentRoom.partner + "! 💞 I left you a " + type + " in our app. Go check it! \n\nhttps://tedeejay.github.io/Jay-Dee/";
+        var url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+        
+        window.open(url, '_blank');
+      });
+    });
+  }
+
   /* ═══ MESSAGES & LETTERS ═══ */
   var messages = [];
   var editingId = null;
@@ -1259,14 +1318,22 @@ button{font-family:inherit}
   }
 
   function markMessagesAsRead() {
-    var now = Date.now();
+    var newest = 0;
+    for (var i = 0; i < messages.length; i++) {
+      if (messages[i].type !== 'letter' && messages[i].ts > newest) newest = messages[i].ts;
+    }
+    var now = Math.max(Date.now(), newest);
     setMyLastRead('msg', now);
     updateMyPresence({ lastReadMsg: now });
     updateNotification();
   }
 
   function markLettersAsRead() {
-    var now = Date.now();
+    var newest = 0;
+    for (var i = 0; i < messages.length; i++) {
+      if (messages[i].type === 'letter' && messages[i].ts > newest) newest = messages[i].ts;
+    }
+    var now = Math.max(Date.now(), newest);
     setMyLastRead('letter', now);
     updateMyPresence({ lastReadLetter: now });
     updateNotification();
@@ -1640,7 +1707,6 @@ button{font-family:inherit}
       }
     });
 
-    // For the messages timeline (internally scrollable), jump to bottom
     if (kind === 'msg') {
       setTimeout(function(){ tl.scrollTop = tl.scrollHeight; }, 60);
     } else {
