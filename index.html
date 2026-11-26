@@ -2,2004 +2,240 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Jay & Dee 💞</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jay &amp; Dee 💞</title>
+<meta name="description" content="Our little world 💞">
+<meta name="theme-color" content="#1c0f16">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex,nofollow">
 
 <link rel="icon" type="image/png" href="https://cdn.dbimg.app/Q7cRoVmy.png">
-<link rel="shortcut icon" type="image/png" href="https://cdn.dbimg.app/Q7cRoVmy.png">
 <link rel="apple-touch-icon" href="https://cdn.dbimg.app/Q7cRoVmy.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.dbimg.app/Q7cRoVmy.png">
-
+<link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Jay & Dee">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#ff9ec2">
-
-<script>
-(function(){
-  try {
-    var manifest = {
-      name: "Jay & Dee", short_name: "J & D",
-      description: "Our little world 💞",
-      start_url: window.location.href,
-      scope: window.location.href.replace(/\/[^/]*$/, '/'),
-      display: "standalone", orientation: "portrait",
-      background_color: "#1c0f16", theme_color: "#ff9ec2",
-      icons: [
-        { src: "https://cdn.dbimg.app/Q7cRoVmy.png", sizes: "192x192", type: "image/png", purpose: "any" },
-        { src: "https://cdn.dbimg.app/Q7cRoVmy.png", sizes: "512x512", type: "image/png", purpose: "any" },
-        { src: "https://cdn.dbimg.app/Q7cRoVmy.png", sizes: "192x192", type: "image/png", purpose: "maskable" },
-        { src: "https://cdn.dbimg.app/Q7cRoVmy.png", sizes: "512x512", type: "image/png", purpose: "maskable" }
-      ]
-    };
-    var blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
-    var link = document.createElement('link');
-    link.rel = 'manifest';
-    link.href = URL.createObjectURL(blob);
-    document.head.appendChild(link);
-  } catch (e) {}
-})();
-</script>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Jay &amp; Dee">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --pink:#ff9ec2; --pink-2:#ff7aa8; --pink-soft:#ffd6e4;
-  --gold:#e8c9a8;
-  --txt:#fbeef4; --muted:#c9a9b8;
-  --glass:rgba(255,255,255,.07); --stroke:rgba(255,255,255,.15);
-  --paper:#fffafc; --paper-2:#ffeef5;
-  --ink:#3a1626; --ink-soft:#7a4d5f;
-}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Poppins',system-ui,-apple-system,sans-serif;
-  color:var(--txt); min-height:100vh;
-  background:
-    radial-gradient(1200px 800px at 5% -10%, #4a1c30 0%, transparent 55%),
-    radial-gradient(900px 700px at 110% 5%, #3a1a3d 0%, transparent 55%),
-    linear-gradient(160deg,#1c0f16 0%,#2a1120 55%,#160b12 100%);
-  background-attachment:fixed; overflow-x:hidden;
-}
-.hidden{display:none !important}
-button{font-family:inherit}
 
-/* LOCK */
-.lock{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:20px;transition:opacity .7s ease,visibility .7s}
-.lock.gone{opacity:0;visibility:hidden;pointer-events:none}
-.lock__bg{position:absolute;inset:0;background:center/cover no-repeat;transform:scale(1.06);filter:saturate(.9) brightness(1.05);animation:slowzoom 22s ease-in-out infinite alternate}
-@keyframes slowzoom{from{transform:scale(1.06)}to{transform:scale(1.16)}}
-.lock__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,8,14,.18) 0%,rgba(20,8,14,.42) 60%,rgba(20,8,14,.62) 100%)}
-.lock__card{position:relative;width:min(380px,100%);background:rgba(46,20,33,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);border-radius:30px;padding:30px 26px 26px;text-align:center;box-shadow:0 30px 90px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.18);animation:pop .6s cubic-bezier(.2,.9,.3,1.3)}
-@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.94)}to{opacity:1;transform:none}}
-.lock__logo{width:76px;height:76px;margin:0 auto 14px;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 3px rgba(255,255,255,.18);animation:beat 2.4s infinite;background:rgba(255,255,255,.06);display:grid;place-items:center}
-.lock__logo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:22px}
-@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.06)}30%{transform:scale(1)}45%{transform:scale(1.04)}}
-.lock__card h1{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;letter-spacing:.4px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.65),0 0 26px rgba(255,158,194,.5)}
-.lock__sub{color:#f7e4ec;font-size:.86rem;margin-top:6px;font-weight:300;text-shadow:0 2px 10px rgba(0,0,0,.6)}
-.dots{display:flex;justify-content:center;gap:12px;margin:22px 0 20px;flex-wrap:wrap}
-.dots span{width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,.55);transition:.25s;background:rgba(0,0,0,.1)}
-.dots span.on{background:var(--pink);border-color:var(--pink);box-shadow:0 0 16px rgba(255,158,194,.95);transform:scale(1.12)}
-.shake{animation:shake .42s}
-@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
-.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.key{aspect-ratio:1.5/1;border-radius:18px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);color:#fff;font-size:1.35rem;font-weight:500;cursor:pointer;transition:.18s;display:grid;place-items:center;text-shadow:0 2px 8px rgba(0,0,0,.7)}
-.key:hover{background:rgba(255,158,194,.28);border-color:rgba(255,158,194,.7)}
-.key:active{transform:scale(.94);background:rgba(255,158,194,.42)}
-.key.blank{visibility:hidden;pointer-events:none}
-.key.del{font-size:1.15rem}
-
-/* TOPBAR */
-.topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:11px 22px;background:rgba(26,12,20,.62);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--stroke);padding-top:calc(11px + env(safe-area-inset-top))}
-.brand{display:flex;align-items:center;gap:10px;white-space:nowrap; cursor: default; -webkit-user-select: none; user-select: none;}
-.brand-logo{width:34px;height:34px;border-radius:10px;object-fit:cover;display:block;box-shadow:0 4px 14px rgba(255,120,170,.45),0 0 0 1.5px rgba(255,255,255,.15);background:rgba(255,255,255,.06); pointer-events: none;}
-.brand-text{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;letter-spacing:.3px;background:linear-gradient(135deg,#fff,#ffb3cf);-webkit-background-clip:text;background-clip:text;color:transparent; pointer-events: none;}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
-.tabs button{background:transparent;border:1px solid transparent;color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer;font-size:.85rem;font-weight:400;transition:.25s;white-space:nowrap;position:relative;display:flex;align-items:center;gap:6px}
-.tabs button:hover{color:#fff;background:rgba(255,255,255,.07)}
-.tabs button.active{background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;font-weight:600;box-shadow:0 8px 24px rgba(255,120,170,.4)}
-.tab-badge{display:none;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#fff;color:#ff4d7d;font-size:.65rem;font-weight:700;align-items:center;justify-content:center;line-height:1;box-shadow:0 2px 6px rgba(0,0,0,.3)}
-.tab-badge.show{display:inline-flex;animation:badgePulse 2s infinite}
-@keyframes badgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
-.tabs button.active .tab-badge{background:rgba(42,15,26,.85);color:#fff}
-.lockbtn{background:transparent;border:1px solid var(--stroke);color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.82rem;transition:.25s}
-.lockbtn:hover{color:#fff;border-color:var(--pink);background:rgba(255,158,194,.12)}
-
-/* CONNECTION BANNER */
-.conn-banner{display:none;margin:16px 22px 0;max-width:1120px;padding:14px 20px;border-radius:16px;background:rgba(255,80,120,.15);border:1px solid rgba(255,80,120,.4);color:#ffd0dd;font-size:.84rem;line-height:1.5;align-items:flex-start;gap:12px}
-.conn-banner.show{display:flex}
-.conn-banner .icon{font-size:1.3rem;flex-shrink:0}
-.conn-banner strong{display:block;margin-bottom:4px;color:#fff}
-.conn-banner code{background:rgba(0,0,0,.25);padding:2px 6px;border-radius:4px;font-size:.78rem}
-
-/* LAYOUT */
-.wrap{max-width:1120px;margin:0 auto;padding:30px 22px calc(90px + env(safe-area-inset-bottom))}
-.panel{display:none}
-.panel.active{display:block;animation:fade .45s ease}
-@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.section-title{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;margin-bottom:6px}
-.section-sub{color:var(--muted);font-size:.86rem;font-weight:300;margin-bottom:24px}
-
-/* HERO & HOME WIDGETS */
-.hero{position:relative;border-radius:28px;overflow:hidden;min-height:330px;display:grid;place-items:center;text-align:center;border:1px solid var(--stroke);margin-bottom:26px;box-shadow:0 24px 70px rgba(0,0,0,.45);background:#2a1120}
-.hero__bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease;will-change:opacity}
-.hero__bg.on{opacity:1}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,10,18,.42),rgba(28,10,18,.88));z-index:1;pointer-events:none}
-.hero__content{position:relative;z-index:2;padding:38px 22px}
-.eyebrow{font-size:.74rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--pink-soft);font-weight:500;margin-bottom:10px}
-.hero__content h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;line-height:1.1;background:linear-gradient(135deg,#fff,#ffc9dd 55%,#ff8fb8);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero__since{color:var(--muted);font-size:.88rem;margin-top:10px;font-weight:300}
-.hero__since b{color:var(--pink-soft);font-weight:600}
-.together{display:inline-flex;align-items:baseline;gap:10px;margin-top:22px;padding:12px 26px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--stroke);backdrop-filter:blur(8px)}
-.together span{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--pink)}
-.together small{font-size:.78rem;color:var(--muted);letter-spacing:.5px}
-
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:18px}
-.card{background:var(--glass);border:1px solid var(--stroke);border-radius:24px;padding:24px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,.3);transition:.3s}
-.card:hover{transform:translateY(-3px);border-color:rgba(255,158,194,.4);box-shadow:0 24px 60px rgba(255,120,170,.16)}
-.card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:9px}
-.card .sub{color:var(--muted);font-size:.79rem;font-weight:300;margin-bottom:20px}
-.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.timer div{text-align:center;padding:14px 4px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)}
-.timer b{display:block;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--pink-soft);font-variant-numeric:tabular-nums}
-.timer span{font-size:.64rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
-
-/* LETTER NOTIF */
-.letter-notif{display:none;margin-top:18px;background:linear-gradient(135deg,rgba(255,158,194,.16),rgba(232,201,168,.12));border:1px solid rgba(255,158,194,.4);border-radius:22px;padding:20px 24px;cursor:pointer;transition:.3s;position:relative;overflow:hidden;box-shadow:0 16px 44px rgba(255,120,170,.22);align-items:center;gap:18px}
-.letter-notif.show{display:flex;animation:notifIn .6s cubic-bezier(.2,.9,.3,1.3)}
-@keyframes notifIn{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
-.letter-notif:hover{transform:translateY(-2px);border-color:var(--pink);box-shadow:0 22px 54px rgba(255,120,170,.35);background:linear-gradient(135deg,rgba(255,158,194,.24),rgba(232,201,168,.18))}
-.notif-icon{width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:1.7rem;flex-shrink:0;position:relative;animation:beat 2s infinite}
-.notif-body{flex:1;min-width:0;position:relative}
-.notif-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:3px;letter-spacing:.2px}
-.notif-sub{font-size:.8rem;color:var(--pink-soft);font-weight:400}
-.notif-arrow{font-size:1.3rem;color:var(--pink-soft);flex-shrink:0;transition:.25s;position:relative}
-.letter-notif:hover .notif-arrow{transform:translateX(5px);color:#fff}
-
-/* MEMORIES */
-.mem-tabs{display:flex;gap:6px;margin-bottom:22px;background:rgba(255,255,255,.04);padding:6px;border-radius:999px;max-width:440px;border:1px solid var(--stroke)}
-.mem-tab{flex:1;padding:10px 18px;border-radius:999px;border:none;cursor:pointer;font-family:inherit;font-size:.84rem;color:var(--muted);background:transparent;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
-.mem-tab:hover{color:#fff}
-.mem-tab.active{background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;font-weight:600;box-shadow:0 8px 20px rgba(255,120,170,.35)}
-.mem-count{font-size:.7rem;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.12);font-weight:500;min-width:22px;text-align:center}
-.mem-tab.active .mem-count{background:rgba(42,15,26,.22);color:#2a0f1a}
-.gallery{columns:3 230px;column-gap:14px}
-.gallery figure{break-inside:avoid;margin:0 0 14px;position:relative;border-radius:20px;overflow:hidden;cursor:pointer;border:1px solid var(--stroke);transition:.35s;background:#2a1120}
-.gallery img,.gallery video{width:100%;display:block;transition:.5s ease;background:#000}
-.gallery figure:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(255,120,170,.3);border-color:rgba(255,158,194,.55)}
-.gallery figure:hover img,.gallery figure:hover video{transform:scale(1.05)}
-.gallery figcaption{position:absolute;inset:auto 0 0 0;padding:26px 14px 12px;font-size:.76rem;color:#fff;background:linear-gradient(transparent,rgba(20,8,14,.9));opacity:0;transition:.35s;pointer-events:none}
-.gallery figure:hover figcaption{opacity:1}
-.video-badge{position:absolute;top:10px;left:10px;display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;background:rgba(20,8,14,.75);backdrop-filter:blur(6px);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.4px;pointer-events:none;z-index:2}
-.video-badge::before{content:'';width:0;height:0;border-left:7px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent}
-.play-overlay{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:1}
-.play-overlay::before{content:'';width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 8px 30px rgba(0,0,0,.5)}
-.play-overlay::after{content:'';position:absolute;width:0;height:0;border-left:20px solid #2a0f1a;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
-.gallery figure.is-video:hover .play-overlay::before{background:var(--pink)}
-
-/* LIGHTBOX */
-.lightbox{position:fixed;inset:0;z-index:300;display:none;place-items:center;padding:24px;background:rgba(12,4,9,.93);backdrop-filter:blur(10px)}
-.lightbox.open{display:grid;animation:fade .3s}
-.lb-media{display:grid;place-items:center;max-width:92vw;max-height:82vh}
-.lb-media img,.lb-media video{max-width:92vw;max-height:82vh;border-radius:18px;box-shadow:0 30px 90px rgba(0,0,0,.8);animation:pop .35s cubic-bezier(.2,.9,.3,1.3);display:block}
-.lb-btn{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid var(--stroke);color:#fff;font-size:1.4rem;cursor:pointer;display:grid;place-items:center;transition:.25s;backdrop-filter:blur(8px);z-index:2}
-.lb-btn:hover{background:var(--pink);color:#2a0f1a}
-.lb-prev{left:18px}.lb-next{right:18px}
-.lb-close{position:absolute;top:calc(20px + env(safe-area-inset-top));right:20px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid var(--stroke);color:#fff;font-size:1.2rem;cursor:pointer;transition:.25s;z-index:2}
-.lb-close:hover{background:var(--pink-2);color:#2a0f1a}
-
-/* COMPOSER (shared) */
-.composer{background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--stroke);border-radius:24px;padding:22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);margin-bottom:32px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
-.composer-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.08)}
-.composer-header-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--pink-soft);letter-spacing:.3px}
-.sender-row{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
-.sender-static{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:linear-gradient(135deg,rgba(255,158,194,.18),rgba(255,158,194,.08));border:1px solid rgba(255,158,194,.35);font-size:.85rem;color:#fff;font-weight:500}
-.sender-static-label{text-transform:uppercase;letter-spacing:1.2px;font-size:.66rem;color:var(--muted);font-weight:500}
-.sender-static-name{font-weight:600;color:#fff}
-.composer textarea{width:100%;min-height:110px;resize:vertical;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px 18px;color:var(--txt);font-family:'Cormorant Garamond',serif;font-size:1.05rem;line-height:1.6;outline:none;transition:.25s;letter-spacing:.2px}
-.composer textarea::placeholder{color:#8d6b7a;font-style:italic}
-.composer textarea:focus{border-color:var(--pink);background:rgba(255,158,194,.06);box-shadow:0 0 0 4px rgba(255,158,194,.08)}
-.composer-foot{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
-
-/* VOICE NOTE BUTTON */
-.mic-btn{
-  margin-left:auto;width:44px;height:44px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);
-  color:#fff;font-size:1.15rem;cursor:pointer;display:grid;place-items:center;
-  transition:.25s;box-shadow:0 4px 12px rgba(0,0,0,.2);
-}
-.mic-btn:hover{background:rgba(255,158,194,.2);border-color:var(--pink)}
-.mic-btn.recording{background:#ff4d6d;border-color:#ff4d6d;animation:pulseRed 1s infinite}
-@keyframes pulseRed{0%{box-shadow:0 0 0 0 rgba(255,77,109,.7)}70%{box-shadow:0 0 0 10px rgba(255,77,109,0)}100%{box-shadow:0 0 0 0 rgba(255,77,109,0)}}
-.recording-time{font-family:'Poppins',monospace;color:#ff4d6d;font-weight:600;font-size:.85rem;display:none;margin-left:auto}
-.recording-time.show{display:block;animation:pulseRedText 1s infinite}
-@keyframes pulseRedText{0%,100%{opacity:1}50%{opacity:.5}}
-.send-btn{
-  padding:11px 28px;border-radius:999px;border:none;cursor:pointer;
-  background:linear-gradient(135deg,var(--pink),var(--pink-2));
-  color:#2a0f1a;font-weight:600;font-size:.86rem;
-  box-shadow:0 10px 26px rgba(255,120,170,.4);
-  transition:.25s;display:flex;align-items:center;gap:8px;letter-spacing:.3px;
-}
-.send-btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(255,120,170,.55)}
-.send-btn:active{transform:scale(.97)}
-.send-btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
-#sendLetterBtn{ margin-left:auto; }
-
-/* AUDIO PLAYER */
-.audio-player{width:100%;min-width:220px;height:40px;margin-top:10px;border-radius:12px;outline:none}
-.audio-player::-webkit-media-controls-panel{background-color:rgba(255,255,255,.1)}
-.letter-card .audio-player::-webkit-media-controls-panel{background-color:rgba(58,22,38,.05)}
-.chat-bubble .audio-player{margin-top:4px}
-
-.count-pill{font-size:.7rem;padding:5px 12px;border-radius:999px;background:rgba(255,158,194,.15);color:var(--pink-soft);font-weight:500;letter-spacing:.5px;border:1px solid rgba(255,158,194,.25);flex-shrink:0}
-
-.timeline{display:flex;flex-direction:column;gap:20px;padding-bottom:20px}
-.date-sep{display:flex;align-items:center;gap:12px;margin:12px 0 4px;font-family:'Playfair Display',serif;font-size:.78rem;font-weight:500;color:var(--pink-soft);text-transform:uppercase;letter-spacing:2px;opacity:.75}
-.date-sep::before,.date-sep::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,158,194,.3),transparent)}
-
-/* HEADERS FOR MESSAGES & LETTERS */
-.section-head{display:flex;align-items:center;gap:12px;margin-bottom:4px}
-.section-head .section-title{margin-bottom:0;flex:1;min-width:0}
-
-#panel-messages.active{
-  display:flex;
-  flex-direction:column;
-  height:calc(100vh - 176px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  height:calc(100dvh - 176px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  min-height:380px;
-}
-#panel-messages > .section-sub{flex-shrink:0;margin-bottom:16px}
-#panel-messages > .timeline{
-  flex:1 1 auto;
-  overflow-y:auto;
-  min-height:0;
-  padding-right:4px;
-  padding-bottom:4px;
-  margin-bottom:12px;
-  scroll-behavior:smooth;
-}
-#panel-messages > .timeline > :first-child{margin-top:auto}
-#panel-messages > .composer{
-  flex-shrink:0;
-  margin:0;
-}
-
-/* WHATSAPP NUDGE BTN */
-.nudge-btn {
-  background: #25D366;
-  color: #fff;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-}
-.nudge-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
-}
-.nudge-btn:active {
-  transform: scale(0.96);
-}
-
-/* LETTER CARD */
-.letter-card{background:linear-gradient(160deg,var(--paper) 0%,var(--paper-2) 100%);color:var(--ink);border-radius:20px;padding:28px 32px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.35),0 2px 0 rgba(255,255,255,.3) inset,0 0 0 1px rgba(255,158,194,.35);animation:fade .5s;overflow:hidden}
-.letter-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--gold),var(--pink))}
-.letter-card-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(58,22,38,.08);position:relative}
-.letter-card-icon{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#ffe0ec,#ffd0e0);display:grid;place-items:center;font-size:1.35rem;box-shadow:0 4px 12px rgba(255,120,170,.25),inset 0 1px 0 rgba(255,255,255,.6);flex-shrink:0}
-.letter-card-meta{flex:1;min-width:0}
-.letter-card-sender{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--ink);letter-spacing:.2px;line-height:1.2;margin-bottom:2px}
-.letter-card-time{font-family:'Poppins',sans-serif;font-size:.7rem;color:var(--ink-soft);letter-spacing:.5px;text-transform:uppercase;font-weight:400}
-.letter-card-seal{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#d4a878);display:grid;place-items:center;font-size:.95rem;color:#fff;box-shadow:0 4px 12px rgba(212,168,120,.5);flex-shrink:0}
-.letter-card-body{font-family:'Cormorant Garamond',serif;font-size:1.15rem;line-height:1.75;color:var(--ink);white-space:pre-wrap;word-wrap:break-word;letter-spacing:.15px;position:relative;padding-left:4px}
-.letter-card-body::first-letter{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;float:left;line-height:.9;margin:6px 8px 0 0;color:var(--pink-2)}
-.letter-card-foot{margin-top:20px;padding-top:16px;border-top:1px solid rgba(58,22,38,.08);display:flex;justify-content:space-between;align-items:center;gap:12px}
-.letter-card-sig{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--ink-soft);letter-spacing:.3px;margin-left:auto}
-
-.chat-bubble{max-width:min(78%,560px);padding:14px 20px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid var(--stroke);font-family:'Poppins',sans-serif;font-size:.92rem;line-height:1.55;word-wrap:break-word;white-space:pre-wrap;animation:fade .35s;box-shadow:0 8px 24px rgba(0,0,0,.2);position:relative}
-.chat-bubble .meta{display:block;font-family:'Poppins',sans-serif;font-size:.66rem;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;font-weight:500}
-.chat-bubble.me{align-self:flex-end;background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;border:none;border-bottom-right-radius:6px;box-shadow:0 10px 26px rgba(255,120,170,.28)}
-.chat-bubble.me .meta{color:rgba(42,15,26,.65)}
-.chat-bubble.them{align-self:flex-start;border-bottom-left-radius:6px}
-
-/* SEEN INDICATOR */
-.seen-indicator {
-  font-size: .65rem;
-  color: var(--muted);
-  margin-top: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
-  opacity: 0.8;
-}
-.chat-bubble.me .seen-indicator { color: rgba(42,15,26,.6); }
-
-.empty{text-align:center;padding:56px 24px;color:var(--muted);font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;border:1px dashed rgba(255,255,255,.16);border-radius:22px;letter-spacing:.3px}
-
-/* MSG ACTIONS */
-.msg-actions{display:inline-flex;gap:5px;flex-shrink:0}
-.msg-action{width:30px;height:30px;border-radius:8px;border:1px solid var(--stroke);background:rgba(255,255,255,.06);color:var(--txt);font-size:.82rem;cursor:pointer;display:inline-grid;place-items:center;transition:.18s;padding:0;line-height:1}
-.msg-action:hover{background:rgba(255,158,194,.25);border-color:var(--pink);color:#fff}
-.msg-action.danger:hover{background:rgba(255,80,120,.3);border-color:#ff6b95}
-.letter-card .msg-action{background:rgba(58,22,38,.06);border-color:rgba(58,22,38,.14);color:var(--ink-soft)}
-.letter-card .msg-action:hover{background:rgba(255,120,170,.2);border-color:var(--pink-2);color:var(--ink)}
-.letter-card .msg-action.danger:hover{background:rgba(255,80,120,.22);border-color:#ff6b95;color:#a01835}
-.chat-bubble.me .msg-action{background:rgba(42,15,26,.14);border-color:rgba(42,15,26,.18);color:var(--ink)}
-.chat-bubble.me .msg-action:hover{background:rgba(42,15,26,.24);color:var(--ink)}
-.chat-bubble.me .msg-action.danger:hover{background:rgba(200,40,80,.35);color:#fff;border-color:rgba(200,40,80,.6)}
-.bubble-foot{display:flex;justify-content:flex-end;gap:4px;margin-top:8px}
-
-/* EDIT */
-.edit-wrap{background:rgba(255,255,255,.05);border:1px solid rgba(255,158,194,.4);border-radius:16px;padding:16px 18px;animation:fade .3s;box-shadow:0 8px 24px rgba(0,0,0,.25)}
-.edit-wrap.on-light{background:linear-gradient(160deg,var(--paper) 0%,var(--paper-2) 100%);border-color:rgba(255,158,194,.5);box-shadow:0 20px 50px rgba(0,0,0,.35),0 0 0 1px rgba(255,158,194,.35);padding:24px 28px;color:var(--ink)}
-.edit-textarea{width:100%;min-height:100px;resize:vertical;background:rgba(0,0,0,.12);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;color:var(--txt);font-family:'Cormorant Garamond',serif;font-size:1.06rem;line-height:1.65;outline:none;transition:.2s;letter-spacing:.2px}
-.edit-wrap.on-light .edit-textarea{background:rgba(255,255,255,.75);border-color:rgba(58,22,38,.12);color:var(--ink);min-height:120px}
-.edit-textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,158,194,.12)}
-.edit-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
-.edit-save-btn,.edit-cancel-btn{padding:8px 22px;border-radius:999px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;border:none;transition:.2s;letter-spacing:.2px}
-.edit-save-btn{background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;box-shadow:0 6px 18px rgba(255,120,170,.35)}
-.edit-save-btn:hover{transform:translateY(-1px)}
-.edit-cancel-btn{background:transparent;color:var(--muted);border:1px solid var(--stroke)}
-.edit-wrap.on-light .edit-cancel-btn{color:var(--ink-soft);border-color:rgba(58,22,38,.15)}
-.edit-cancel-btn:hover{color:#fff;border-color:var(--pink);background:rgba(255,158,194,.12)}
-.edit-wrap.on-light .edit-cancel-btn:hover{color:var(--ink);background:rgba(255,158,194,.2)}
-.edit-hint{font-size:.7rem;color:var(--muted);margin-top:8px;text-align:right;letter-spacing:.3px}
-.edit-wrap.on-light .edit-hint{color:var(--ink-soft)}
-
-/* TOAST */
-.toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%) translateY(120px);z-index:400;padding:12px 22px;border-radius:14px;background:rgba(30,16,24,.95);border:1px solid var(--stroke);color:#fff;font-size:.86rem;box-shadow:0 14px 40px rgba(0,0,0,.5);transition:transform .35s cubic-bezier(.2,.9,.3,1.3),opacity .3s;opacity:0;max-width:90vw;pointer-events:none;text-align:center}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-.toast.success{background:rgba(40,90,60,.95);border-color:rgba(120,220,160,.5)}
-.toast.error{background:rgba(120,30,50,.95);border-color:rgba(255,120,160,.5)}
-
-/* BIRTHDAYS */
-.bday-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
-.bday{position:relative;overflow:hidden;background:var(--glass);border:1px solid var(--stroke);border-radius:26px;padding:26px;backdrop-filter:blur(14px);box-shadow:0 20px 54px rgba(0,0,0,.32);transition:.3s}
-.bday:hover{transform:translateY(-4px);border-color:rgba(255,158,194,.45)}
-.bday__glow{position:absolute;top:-70px;right:-70px;width:190px;height:190px;border-radius:50%;filter:blur(50px);opacity:.55;pointer-events:none}
-.bday__top{display:flex;align-items:center;gap:14px;margin-bottom:20px;position:relative}
-.bday__emoji{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:1.65rem;background:rgba(255,255,255,.09);border:1px solid var(--stroke)}
-.bday__name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600}
-.bday__date{font-size:.78rem;color:var(--muted);font-weight:300;margin-top:2px}
-.bday__count{display:flex;align-items:baseline;gap:9px;margin-bottom:6px;position:relative}
-.bday__count b{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--pink);line-height:1;font-variant-numeric:tabular-nums}
-.bday__count span{font-size:.8rem;color:var(--muted)}
-.bday__next{font-size:.78rem;color:var(--muted);font-weight:300;margin-bottom:16px;position:relative}
-.bday__next b{color:var(--pink-soft);font-weight:600}
-.bar{height:7px;border-radius:99px;background:rgba(255,255,255,.09);overflow:hidden;position:relative}
-.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--pink),#ffc9dd);transition:width 1s ease}
-.bday__foot{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);margin-top:8px;letter-spacing:.4px}
-.today-badge{display:inline-block;margin-top:14px;padding:6px 14px;border-radius:999px;background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#2a0f1a;font-size:.72rem;font-weight:700;letter-spacing:.6px;animation:beat 1.6s infinite}
-
-@media(max-width:720px){
-  .wrap{padding:22px 15px calc(80px + env(safe-area-inset-bottom))}
-  .topbar{padding:11px 15px;padding-top:calc(11px + env(safe-area-inset-top));gap:10px}
-  .brand-text{font-size:.95rem}
-  .brand-logo{width:30px;height:30px}
-  .tabs{width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
-  .tabs::-webkit-scrollbar{display:none}
-  .tabs button{padding:7px 14px;font-size:.79rem}
-  .lockbtn{position:absolute;top:calc(11px + env(safe-area-inset-top));right:15px;padding:6px 12px;font-size:.75rem}
-  .timer b{font-size:1.22rem}
-  .gallery{columns:2 140px}
-  .mem-tab{padding:9px 12px;font-size:.78rem}
-  .lock__logo{width:66px;height:66px}
-  .lock__card h1{font-size:1.55rem}
-  .letter-card{padding:22px 20px}
-  .letter-card-body{font-size:1.02rem;line-height:1.7}
-  .letter-card-body::first-letter{font-size:2.3rem}
-  .chat-bubble{max-width:92%}
-  .composer{padding:18px}
-  .notif-icon{width:46px;height:46px;font-size:1.5rem}
-  .notif-title{font-size:.95rem}
-  .edit-wrap.on-light{padding:18px 20px}
-  .msg-action{width:28px;height:28px;font-size:.75rem}
-  .conn-banner{margin:12px 15px 0;padding:12px 16px;font-size:.78rem}
-  .mic-btn{width:40px;height:40px;font-size:1.1rem}
-  .send-btn{padding:10px 22px;font-size:.82rem}
-  #panel-messages.active{
-    height:calc(100vh - 158px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-    height:calc(100dvh - 158px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  }
-  #panel-messages .composer{ padding:14px; }
-  #panel-messages .composer textarea{ min-height:60px; padding:12px 14px; }
-  #panel-messages .composer-header{ margin-bottom:10px; padding-bottom:10px; }
-  #panel-messages .sender-row{ margin-bottom:10px; }
-}
-</style>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/lock.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/chat.css">
 </head>
 <body>
 
-<div class="lock" id="lock">
-  <div class="lock__bg"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+</svg>
+
+<canvas class="fx-canvas" id="fxHearts" aria-hidden="true"></canvas>
+
+<!-- LOCK -->
+<section class="lock" id="lock" aria-label="Unlock">
+  <div class="lock__bg" id="lockBg"></div>
   <div class="lock__veil"></div>
   <div class="lock__card" id="lockCard">
-    <div class="lock__logo"><img src="https://cdn.dbimg.app/Q7cRoVmy.png" alt="Jay & Dee"></div>
+    <div class="lock__logo"><img src="https://cdn.dbimg.app/Q7cRoVmy.png" alt="Jay &amp; Dee"></div>
     <h1>Jay &amp; Dee</h1>
-    <p class="lock__sub">Enter your passcode</p>
-    <div class="dots" id="dots"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <p class="lock__sub" id="lockSub">Enter your passcode</p>
+    <div class="dots" id="dots" role="img" aria-label="Passcode progress"><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="keypad" id="keypad"></div>
+    <p class="lock__msg" id="lockMsg" role="status" aria-live="polite"></p>
   </div>
-</div>
+</section>
 
-<div class="app hidden" id="app">
+<!-- APP -->
+<div class="app" id="app" hidden>
   <header class="topbar">
-    <div class="brand" id="secretAdminTrigger">
-      <img class="brand-logo" src="https://cdn.dbimg.app/Q7cRoVmy.png" alt="Jay & Dee">
-      <span class="brand-text" id="brandText">Our room</span>
+    <div class="brand" id="brand">
+      <img class="brand__logo" src="https://cdn.dbimg.app/Q7cRoVmy.png" alt="">
+      <span class="brand__text" id="brandText">Our room</span>
     </div>
-    <button class="lockbtn" id="lockBtn">🔒 Lock</button>
-    <nav class="tabs" id="tabs">
-      <button data-tab="home" class="active">Home</button>
-      <button data-tab="gallery">Memories</button>
-      <button data-tab="messages">Messages <span class="tab-badge" id="msgBadge">0</span></button>
-      <button data-tab="letters">Letters <span class="tab-badge" id="tabBadge">0</span></button>
-      <button data-tab="birthdays">Birthdays</button>
-    </nav>
+    <button class="icon-btn" id="lockBtn" type="button" aria-label="Lock app" title="Lock">🔒</button>
   </header>
 
-  <div class="conn-banner" id="connBanner">
-    <span class="icon">⚠️</span>
-    <div id="connMsg"></div>
-  </div>
+  <nav class="tabs" id="tabs" aria-label="Sections">
+    <button class="tab active" data-tab="home" type="button"><span class="tab__icon">🏠</span><span class="tab__label">Home</span></button>
+    <button class="tab" data-tab="gallery" type="button"><span class="tab__icon">📷</span><span class="tab__label">Memories</span></button>
+    <button class="tab" data-tab="messages" type="button"><span class="tab__icon">💬</span><span class="tab__label">Chat</span><span class="tab-badge" id="msgBadge">0</span></button>
+    <button class="tab" data-tab="letters" type="button"><span class="tab__icon">💌</span><span class="tab__label">Letters</span><span class="tab-badge" id="tabBadge">0</span></button>
+    <button class="tab" data-tab="games" type="button"><span class="tab__icon">🎮</span><span class="tab__label">Games</span><span class="tab-badge" id="gameBadge">0</span></button>
+    <button class="tab" data-tab="birthdays" type="button"><span class="tab__icon">🎂</span><span class="tab__label">Birthdays</span></button>
+  </nav>
 
-  <div class="wrap">
-    <section class="panel active" id="panel-home">
-      <div class="hero">
-        <div class="hero__bg" id="heroBgA"></div>
-        <div class="hero__bg" id="heroBgB"></div>
-        <div class="hero__content">
-          <p class="eyebrow" id="heroEyebrow">Welcome home, love</p>
-          <h2 id="heroNames">You &amp; Me</h2>
-          <p class="hero__since">Together since <b id="sinceText">—</b></p>
-          <div class="together"><span id="daysTogether">0</span><small>days together</small></div>
+  <main class="wrap" id="wrap">
+    <div class="wrap__inner">
+      <div class="conn-banner" id="connBanner" role="alert" hidden>
+        <span aria-hidden="true">⚠️</span>
+        <div><strong id="connTitle"></strong><span id="connText"></span></div>
+      </div>
+
+      <!-- HOME -->
+      <section class="panel is-active" id="panel-home">
+        <div class="hero">
+          <div class="hero__bg" id="heroBgA"></div>
+          <div class="hero__bg" id="heroBgB"></div>
+          <div class="hero__content">
+            <p class="eyebrow" id="heroEyebrow">Welcome home, love</p>
+            <h2 class="hero__names" id="heroNames">You &amp; Me</h2>
+            <p class="hero__since">Together since <b id="sinceText">—</b></p>
+            <div class="together"><span id="daysTogether">0</span><small>days together</small></div>
+          </div>
         </div>
-      </div>
 
-      <div class="cards">
-        <div class="card"><h3>💍 Next Anniversary</h3><p class="sub" id="annivSub">—</p><div class="timer" id="annivTimer"></div></div>
-        <div class="card"><h3>🎂 Next Birthday</h3><p class="sub" id="bdaySub">—</p><div class="timer" id="bdayTimer"></div></div>
-      </div>
-
-      <div class="letter-notif" id="letterNotif">
-        <div class="notif-icon">💌</div>
-        <div class="notif-body">
-          <div class="notif-title" id="notifTitle">New letter</div>
-          <div class="notif-sub" id="notifSub">Tap to read</div>
+        <div class="cards">
+          <article class="card card--streak" id="streakCard">
+            <h3>🔥 Streak</h3><p class="sub" id="streakSub">—</p>
+            <div class="ms"><b id="streakCount">0</b><span id="streakLabel">days in a row</span></div>
+            <div class="streak-week" id="streakWeek"></div>
+            <div class="ms-foot"><span id="streakBest">Best: 0 days</span><span id="streakLeft"></span></div>
+            <button class="btn btn--primary btn--sm streak-restore" id="streakRestore" type="button" hidden>♻️ Restore streak</button>
+            <p class="streak-info" id="streakRestoreInfo"></p>
+          </article>
+          <article class="card"><h3>💍 Next anniversary</h3><p class="sub" id="annivSub">—</p><div class="timer" id="annivTimer"></div></article>
+          <article class="card"><h3>🎂 Next birthday</h3><p class="sub" id="bdaySub">—</p><div class="timer" id="bdayTimer"></div></article>
+          <article class="card">
+            <h3>⭐ Next milestone</h3><p class="sub" id="msSub">—</p>
+            <div class="ms"><b id="msBig">0</b><span id="msLabel">days to go</span></div>
+            <div class="bar"><i id="msBar" style="width:0%"></i></div>
+            <div class="ms-foot"><span id="msFrom">—</span><span id="msTo">—</span></div>
+          </article>
         </div>
-        <div class="notif-arrow">→</div>
-      </div>
-    </section>
 
-    <section class="panel" id="panel-gallery">
-      <h2 class="section-title">Our Memories</h2>
-      <p class="section-sub">Photos and videos of us — tap any to open.</p>
-      <div class="mem-tabs">
-        <button class="mem-tab active" data-mem="photos">📷 Photos <span class="mem-count" id="photoCount">0</span></button>
-        <button class="mem-tab" data-mem="videos">🎬 Videos <span class="mem-count" id="videoCount">0</span></button>
-      </div>
-      <div class="gallery" id="gallery"></div>
-    </section>
-
-    <section class="panel" id="panel-messages">
-      <div class="section-head">
-        <h2 class="section-title" id="messagesTitle">Messages</h2>
-        <button class="nudge-btn" data-type="message" title="Send a WhatsApp nudge">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Nudge
+        <button class="notif-card" id="letterNotif" type="button">
+          <div class="notif-icon" aria-hidden="true">💌</div>
+          <div class="notif-body"><div class="notif-title" id="notifTitle">New message</div><div class="notif-sub" id="notifSub">Tap to read</div></div>
+          <div class="notif-arrow" aria-hidden="true">→</div>
         </button>
-        <span class="count-pill" id="msgCount">0</span>
-      </div>
-      <p class="section-sub" id="messagesSub">Quick messages back and forth.</p>
+        <button class="btn btn--ghost" id="enableAlerts" type="button" hidden>🔔 Turn on alerts</button>
+      </section>
 
-      <div class="timeline" id="msgTimeline"></div>
+      <!-- MEMORIES -->
+      <section class="panel" id="panel-gallery">
+        <h2 class="section-title">Our memories</h2>
+        <p class="section-sub">Photos and videos of us. Tap one to open it.</p>
+        <div class="mem-bar">
+          <div class="mem-tabs">
+            <button class="mem-tab active" data-mem="all" type="button">✨ All <span class="mem-count" id="allCount">0</span></button>
+            <button class="mem-tab" data-mem="photos" type="button">📷 Photos <span class="mem-count" id="photoCount">0</span></button>
+            <button class="mem-tab" data-mem="videos" type="button">🎬 Videos <span class="mem-count" id="videoCount">0</span></button>
+          </div>
+          <button class="btn btn--ghost btn--sm" id="memShuffle" type="button">🎲 Surprise me</button>
+        </div>
+        <div class="gallery" id="gallery"></div>
+      </section>
 
-      <div class="composer">
-        <div class="composer-header">
-          <span style="font-size:1.15rem">💬</span>
-          <span class="composer-header-title" id="msgComposerTitle">Send a message</span>
+      <!-- CHAT -->
+      <section class="panel panel--chat" id="panel-messages">
+        <div class="section-head">
+          <div class="section-head__text">
+            <h2 class="section-title" id="messagesTitle">Chat</h2>
+            <p class="chat-status" id="chatStatus" aria-live="polite"></p>
+          </div>
+          <button class="btn btn--wa" data-nudge="message" type="button" title="Send a WhatsApp nudge"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Nudge</button>
+          <span class="count-pill" id="msgCount">0</span>
         </div>
-        <div class="sender-row">
-          <span class="sender-static">
-            <span class="sender-static-label">From</span>
-            <span class="sender-static-name" id="msgSenderName">—</span>
-          </span>
+        <div class="chat-scroll">
+          <div class="timeline timeline--chat" id="msgTimeline" role="log" aria-label="Messages"></div>
+          <button class="jump" id="jumpBtn" type="button" hidden>↓ <span id="jumpCount"></span></button>
         </div>
-        <textarea id="msgInput" placeholder="Write a message…"></textarea>
-        <div class="composer-foot">
-          <div class="recording-time" id="msgRecordingTime">00:00</div>
-          <button class="mic-btn" id="msgMicBtn" title="Record voice note">🎤</button>
-          <button class="send-btn" id="sendMsgBtn">Send <span>→</span></button>
+        <div class="composer" id="msgComposer">
+          <div class="composer__rec" id="recBar" hidden>
+            <span class="rec-dot"></span><span id="recTime">0:00</span><span class="rec-hint">Recording…</span>
+            <button class="btn btn--ghost btn--sm" id="recCancel" type="button">Cancel</button>
+            <button class="btn btn--primary btn--sm" id="recSend" type="button">Send</button>
+          </div>
+          <div class="composer__row" id="msgRow">
+            <button class="icon-btn" id="emojiBtn" type="button" aria-label="Emoji" aria-expanded="false">😊</button>
+            <textarea id="msgInput" rows="1" maxlength="2000" placeholder="Message…" aria-label="Message"></textarea>
+            <button class="icon-btn mic" id="micBtn" type="button" aria-label="Record voice note" title="Record voice note">🎤</button>
+            <button class="send-btn" id="sendMsgBtn" type="button" aria-label="Send message">➤</button>
+          </div>
+          <div class="emoji-pop" id="emojiPop" hidden></div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="panel" id="panel-letters">
-      <div class="section-head">
-        <h2 class="section-title" id="lettersTitle">Letters</h2>
-        <button class="nudge-btn" data-type="letter" title="Send a WhatsApp nudge">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Nudge
-        </button>
-        <span class="count-pill" id="lettersCount">0</span>
-      </div>
-      <p class="section-sub" id="lettersSub">Long-form words worth keeping.</p>
-
-      <div class="composer">
-        <div class="composer-header">
-          <span style="font-size:1.15rem">✍️</span>
-          <span class="composer-header-title" id="composerTitle">Write a letter</span>
+      <!-- LETTERS -->
+      <section class="panel" id="panel-letters">
+        <div class="section-head">
+          <div class="section-head__text"><h2 class="section-title" id="lettersTitle">Letters</h2></div>
+          <button class="btn btn--wa" data-nudge="letter" type="button" title="Send a WhatsApp nudge"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Nudge</button>
+          <span class="count-pill" id="lettersCount">0</span>
         </div>
-        <div class="sender-row">
-          <span class="sender-static">
-            <span class="sender-static-label">From</span>
-            <span class="sender-static-name" id="senderChipName">—</span>
-          </span>
+        <p class="section-sub" id="lettersSub">Long-form words worth keeping.</p>
+        <div class="letter-tools"><button class="btn btn--primary" id="toggleLetter" type="button">✍️ Write a letter</button></div>
+        <div class="composer composer--letter" id="letterComposer" hidden>
+          <div class="composer-header"><span aria-hidden="true">✍️</span><span id="composerTitle">Write a letter</span><span class="muted" id="letterChars">0</span></div>
+          <textarea id="letterInput" rows="6" maxlength="8000" placeholder="Write a letter…" aria-label="Letter"></textarea>
+          <div class="composer-foot">
+            <button class="btn btn--ghost" id="cancelLetter" type="button">Close</button>
+            <button class="btn btn--primary" id="sendLetterBtn" type="button">Send letter 💌</button>
+          </div>
         </div>
-        <textarea id="letterInput" placeholder="Write a letter…"></textarea>
-        <div class="composer-foot">
-          <button class="send-btn" id="sendLetterBtn">Send letter 💌</button>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <!-- GAMES -->
+      <section class="panel" id="panel-games">
+        <div id="gamesHub">
+          <h2 class="section-title">Games</h2>
+          <p class="section-sub">Little things to play together.</p>
+          <div class="games-grid">
+            <button class="game-card" id="openTtt" type="button">
+              <div class="game-card__icon" aria-hidden="true">⭕</div>
+              <div class="game-card__body"><b>Tic-Tac-Toe</b><span id="tttHubSub">Tap to play</span></div>
+            </button>
+            <button class="game-card" id="openTod" type="button">
+              <div class="game-card__icon" aria-hidden="true">🎭</div>
+              <div class="game-card__body"><b>Truth or Dare</b><span id="todHubSub">Tap to play</span></div>
+            </button>
+            <button class="game-card" id="openTtl" type="button">
+              <div class="game-card__icon" aria-hidden="true">🤥</div>
+              <div class="game-card__body"><b>Two Truths &amp; a Lie</b><span id="ttlHubSub">Tap to play</span></div>
+            </button>
+          </div>
         </div>
-      </div>
+        <div id="tttView" hidden></div>
+        <div id="todView" hidden></div>
+        <div id="ttlView" hidden></div>
+      </section>
 
-      <div class="timeline" id="timeline"></div>
-    </section>
-
-    <section class="panel" id="panel-birthdays">
-      <h2 class="section-title">Birthdays</h2>
-      <p class="section-sub">Because your day deserves its own countdown.</p>
-      <div class="bday-grid" id="bdayGrid"></div>
-    </section>
-  </div>
+      <!-- BIRTHDAYS -->
+      <section class="panel" id="panel-birthdays">
+        <h2 class="section-title">Birthdays</h2>
+        <p class="section-sub">Because your day deserves its own countdown.</p>
+        <div class="bday-grid" id="bdayGrid"></div>
+      </section>
+    </div>
+  </main>
 </div>
 
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" id="lbClose">✕</button>
-  <button class="lb-btn lb-prev" id="lbPrev">‹</button>
-  <div class="lb-media" id="lbMedia"></div>
-  <button class="lb-btn lb-next" id="lbNext">›</button>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media viewer" hidden>
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close">✕</button>
+  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous">‹</button>
+  <figure class="lb-figure"><div class="lb-media" id="lbMedia"></div><figcaption id="lbCaption"></figcaption></figure>
+  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next">›</button>
+  <div class="lb-count" id="lbCount"></div>
 </div>
 
-<div class="toast" id="toast"></div>
+<dialog class="dialog" id="dialog">
+  <h3 id="dialogTitle">Are you sure?</h3>
+  <p id="dialogBody"></p>
+  <div class="dialog__actions">
+    <button class="btn btn--ghost" id="dialogCancel" type="button">Cancel</button>
+    <button class="btn btn--primary" id="dialogOk" type="button">Confirm</button>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script>
-(function () {
-  'use strict';
-  console.log('[OLW] script loaded');
-
-  /* ═══ FIREBASE ═══ */
-  var firebaseConfig = {
-    apiKey: "AIzaSyBwLwM98bPOurSjd3H4aRFVYpajiuBdGc8",
-    authDomain: "jay-dee-89f72.firebaseapp.com",
-    projectId: "jay-dee-89f72",
-    storageBucket: "jay-dee-89f72.firebasestorage.app",
-    messagingSenderId: "221843851378",
-    appId: "1:221843851378:web:c041ac58575e35f7101aeb"
-  };
-
-  var FIREBASE_READY = false;
-  var db = null;
-  try {
-    firebase.initializeApp(firebaseConfig);
-    db = firebase.firestore();
-    FIREBASE_READY = true;
-    console.log('[OLW] Firebase connected');
-  } catch (e) {
-    console.error('[OLW] Firebase init failed:', e);
-  }
-
-  /* ═══ ROOMS ═══ */
-  var ROOMS = {
-    '200716': { id: 'jay', name: 'Jay', partner: 'Dee', emoji: '🎈', welcome: 'Welcome home, Jay' },
-    '200706': { id: 'dee', name: 'Dee', partner: 'Jay', emoji: '🎂', welcome: 'Welcome home, Dee' }
-  };
-  var ROOM_KEY = 'olw_room_v1';
-  var currentRoom = null;
-  var partnerLastRead = 0;
-  var partnerLastReadMsg = 0;
-  var partnerLastReadLetter = 0;
-  var unsubs = [];
-
-  /* ═══ CONFIG ═══ */
-  var CONFIG = {
-    togetherSince: '2026-10-03',
-    lockBg: 'https://cdn.dbimg.app/baOgBUVC.jpg',
-    phones: {
-      jay: '254717478188',
-      dee: '254141375640'
-    },
-    birthdays: [
-      { name: 'Dee', emoji: '🎂', date: '2007-12-06', glow: '#ff9ec2' },
-      { name: 'Jay', emoji: '🎈', date: '2007-05-16', glow: '#a8b8f7' }
-    ],
-    photos: [
-      { type: 'image', src: 'https://cdn.dbimg.app/baOgBUVC.jpg', cap: 'Our memory' },
-      { type: 'image', src: 'https://cdn.dbimg.app/0rdl2agw.jpg', cap: 'Another memory' },
-      { type: 'video', src: 'https://cdn.dbimg.app/ZdyFCRFo.mp4', cap: 'Video memory' },
-      { type: 'video', src: 'https://cdn.dbimg.app/etgrFA9f.mp4', cap: 'Video memory' },
-      { type: 'video', src: 'https://cdn.dbimg.app/leqQGz3O.mp4', cap: 'Video memory' },
-      { type: 'video', src: 'https://cdn.dbimg.app/gAgAu6k0.mp4', cap: 'Video memory' },
-      { type: 'video', src: 'https://cdn.dbimg.app/Nhzanrd5.mp4', cap: 'Video memory' },
-      { type: 'video', src: 'https://cdn.dbimg.app/ADmVsVFn.mp4', cap: 'Video memory' },
-      { type: 'video', src: 'https://cdn.dbimg.app/zWpVh7BD.mp4', cap: 'Video memory' },
-      { type: 'video', src: 'https://cdn.dbimg.app/7lx1xWgA.mp4', cap: 'Video memory' },
-      { type: 'video', src: 'https://cdn.dbimg.app/RyPxjPWb.mp4', cap: 'Video memory' }
-    ]
-  };
-
-  /* ═══ HELPERS ═══ */
-  function pad(n){ return (n < 10 ? '0' : '') + n; }
-  function fmtDate(d){ return d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}); }
-  function fmtShort(d){ return d.toLocaleDateString(undefined,{month:'long',day:'numeric'}); }
-  function make(tag, cls, text){
-    var e = document.createElement(tag);
-    if (cls) e.className = cls;
-    if (text !== undefined && text !== null) e.textContent = text;
-    return e;
-  }
-  function fmtLetterTime(ts){
-    var d = new Date(ts), now = new Date();
-    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    var msgDay = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-    var diffDays = Math.round((today - msgDay) / 86400000);
-    var time = d.toLocaleTimeString(undefined, { hour:'numeric', minute:'2-digit' });
-    if (diffDays === 0) return 'Today · ' + time;
-    if (diffDays === 1) return 'Yesterday · ' + time;
-    if (diffDays < 7) return d.toLocaleDateString(undefined, { weekday:'long' }) + ' · ' + time;
-    return d.toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' }) + ' · ' + time;
-  }
-  function dateKey(ts){
-    var d = new Date(ts);
-    return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate());
-  }
-  function fmtDateSep(ts){
-    var d = new Date(ts), now = new Date();
-    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    var msgDay = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-    var diffDays = Math.round((today - msgDay) / 86400000);
-    if (diffDays === 0) return 'Today';
-    if (diffDays === 1) return 'Yesterday';
-    if (diffDays < 7) return d.toLocaleDateString(undefined, { weekday:'long' });
-    return d.toLocaleDateString(undefined, { month:'long', day:'numeric', year:'numeric' });
-  }
-
-  /* ═══ LOCAL LAST-READ STORAGE (per-room, per-kind) ═══ */
-  function getMyLastRead() {
-    if (!currentRoom) return { msg: 0, letter: 0 };
-    try {
-      var raw = localStorage.getItem('olw_lastRead_' + currentRoom.id);
-      if (!raw) return { msg: 0, letter: 0 };
-      var obj = JSON.parse(raw);
-      return { msg: obj.msg || 0, letter: obj.letter || 0 };
-    } catch(e) { return { msg: 0, letter: 0 }; }
-  }
-  function setMyLastRead(kind, ts) {
-    if (!currentRoom) return;
-    var cur = getMyLastRead();
-    cur[kind] = ts;
-    try {
-      localStorage.setItem('olw_lastRead_' + currentRoom.id, JSON.stringify(cur));
-    } catch(e) {}
-  }
-
-  /* ═══ TOAST ═══ */
-  var toastTimer = null;
-  function showToast(msg, type){
-    var el = document.getElementById('toast');
-    if (!el) return;
-    el.textContent = msg;
-    el.className = 'toast show' + (type ? ' ' + type : '');
-    if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(function(){
-      el.className = 'toast';
-    }, 3500);
-  }
-
-  /* ═══ INACTIVITY AUTO-LOCK (1 MINUTE) ═══ */
-  var idleTimer;
-  var IDLE_TIMEOUT = 60000;
-  var isRecording = false;
-
-  function resetIdleTimer() {
-    if (lockEl.classList.contains('gone') === false) return;
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(function() {
-      if (!isRecording) {
-        console.log('[OLW] Auto-locking due to inactivity');
-        lockApp();
-      }
-    }, IDLE_TIMEOUT);
-  }
-
-  ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(function(evt) {
-    document.addEventListener(evt, resetIdleTimer, true);
-  });
-
-  function cleanupListeners() {
-    unsubs.forEach(function(fn){ try { fn(); } catch(e){} });
-    unsubs = [];
-  }
-
-  function lockApp() {
-    cleanupListeners();
-    currentRoom = null;
-    editingId = null;
-    partnerLastRead = 0;
-    partnerLastReadMsg = 0;
-    partnerLastReadLetter = 0;
-    try { localStorage.removeItem(ROOM_KEY); } catch(e){}
-    initialized = false;
-    hideConnBanner();
-    if (isRecording) stopRecording();
-    appEl.classList.add('hidden');
-    appEl.style.display = 'none';
-    lockEl.classList.remove('gone');
-    lockEl.style.display = 'grid';
-    document.body.style.overflow = 'hidden';
-    entry = '';
-    paintDots();
-    Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function(b){ b.classList.remove('active'); });
-    var homeBtn = document.querySelector('#tabs button[data-tab="home"]');
-    if (homeBtn) homeBtn.classList.add('active');
-    Array.prototype.forEach.call(document.querySelectorAll('.panel'), function(p){ p.classList.remove('active'); });
-    var homePanel = document.getElementById('panel-home');
-    if (homePanel) homePanel.classList.add('active');
-    clearTimeout(idleTimer);
-  }
-
-  /* ═══ CONNECTION BANNER ═══ */
-  function showConnBanner(html){
-    var b = document.getElementById('connBanner');
-    var m = document.getElementById('connMsg');
-    if (!b || !m) return;
-    m.innerHTML = html;
-    b.classList.add('show');
-  }
-  function hideConnBanner(){
-    var b = document.getElementById('connBanner');
-    if (b) b.classList.remove('show');
-  }
-
-  /* ═══ DOM ═══ */
-  var lockEl   = document.getElementById('lock');
-  var appEl    = document.getElementById('app');
-  var keypadEl = document.getElementById('keypad');
-  var dotsEl   = document.getElementById('dots');
-  var lockCard = document.getElementById('lockCard');
-
-  if (!lockEl || !appEl || !keypadEl || !dotsEl || !lockCard){
-    console.error('[OLW] Required DOM elements missing');
-    return;
-  }
-
-  var lockBg = lockEl.querySelector('.lock__bg');
-  if (lockBg) lockBg.style.backgroundImage = "url('" + CONFIG.lockBg + "')";
-
-  /* ═══ KEYPAD ═══ */
-  var entry = '';
-  var KEYS = ['1','2','3','4','5','6','7','8','9','','0','⌫'];
-  KEYS.forEach(function(k){
-    var btn = document.createElement('button');
-    btn.className = 'key' + (k === '' ? ' blank' : '') + (k === '⌫' ? ' del' : '');
-    btn.textContent = k;
-    if (k !== ''){
-      btn.addEventListener('click', function(){
-        if (k === '⌫') backspace(); else press(k);
-      });
-    }
-    keypadEl.appendChild(btn);
-  });
-
-  function paintDots(){
-    var dots = dotsEl.children;
-    for (var j = 0; j < dots.length; j++){
-      if (j < entry.length) dots[j].classList.add('on');
-      else dots[j].classList.remove('on');
-    }
-  }
-  function press(d){
-    if (entry.length >= 6) return;
-    entry += d;
-    paintDots();
-    if (entry.length === 6) setTimeout(checkCode, 200);
-  }
-  function backspace(){ entry = entry.slice(0, -1); paintDots(); }
-
-  function checkCode(){
-    var room = ROOMS[entry];
-    if (room){
-      entry = '';
-      paintDots();
-      activateRoom(room);
-    } else {
-      lockCard.classList.add('shake');
-      if (navigator.vibrate) navigator.vibrate(180);
-      setTimeout(function(){
-        lockCard.classList.remove('shake');
-        entry = '';
-        paintDots();
-      }, 430);
-    }
-  }
-
-  document.addEventListener('keydown', function(e){
-    if (lockEl.classList.contains('gone')) return;
-    if (/^[0-9]$/.test(e.key)) press(e.key);
-    else if (e.key === 'Backspace') backspace();
-  });
-
-  /* ═══ ROOM ═══ */
-  function activateRoom(room){
-    currentRoom = room;
-    try { localStorage.setItem(ROOM_KEY, JSON.stringify({ id: room.id })); } catch(e){}
-    applyRoomUI();
-    lockEl.classList.add('gone');
-    lockEl.style.display = 'none';
-    appEl.classList.remove('hidden');
-    appEl.style.display = 'block';
-    document.body.style.overflow = 'auto';
-    initApp();
-    resetIdleTimer();
-  }
-
-  function applyRoomUI(){
-    if (!currentRoom) return;
-
-    var brandText = document.getElementById('brandText');
-    if (brandText) brandText.textContent = currentRoom.name + "'s room " + currentRoom.emoji;
-
-    var eyebrow = document.getElementById('heroEyebrow');
-    if (eyebrow) eyebrow.textContent = currentRoom.welcome;
-
-    var heroNames = document.getElementById('heroNames');
-    if (heroNames) heroNames.textContent = currentRoom.name + ' & ' + currentRoom.partner;
-
-    var messagesTitle = document.getElementById('messagesTitle');
-    if (messagesTitle) messagesTitle.textContent = 'Chat with ' + currentRoom.partner;
-    var messagesSub = document.getElementById('messagesSub');
-    if (messagesSub) messagesSub.textContent = 'Quick notes back and forth.';
-    var msgSenderName = document.getElementById('msgSenderName');
-    if (msgSenderName) msgSenderName.textContent = currentRoom.name + ' ' + currentRoom.emoji;
-    var msgComposerTitle = document.getElementById('msgComposerTitle');
-    if (msgComposerTitle) msgComposerTitle.textContent = 'Message ' + currentRoom.partner;
-    var msgInput = document.getElementById('msgInput');
-    if (msgInput) msgInput.placeholder = 'Message ' + currentRoom.partner + '…';
-
-    var lettersTitle = document.getElementById('lettersTitle');
-    if (lettersTitle) lettersTitle.textContent = 'Letters to ' + currentRoom.partner;
-    var lettersSub = document.getElementById('lettersSub');
-    if (lettersSub) lettersSub.textContent = 'Words just for ' + currentRoom.partner + '.';
-    var senderChipName = document.getElementById('senderChipName');
-    if (senderChipName) senderChipName.textContent = currentRoom.name + ' ' + currentRoom.emoji;
-    var composerTitle = document.getElementById('composerTitle');
-    if (composerTitle) composerTitle.textContent = 'Write to ' + currentRoom.partner;
-    var letterInput = document.getElementById('letterInput');
-    if (letterInput) letterInput.placeholder = 'Write a letter to ' + currentRoom.partner + '…';
-  }
-
-  function restoreRoomIfPossible(){
-    try {
-      var raw = localStorage.getItem(ROOM_KEY);
-      if (!raw) return;
-      var data = JSON.parse(raw);
-      for (var k in ROOMS){
-        if (ROOMS[k].id === data.id){ activateRoom(ROOMS[k]); return; }
-      }
-    } catch(e){}
-  }
-
-  /* ═══ APP INIT ═══ */
-  var initialized = false;
-  function initApp(){
-    if (initialized) return;
-    initialized = true;
-    try { buildHero(); }        catch(e){ console.error('[OLW] buildHero', e); }
-    try { buildBirthdays(); }   catch(e){ console.error('[OLW] buildBirthdays', e); }
-    try { wireTabs(); }         catch(e){ console.error('[OLW] wireTabs', e); }
-    try { wireMemTabs(); }      catch(e){ console.error('[OLW] wireMemTabs', e); }
-    try { wireLightbox(); }     catch(e){ console.error('[OLW] wireLightbox', e); }
-    try { wireLockButton(); }   catch(e){ console.error('[OLW] wireLockButton', e); }
-    try { wireMessages(); }     catch(e){ console.error('[OLW] wireMessages', e); }
-    try { wireWhatsAppNudge(); }catch(e){ console.error('[OLW] wireWhatsAppNudge', e); }
-    try { wireLetterNotif(); }  catch(e){ console.error('[OLW] wireLetterNotif', e); }
-    try { wireVoiceNotes(); }   catch(e){ console.error('[OLW] wireVoiceNotes', e); }
-    try { wireSecretAdmin(); }  catch(e){ console.error('[OLW] wireSecretAdmin', e); }
-    try { startClock(); }       catch(e){ console.error('[OLW] startClock', e); }
-    try { loadMessages(); }     catch(e){ console.error('[OLW] loadMessages', e); }
-    try { loadMemories(); }     catch(e){ console.error('[OLW] loadMemories', e); }
-    try { listenPresence(); }   catch(e){ console.error('[OLW] listenPresence', e); }
-    console.log('[OLW] app ready in room:', currentRoom ? currentRoom.id : 'none');
-  }
-
-  /* ═══ SECRET ADMIN TRIGGER ═══ */
-  var adminWired = false;
-  function wireSecretAdmin() {
-    if (adminWired) return;
-    adminWired = true;
-    var trigger = document.getElementById('secretAdminTrigger');
-    if (!trigger) return;
-
-    var pressTimer;
-    var isHolding = false;
-
-    var startPress = function() {
-      if (!currentRoom || currentRoom.id !== 'jay') return;
-      isHolding = true;
-      pressTimer = setTimeout(function() {
-        if (isHolding) {
-          isHolding = false;
-          if (window.confirm('Open admin panel?')) {
-            window.location.href = 'admin.html';
-          }
-        }
-      }, 2000);
-    };
-
-    var cancelPress = function() {
-      isHolding = false;
-      if (pressTimer) clearTimeout(pressTimer);
-    };
-
-    trigger.addEventListener('mousedown', startPress);
-    trigger.addEventListener('mouseup', cancelPress);
-    trigger.addEventListener('mouseleave', cancelPress);
-    trigger.addEventListener('touchstart', startPress, {passive: true});
-    trigger.addEventListener('touchend', cancelPress);
-    trigger.addEventListener('touchcancel', cancelPress);
-  }
-
-  /* ═══ PRESENCE & SEEN STATUS ═══ */
-  function listenPresence() {
-    if (!FIREBASE_READY || !currentRoom) return;
-    unsubs.push(db.collection('presence').doc(currentRoom.partner.toLowerCase()).onSnapshot(function(doc) {
-      if (!doc.exists) return;
-      var data = doc.data();
-      partnerLastRead       = data.lastRead || 0;
-      partnerLastReadMsg    = data.lastReadMsg || data.lastRead || 0;
-      partnerLastReadLetter = data.lastReadLetter || data.lastRead || 0;
-      renderSeenIndicators();
-    }));
-  }
-
-  function updateMyPresence(data) {
-    if (!FIREBASE_READY || !currentRoom) return;
-    db.collection('presence').doc(currentRoom.id).set(data, { merge: true }).catch(function(err){
-      console.error('[OLW] Presence update failed:', err);
-    });
-  }
-
-  /* ═══ HERO ═══ */
-  var heroTimer = null;
-  function buildHero(){
-    var st = document.getElementById('sinceText');
-    if (st) st.textContent = fmtDate(new Date(CONFIG.togetherSince + 'T00:00:00'));
-  }
-
-  function startHeroSlideshow(imgs){
-    var layerA = document.getElementById('heroBgA');
-    var layerB = document.getElementById('heroBgB');
-    if (!layerA || !layerB) return;
-    if (heroTimer) { clearInterval(heroTimer); heroTimer = null; }
-    if (!imgs.length) return;
-    imgs.forEach(function(src){ var im = new Image(); im.src = src; });
-    if (imgs.length === 1){
-      layerA.style.backgroundImage = "url('" + imgs[0] + "')";
-      layerA.classList.add('on');
-      layerB.classList.remove('on');
-      return;
-    }
-    var current = 0, showingA = true;
-    layerA.style.backgroundImage = "url('" + imgs[0] + "')";
-    setTimeout(function(){ layerA.classList.add('on'); }, 60);
-    heroTimer = setInterval(function(){
-      current = (current + 1) % imgs.length;
-      var url = "url('" + imgs[current] + "')";
-      if (showingA){
-        layerB.style.backgroundImage = url;
-        layerB.classList.add('on');
-        layerA.classList.remove('on');
-      } else {
-        layerA.style.backgroundImage = url;
-        layerA.classList.add('on');
-        layerB.classList.remove('on');
-      }
-      showingA = !showingA;
-    }, 5000);
-  }
-
-  /* ═══ CLOCK ═══ */
-  var clockTimer = null;
-  function startClock(){
-    if (clockTimer) return;
-    tick();
-    clockTimer = setInterval(tick, 1000);
-  }
-  function tick(){
-    var now = new Date();
-    var start = new Date(CONFIG.togetherSince + 'T00:00:00');
-    var dt = document.getElementById('daysTogether');
-    if (dt) dt.textContent = Math.max(0, Math.floor((now - start) / 86400000)).toLocaleString();
-    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    var anniv = new Date(now.getFullYear(), start.getMonth(), start.getDate());
-    if (anniv < today) anniv = new Date(now.getFullYear() + 1, start.getMonth(), start.getDate());
-    var years = anniv.getFullYear() - start.getFullYear();
-    var as = document.getElementById('annivSub');
-    if (as) as.textContent = fmtDate(anniv) + ' · ' + years + ' year' + (years === 1 ? '' : 's');
-    var at = document.getElementById('annivTimer');
-    if (at) renderTimer(at, anniv - now);
-    var nexts = CONFIG.birthdays.map(nextBirthday).sort(function(a,b){ return a.next - b.next; });
-    var nb = nexts[0];
-    var bs = document.getElementById('bdaySub');
-    if (bs && nb) bs.textContent = nb.emoji + ' ' + nb.name + ' · ' + fmtShort(nb.next);
-    var bt = document.getElementById('bdayTimer');
-    if (bt && nb) renderTimer(bt, nb.next - now);
-  }
-  function nextBirthday(b){
-    var p = b.date.split('-');
-    var y = parseInt(p[0],10), m = parseInt(p[1],10), d = parseInt(p[2],10);
-    var now = new Date();
-    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    var next = new Date(now.getFullYear(), m - 1, d);
-    if (next < today) next = new Date(now.getFullYear() + 1, m - 1, d);
-    return { name:b.name, emoji:b.emoji, glow:b.glow, next:next, turning:next.getFullYear()-y, isToday:next.getTime()===today.getTime() };
-  }
-  function renderTimer(el, ms){
-    if (ms < 0) ms = 0;
-    var d = Math.floor(ms / 86400000);
-    var h = Math.floor(ms / 3600000) % 24;
-    var m = Math.floor(ms / 60000) % 60;
-    var s = Math.floor(ms / 1000) % 60;
-    el.innerHTML = '';
-    [[String(d),'days'],[pad(h),'hrs'],[pad(m),'min'],[pad(s),'sec']].forEach(function(p){
-      var box = document.createElement('div');
-      box.appendChild(make('b', null, p[0]));
-      box.appendChild(make('span', null, p[1]));
-      el.appendChild(box);
-    });
-  }
-
-  /* ═══ MEMORIES ═══ */
-  var memories = [];
-  var visibleMemories = [];
-  var activeMemTab = 'photos';
-  var lbIndex = 0;
-
-  function loadMemories(){
-    if (!FIREBASE_READY){
-      memories = CONFIG.photos.map(function(p){ return { type: p.type, url: p.src, caption: p.cap }; });
-      renderGalleryAndHero();
-      return;
-    }
-
-    unsubs.push(db.collection('memories').onSnapshot(function(snap){
-      memories = [];
-      snap.forEach(function(doc){
-        var d = doc.data();
-        memories.push({
-          id: doc.id,
-          type: d.type || 'image',
-          url: d.url,
-          caption: d.caption || '',
-          order: typeof d.order === 'number' ? d.order : 999
-        });
-      });
-
-      if (memories.length === 0) {
-        memories = CONFIG.photos.map(function(p){ return { type: p.type, url: p.src, caption: p.cap }; });
-      } else {
-        memories.sort(function(a, b){ return a.order - b.order; });
-      }
-
-      renderGalleryAndHero();
-    }, function(err){
-      console.error('[OLW] memories listen failed:', err);
-      memories = CONFIG.photos.map(function(p){ return { type: p.type, url: p.src, caption: p.cap }; });
-      renderGalleryAndHero();
-    }));
-  }
-
-  function renderGalleryAndHero(){
-    var photoCount = 0, videoCount = 0;
-    memories.forEach(function(m){ if (m.type === 'video') videoCount++; else photoCount++; });
-    var pc = document.getElementById('photoCount');
-    var vc = document.getElementById('videoCount');
-    if (pc) pc.textContent = photoCount;
-    if (vc) vc.textContent = videoCount;
-    renderGallery();
-    var imgs = memories.filter(function(m){ return m.type !== 'video'; }).map(function(m){ return m.url; });
-    if (!imgs.length) imgs = [CONFIG.lockBg];
-    startHeroSlideshow(imgs);
-  }
-
-  function renderGallery(){
-    var g = document.getElementById('gallery');
-    if (!g) return;
-    if (activeMemTab === 'videos'){
-      visibleMemories = memories.filter(function(m){ return m.type === 'video'; });
-    } else {
-      visibleMemories = memories.filter(function(m){ return m.type !== 'video'; });
-    }
-    g.innerHTML = '';
-    if (!visibleMemories.length){
-      g.appendChild(make('div', 'empty', activeMemTab === 'videos' ? 'No videos yet — add some from the admin page 🎬' : 'No photos yet — add some from the admin page 📷'));
-      return;
-    }
-    visibleMemories.forEach(function(m, i){
-      var isVideo = (m.type === 'video');
-      var fig = document.createElement('figure');
-      if (isVideo) fig.classList.add('is-video');
-      if (isVideo){
-        var vid = document.createElement('video');
-        vid.src = m.url; vid.muted = true; vid.playsInline = true; vid.preload = 'metadata';
-        vid.setAttribute('muted',''); vid.setAttribute('playsinline','');
-        fig.appendChild(vid);
-        fig.appendChild(make('div', 'play-overlay'));
-        fig.appendChild(make('div', 'video-badge', 'VIDEO'));
-      } else {
-        var img = document.createElement('img');
-        img.src = m.url; img.alt = m.caption; img.loading = 'lazy';
-        fig.appendChild(img);
-      }
-      fig.appendChild(make('figcaption', null, m.caption));
-      fig.addEventListener('click', function(){ openLightbox(i); });
-      g.appendChild(fig);
-    });
-  }
-
-  var memTabsWired = false;
-  function wireMemTabs(){
-    if (memTabsWired) return;
-    memTabsWired = true;
-    Array.prototype.forEach.call(document.querySelectorAll('.mem-tab'), function(tab){
-      tab.addEventListener('click', function(){
-        if (tab.dataset.mem === activeMemTab) return;
-        activeMemTab = tab.dataset.mem;
-        Array.prototype.forEach.call(document.querySelectorAll('.mem-tab'), function(t){
-          t.classList.toggle('active', t.dataset.mem === activeMemTab);
-        });
-        renderGallery();
-      });
-    });
-  }
-
-  /* ═══ LIGHTBOX ═══ */
-  function clearLightboxMedia(){
-    var host = document.getElementById('lbMedia');
-    if (!host) return;
-    Array.prototype.forEach.call(host.querySelectorAll('video'), function(v){ try{ v.pause(); }catch(e){} });
-    host.innerHTML = '';
-  }
-  function renderLightboxItem(item){
-    var host = document.getElementById('lbMedia');
-    if (!host || !item) return;
-    if (item.type === 'video'){
-      var v = document.createElement('video');
-      v.src = item.url; v.controls = true; v.autoplay = true; v.muted = true; v.playsInline = true;
-      v.setAttribute('playsinline',''); v.setAttribute('muted','');
-      host.appendChild(v);
-    } else {
-      var img = document.createElement('img');
-      img.src = item.url; img.alt = item.caption;
-      host.appendChild(img);
-    }
-  }
-  function openLightbox(i){
-    lbIndex = i;
-    var lb = document.getElementById('lightbox');
-    if (!lb) return;
-    clearLightboxMedia();
-    renderLightboxItem(visibleMemories[i]);
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox(){
-    var lb = document.getElementById('lightbox');
-    if (lb) lb.classList.remove('open');
-    clearLightboxMedia();
-    document.body.style.overflow = '';
-  }
-  function stepLightbox(dir){
-    if (!visibleMemories.length) return;
-    lbIndex = (lbIndex + dir + visibleMemories.length) % visibleMemories.length;
-    clearLightboxMedia();
-    renderLightboxItem(visibleMemories[lbIndex]);
-  }
-
-  var lightboxWired = false;
-  function wireLightbox(){
-    if (lightboxWired) return;
-    lightboxWired = true;
-    var lb = document.getElementById('lightbox');
-    var cl = document.getElementById('lbClose');
-    var pv = document.getElementById('lbPrev');
-    var nx = document.getElementById('lbNext');
-    if (cl) cl.addEventListener('click', closeLightbox);
-    if (pv) pv.addEventListener('click', function(e){ e.stopPropagation(); stepLightbox(-1); });
-    if (nx) nx.addEventListener('click', function(e){ e.stopPropagation(); stepLightbox(1); });
-    if (lb) lb.addEventListener('click', function(e){ if (e.target.id === 'lightbox') closeLightbox(); });
-    document.addEventListener('keydown', function(e){
-      if (!lb || !lb.classList.contains('open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') stepLightbox(-1);
-      if (e.key === 'ArrowRight') stepLightbox(1);
-    });
-  }
-
-  /* ═══ WHATSAPP NUDGE ═══ */
-  var nudgeWired = false;
-  function wireWhatsAppNudge() {
-    if (nudgeWired) return;
-    nudgeWired = true;
-    
-    var btns = document.querySelectorAll('.nudge-btn');
-    btns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        if (!currentRoom) return;
-
-        var partnerId = currentRoom.partner.toLowerCase();
-        var phone = CONFIG.phones[partnerId];
-
-        if (!phone) {
-          showToast('Phone number not configured.', 'error');
-          return;
-        }
-
-        var type = btn.getAttribute('data-type') || 'message';
-        var message = "Hey " + currentRoom.partner + "! 💞 I left you a " + type + " in our app. Go check it! \n\nhttps://tedeejay.github.io/Jay-Dee/";
-        var url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-        
-        window.open(url, '_blank');
-      });
-    });
-  }
-
-  /* ═══ MESSAGES & LETTERS ═══ */
-  var messages = [];
-  var editingId = null;
-
-  function isOwnMessage(m){
-    if (!currentRoom) return false;
-    if (m.from === 'me') return true;
-    if (m.from === 'them') return false;
-    return m.from === currentRoom.id;
-  }
-
-  function senderDisplayName(m){
-    if (!currentRoom) return m.from;
-    if (m.from === 'me') return currentRoom.name;
-    if (m.from === 'them') return currentRoom.partner;
-    if (m.from === currentRoom.id) return currentRoom.name;
-    return currentRoom.partner;
-  }
-
-  function currentTab() {
-    var a = document.querySelector('#tabs button.active');
-    return a ? a.dataset.tab : 'home';
-  }
-
-  function countUnread(filterFn, lastRead) {
-    var n = 0;
-    for (var i = 0; i < messages.length; i++) {
-      if (filterFn(messages[i]) && messages[i].ts > lastRead && !isOwnMessage(messages[i])) n++;
-    }
-    return n;
-  }
-
-  function latestUnread(filterFn, lastRead) {
-    var latest = null;
-    for (var i = 0; i < messages.length; i++) {
-      var m = messages[i];
-      if (filterFn(m) && m.ts > lastRead && !isOwnMessage(m)) {
-        if (!latest || m.ts > latest.ts) latest = m;
-      }
-    }
-    return latest;
-  }
-
-  function updateBadge(id, n) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    if (n > 0) { el.textContent = n; el.classList.add('show'); }
-    else { el.classList.remove('show'); }
-  }
-
-  function markMessagesAsRead() {
-    var newest = 0;
-    for (var i = 0; i < messages.length; i++) {
-      if (messages[i].type !== 'letter' && messages[i].ts > newest) newest = messages[i].ts;
-    }
-    var now = Math.max(Date.now(), newest);
-    setMyLastRead('msg', now);
-    updateMyPresence({ lastReadMsg: now });
-    updateNotification();
-  }
-
-  function markLettersAsRead() {
-    var newest = 0;
-    for (var i = 0; i < messages.length; i++) {
-      if (messages[i].type === 'letter' && messages[i].ts > newest) newest = messages[i].ts;
-    }
-    var now = Math.max(Date.now(), newest);
-    setMyLastRead('letter', now);
-    updateMyPresence({ lastReadLetter: now });
-    updateNotification();
-  }
-
-  function markActiveTabAsRead() {
-    var tab = currentTab();
-    if (tab === 'messages') markMessagesAsRead();
-    else if (tab === 'letters') markLettersAsRead();
-  }
-
-  function updateNotification(){
-    var tab = currentTab();
-    var myRead = getMyLastRead();
-
-    var unreadMsgs    = countUnread(function(m){ return m.type !== 'letter'; }, myRead.msg);
-    var unreadLetters = countUnread(function(m){ return m.type === 'letter'; }, myRead.letter);
-
-    if (tab === 'messages') unreadMsgs = 0;
-    if (tab === 'letters')  unreadLetters = 0;
-
-    updateBadge('msgBadge', unreadMsgs);
-    updateBadge('tabBadge', unreadLetters);
-
-    var notif = document.getElementById('letterNotif');
-    var title = document.getElementById('notifTitle');
-    var sub   = document.getElementById('notifSub');
-    if (!notif || !title || !sub) return;
-
-    var total = unreadMsgs + unreadLetters;
-    if (total === 0) { notif.classList.remove('show'); return; }
-
-    var latestMsg    = unreadMsgs    > 0 ? latestUnread(function(m){ return m.type !== 'letter'; }, myRead.msg) : null;
-    var latestLetter = unreadLetters > 0 ? latestUnread(function(m){ return m.type === 'letter'; }, myRead.letter) : null;
-    var latest = (!latestMsg) ? latestLetter
-               : (!latestLetter) ? latestMsg
-               : (latestMsg.ts > latestLetter.ts ? latestMsg : latestLetter);
-
-    var senderName = latest ? senderDisplayName(latest) : currentRoom.partner;
-    var titleText;
-    if (unreadMsgs > 0 && unreadLetters > 0) {
-      titleText = total + ' new from ' + senderName;
-    } else if (unreadLetters > 0) {
-      titleText = (unreadLetters === 1 ? 'New letter' : unreadLetters + ' new letters') + ' from ' + senderName;
-    } else {
-      titleText = (unreadMsgs === 1 ? 'New message' : unreadMsgs + ' new messages') + ' from ' + senderName;
-    }
-    title.textContent = titleText;
-    sub.textContent = 'Tap to read';
-    notif.dataset.targetTab = latest && latest.type === 'letter' ? 'letters' : 'messages';
-    notif.classList.add('show');
-  }
-
-  function loadMessages(){
-    if (!FIREBASE_READY){
-      messages = [
-        { id: 'local-1', from: 'dee', type: 'letter', ts: Date.now() - 86400000 * 2,
-          text: "Hey Jay,\n\nI made us this little corner of the internet so we always have somewhere to come back to.\n\nI love you more than the days we've counted.\n\n— always yours, Dee" }
-      ];
-      renderTimelines();
-      updateNotification();
-      return;
-    }
-    unsubs.push(db.collection('messages').orderBy('ts', 'asc').onSnapshot(function(snap){
-      messages = [];
-      snap.forEach(function(doc){
-        var d = doc.data();
-        messages.push({
-          id: doc.id,
-          from: d.from || 'them',
-          type: d.type || 'chat',
-          ts: d.ts ? d.ts.toMillis() : Date.now(),
-          text: d.text || ''
-        });
-      });
-      renderTimelines();
-
-      var tab = currentTab();
-      if (tab === 'messages') markMessagesAsRead();
-      else if (tab === 'letters') markLettersAsRead();
-      else updateNotification();
-
-      hideConnBanner();
-    }, function(err){
-      console.error('[OLW] messages listen failed:', err);
-      var tabs = ['msgTimeline', 'timeline'];
-      tabs.forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) { el.innerHTML = ''; el.appendChild(make('div', 'empty', 'Could not load. (' + err.code + ')')); }
-      });
-      if (err.code === 'permission-denied'){
-        showConnBanner(
-          '<strong>Firestore permission denied</strong>' +
-          'Your security rules are blocking reads. Fix them in Firebase Console → Firestore → Rules.'
-        );
-      }
-    }));
-  }
-
-  /* ═══ EDIT / DELETE ═══ */
-  function buildActions(m){
-    var wrap = document.createElement('div');
-    wrap.className = 'msg-actions';
-
-    var editBtn = document.createElement('button');
-    editBtn.type = 'button';
-    editBtn.className = 'msg-action';
-    editBtn.title = 'Edit';
-    editBtn.setAttribute('aria-label', 'Edit message');
-    editBtn.textContent = '✎';
-    editBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      beginEdit(m);
-    });
-
-    var delBtn = document.createElement('button');
-    delBtn.type = 'button';
-    delBtn.className = 'msg-action danger';
-    delBtn.title = 'Delete';
-    delBtn.setAttribute('aria-label', 'Delete message');
-    delBtn.textContent = '🗑';
-    delBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      deleteMessage(m);
-    });
-
-    wrap.appendChild(editBtn);
-    wrap.appendChild(delBtn);
-    return wrap;
-  }
-
-  function beginEdit(m){
-    if (!isOwnMessage(m)) return;
-    editingId = m.id;
-    renderTimelines();
-  }
-
-  function cancelEdit(){
-    editingId = null;
-    renderTimelines();
-  }
-
-  function saveEdit(m){
-    var ta = document.querySelector('[data-edit-id="' + m.id + '"]');
-    if (!ta) return;
-    var newText = ta.value.trim();
-    if (!newText){ cancelEdit(); return; }
-    if (newText === m.text){ cancelEdit(); return; }
-
-    if (!FIREBASE_READY){
-      for (var i = 0; i < messages.length; i++){
-        if (messages[i].id === m.id){ messages[i].text = newText; break; }
-      }
-      editingId = null;
-      renderTimelines();
-      showToast('Updated ✔', 'success');
-      return;
-    }
-
-    db.collection('messages').doc(m.id).update({ text: newText })
-      .then(function(){
-        editingId = null;
-        renderTimelines();
-        showToast('Changes saved ✔', 'success');
-      })
-      .catch(function(err){
-        console.error('[OLW] edit failed:', err);
-        handleFirestoreError(err, 'save changes');
-      });
-  }
-
-  function deleteMessage(m){
-    if (!m || typeof m !== 'object') return;
-    if (!m.id || typeof m.id !== 'string'){
-      showToast('Cannot delete: missing message ID', 'error');
-      return;
-    }
-
-    var preview = m.type === 'voice'
-      ? '🎤 Voice note'
-      : ((m.text || '').length > 70 ? m.text.slice(0, 70) + '…' : (m.text || 'Message'));
-    var ok = window.confirm('Delete this message?\n\n"' + preview + '"\n\nThis cannot be undone.');
-    if (!ok) return;
-
-    if (!FIREBASE_READY){
-      messages = messages.filter(function(x){ return x.id !== m.id; });
-      if (editingId === m.id) editingId = null;
-      renderTimelines();
-      updateNotification();
-      showToast('Deleted ✔', 'success');
-      return;
-    }
-
-    db.collection('messages').doc(m.id).delete()
-      .then(function(){
-        showToast('Deleted ✔', 'success');
-      })
-      .catch(function(err){
-        console.error('[OLW] delete failed:', err);
-        handleFirestoreError(err, 'delete');
-      });
-  }
-
-  function handleFirestoreError(err, action){
-    var code = (err && err.code) || '';
-    var msg = (err && err.message) || String(err);
-
-    if (code === 'permission-denied' || msg.indexOf('permission') > -1){
-      showToast('Delete failed: permission denied', 'error');
-      showConnBanner(
-        '<strong>Firestore rules are blocking ' + action + '</strong>' +
-        'Go to <b>Firebase Console → Firestore → Rules</b> and set:<br><br>' +
-        '<code>match /messages/{id} { allow read, create, update, delete: if true; }</code><br><br>' +
-        'Click <b>Publish</b>, wait 30 seconds, then try again.'
-      );
-    } else {
-      showToast('Failed: ' + msg.slice(0, 80), 'error');
-    }
-  }
-
-  function renderEditForm(m, isLetter){
-    var wrap = document.createElement('div');
-    wrap.className = 'edit-wrap' + (isLetter ? ' on-light' : '');
-
-    var ta = document.createElement('textarea');
-    ta.className = 'edit-textarea';
-    ta.value = m.text;
-    ta.setAttribute('data-edit-id', m.id);
-    ta.addEventListener('keydown', function(e){
-      if (e.key === 'Escape'){ e.preventDefault(); cancelEdit(); }
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter'){ e.preventDefault(); saveEdit(m); }
-    });
-
-    var actions = document.createElement('div');
-    actions.className = 'edit-actions';
-
-    var cancelBtn = document.createElement('button');
-    cancelBtn.type = 'button';
-    cancelBtn.className = 'edit-cancel-btn';
-    cancelBtn.textContent = 'Cancel';
-    cancelBtn.addEventListener('click', cancelEdit);
-
-    var saveBtn = document.createElement('button');
-    saveBtn.type = 'button';
-    saveBtn.className = 'edit-save-btn';
-    saveBtn.textContent = '✓ Save';
-    saveBtn.addEventListener('click', function(){ saveEdit(m); });
-
-    actions.appendChild(cancelBtn);
-    actions.appendChild(saveBtn);
-
-    var hint = document.createElement('div');
-    hint.className = 'edit-hint';
-    hint.textContent = 'Ctrl/⌘ + Enter to save · Esc to cancel';
-
-    wrap.appendChild(ta);
-    wrap.appendChild(actions);
-    wrap.appendChild(hint);
-
-    setTimeout(function(){
-      ta.focus();
-      ta.setSelectionRange(ta.value.length, ta.value.length);
-    }, 60);
-
-    return wrap;
-  }
-
-  function renderTimelines() {
-    renderTimelineFor('msgTimeline', 'msgCount',
-      function(m){ return m.type !== 'letter'; }, 'msg');
-    renderTimelineFor('timeline', 'lettersCount',
-      function(m){ return m.type === 'letter'; }, 'letter');
-  }
-
-  function renderTimelineFor(targetId, countId, filterFn, kind) {
-    var tl = document.getElementById(targetId);
-    if (!tl) return;
-
-    var list = messages.filter(filterFn);
-    var countPill = document.getElementById(countId);
-    if (countPill) countPill.textContent = list.length;
-
-    tl.innerHTML = '';
-    if (!list.length) {
-      tl.appendChild(make('div', 'empty',
-        kind === 'msg' ? 'No messages yet. Say hi 👋' : 'No letters yet. Write the first one. ✍️'));
-      return;
-    }
-
-    var lastDateKey = null;
-    list.forEach(function(m) {
-      var dk = dateKey(m.ts);
-      if (dk !== lastDateKey) {
-        tl.appendChild(make('div', 'date-sep', fmtDateSep(m.ts)));
-        lastDateKey = dk;
-      }
-
-      if (editingId === m.id) {
-        tl.appendChild(renderEditForm(m, m.type === 'letter'));
-        return;
-      }
-
-      var senderName = senderDisplayName(m);
-      var timeStr = fmtLetterTime(m.ts);
-      var own = isOwnMessage(m);
-      var lastRead = (m.type === 'letter') ? partnerLastReadLetter : partnerLastReadMsg;
-      var isSeen = own && (m.ts <= lastRead);
-      var seenHtml = own
-        ? (isSeen
-            ? '<div class="seen-indicator" data-msg-id="' + m.id + '">✓✓ Seen</div>'
-            : '<div class="seen-indicator" data-msg-id="' + m.id + '" style="opacity:0.5">✓ Sent</div>')
-        : '';
-
-      if (m.type === 'letter') {
-        var card = document.createElement('article');
-        card.className = 'letter-card';
-
-        var head = document.createElement('div');
-        head.className = 'letter-card-head';
-        head.appendChild(make('div', 'letter-card-icon', '💌'));
-        var meta = document.createElement('div');
-        meta.className = 'letter-card-meta';
-        meta.appendChild(make('div', 'letter-card-sender', senderName));
-        meta.appendChild(make('div', 'letter-card-time', timeStr));
-        head.appendChild(meta);
-        if (own) head.appendChild(buildActions(m));
-        else head.appendChild(make('div', 'letter-card-seal', '❤'));
-
-        var body = make('div', 'letter-card-body', m.text);
-
-        var foot = document.createElement('div');
-        foot.className = 'letter-card-foot';
-        if (own) {
-          var seenDiv = document.createElement('div');
-          seenDiv.innerHTML = seenHtml;
-          foot.appendChild(seenDiv);
-        }
-        foot.appendChild(make('span', 'letter-card-sig', '— ' + senderName));
-
-        card.appendChild(head);
-        card.appendChild(body);
-        card.appendChild(foot);
-        tl.appendChild(card);
-      } else {
-        var bubble = document.createElement('div');
-        bubble.className = 'chat-bubble ' + (own ? 'me' : 'them');
-        bubble.appendChild(make('span', 'meta', senderName + ' · ' + timeStr));
-
-        if (m.type === 'voice') {
-          var audio = document.createElement('audio');
-          audio.controls = true;
-          audio.src = m.text;
-          audio.className = 'audio-player';
-          bubble.appendChild(audio);
-        } else {
-          bubble.appendChild(document.createTextNode(m.text));
-        }
-
-        if (own) {
-          var bfoot = document.createElement('div');
-          bfoot.className = 'bubble-foot';
-          bfoot.appendChild(buildActions(m));
-          bubble.appendChild(bfoot);
-          var seenDiv = document.createElement('div');
-          seenDiv.innerHTML = seenHtml;
-          bubble.appendChild(seenDiv);
-        }
-        tl.appendChild(bubble);
-      }
-    });
-
-    if (kind === 'msg') {
-      setTimeout(function(){ tl.scrollTop = tl.scrollHeight; }, 60);
-    } else {
-      var se = document.scrollingElement;
-      var nearBottom = se.scrollHeight - se.scrollTop - se.clientHeight < 200;
-      if (nearBottom && tl.lastElementChild) {
-        setTimeout(function(){ tl.lastElementChild.scrollIntoView({ behavior:'smooth', block:'nearest' }); }, 80);
-      }
-    }
-  }
-
-  function renderSeenIndicators() {
-    var byId = {};
-    messages.forEach(function(m){ byId[m.id] = m; });
-    var nodes = document.querySelectorAll('.seen-indicator[data-msg-id]');
-    Array.prototype.forEach.call(nodes, function(node) {
-      var m = byId[node.getAttribute('data-msg-id')];
-      if (!m) return;
-      var lastRead = (m.type === 'letter') ? partnerLastReadLetter : partnerLastReadMsg;
-      var seen = m.ts <= lastRead;
-      node.innerHTML = seen ? '✓✓ Seen' : '✓ Sent';
-      node.style.opacity = seen ? '' : '0.5';
-    });
-  }
-
-  function sendMessage(text, type, inputId, btnId) {
-    if (!currentRoom) return;
-    var input = document.getElementById(inputId);
-    var btn = document.getElementById(btnId);
-
-    if (!FIREBASE_READY) {
-      messages.push({ id: 'local-' + Date.now(), from: currentRoom.id, type: type, ts: Date.now(), text: text });
-      if (input) input.value = '';
-      renderTimelines();
-      updateNotification();
-      return;
-    }
-
-    if (btn) btn.disabled = true;
-    db.collection('messages').add({
-      from: currentRoom.id,
-      type: type,
-      text: text,
-      ts: firebase.firestore.FieldValue.serverTimestamp()
-    }).then(function() {
-      if (input) input.value = '';
-      markActiveTabAsRead();
-    }).catch(function(err) {
-      console.error('[OLW] send failed:', err);
-      handleFirestoreError(err, 'send');
-    }).finally(function() {
-      if (btn) btn.disabled = false;
-    });
-  }
-
-  function sendChat(text)     { sendMessage(text, 'chat',   'msgInput',    'sendMsgBtn'); }
-  function sendVoiceNote(b64) { sendMessage(b64,  'voice',  'msgInput',    'sendMsgBtn'); }
-  function sendLetter(text)   { sendMessage(text, 'letter', 'letterInput', 'sendLetterBtn'); }
-
-  /* ═══ VOICE NOTES RECORDER ═══ */
-  var mediaRecorder;
-  var audioChunks = [];
-  var recordTimerInterval;
-  var recordStartTime;
-
-  var voiceWired = false;
-  function wireVoiceNotes() {
-    if (voiceWired) return;
-    voiceWired = true;
-    var micBtn = document.getElementById('msgMicBtn');
-    if (!micBtn) return;
-
-    micBtn.addEventListener('click', function() {
-      if (isRecording) {
-        stopRecording();
-      } else {
-        startRecording();
-      }
-    });
-  }
-
-  function startRecording() {
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      alert('Voice recording is not supported in this browser.');
-      return;
-    }
-
-    navigator.mediaDevices.getUserMedia({ audio: true })
-      .then(function(stream) {
-        mediaRecorder = new MediaRecorder(stream);
-        audioChunks = [];
-
-        mediaRecorder.addEventListener('dataavailable', function(e) {
-          audioChunks.push(e.data);
-        });
-
-        mediaRecorder.addEventListener('stop', function() {
-          var mime = mediaRecorder.mimeType || 'audio/webm';
-          var audioBlob = new Blob(audioChunks, { type: mime });
-          var reader = new FileReader();
-          reader.readAsDataURL(audioBlob);
-          reader.onloadend = function() {
-            var base64Audio = reader.result;
-            sendVoiceNote(base64Audio);
-            showToast('Voice note sent 🎤', 'success');
-          };
-
-          stream.getTracks().forEach(function(track) { track.stop(); });
-        });
-
-        mediaRecorder.start();
-        isRecording = true;
-
-        var micBtn = document.getElementById('msgMicBtn');
-        var timerEl = document.getElementById('msgRecordingTime');
-        micBtn.classList.add('recording');
-        micBtn.textContent = '⏹️';
-        timerEl.classList.add('show');
-
-        recordStartTime = Date.now();
-        timerEl.textContent = '00:00';
-        recordTimerInterval = setInterval(function() {
-          var diff = Math.floor((Date.now() - recordStartTime) / 1000);
-          timerEl.textContent = '00:' + pad(diff);
-          if (diff >= 45) {
-            stopRecording();
-          }
-        }, 1000);
-
-        clearTimeout(idleTimer);
-      })
-      .catch(function(err) {
-        console.error('Mic error:', err);
-        alert('Could not access the microphone. Please allow permissions.');
-      });
-  }
-
-  function stopRecording() {
-    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-      mediaRecorder.stop();
-    }
-    isRecording = false;
-
-    var micBtn = document.getElementById('msgMicBtn');
-    var timerEl = document.getElementById('msgRecordingTime');
-    micBtn.classList.remove('recording');
-    micBtn.textContent = '🎤';
-    timerEl.classList.remove('show');
-    clearInterval(recordTimerInterval);
-    resetIdleTimer();
-  }
-
-  var msgWired = false;
-  function wireMessages(){
-    if (msgWired) return;
-    msgWired = true;
-
-    var sm = document.getElementById('sendMsgBtn');
-    if (sm) sm.addEventListener('click', function() {
-      var input = document.getElementById('msgInput');
-      var text = input.value.trim();
-      if (!text) { input.focus(); return; }
-      sendChat(text);
-    });
-    var mi = document.getElementById('msgInput');
-    if (mi) mi.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-        var t = mi.value.trim(); if (t) sendChat(t);
-      }
-    });
-
-    var sl = document.getElementById('sendLetterBtn');
-    if (sl) sl.addEventListener('click', function() {
-      var input = document.getElementById('letterInput');
-      var text = input.value.trim();
-      if (!text) { input.focus(); return; }
-      sendLetter(text);
-    });
-    var li = document.getElementById('letterInput');
-    if (li) li.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-        var t = li.value.trim(); if (t) sendLetter(t);
-      }
-    });
-  }
-
-  /* ═══ LETTER NOTIF ═══ */
-  var notifWired = false;
-  function wireLetterNotif(){
-    if (notifWired) return;
-    notifWired = true;
-    var notif = document.getElementById('letterNotif');
-    if (!notif) return;
-    notif.addEventListener('click', function(){
-      var target = notif.dataset.targetTab || 'letters';
-      Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function(b){ b.classList.remove('active'); });
-      var btn = document.querySelector('#tabs button[data-tab="' + target + '"]');
-      if (btn) btn.classList.add('active');
-      Array.prototype.forEach.call(document.querySelectorAll('.panel'), function(p){ p.classList.remove('active'); });
-      var panel = document.getElementById('panel-' + target);
-      if (panel) panel.classList.add('active');
-
-      markActiveTabAsRead();
-      renderTimelines();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  /* ═══ BIRTHDAYS ═══ */
-  function buildBirthdays(){
-    var grid = document.getElementById('bdayGrid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    CONFIG.birthdays.forEach(function(b){
-      var nb = nextBirthday(b);
-      var p = b.date.split('-');
-      var y = parseInt(p[0],10), m = parseInt(p[1],10), d = parseInt(p[2],10);
-      var today = new Date();
-      var last = new Date(nb.next.getFullYear() - 1, m - 1, d);
-      var total = nb.next - last;
-      var done = Math.min(total, Math.max(0, today - last));
-      var pct = total > 0 ? (done / total) * 100 : 0;
-      var daysLeft = Math.max(0, Math.ceil((nb.next - today) / 86400000));
-      var card = document.createElement('div'); card.className = 'bday';
-      var glow = document.createElement('div'); glow.className = 'bday__glow'; glow.style.background = b.glow;
-      var top = document.createElement('div'); top.className = 'bday__top';
-      top.appendChild(make('div', 'bday__emoji', b.emoji));
-      var info = document.createElement('div');
-      info.appendChild(make('div', 'bday__name', b.name));
-      info.appendChild(make('div', 'bday__date', fmtShort(new Date(y, m - 1, d)) + ' · born ' + y));
-      top.appendChild(info);
-      var count = document.createElement('div'); count.className = 'bday__count';
-      count.appendChild(make('b', null, String(daysLeft)));
-      count.appendChild(make('span', null, 'day' + (daysLeft === 1 ? '' : 's') + ' to go'));
-      var nextEl = document.createElement('div'); nextEl.className = 'bday__next';
-      nextEl.appendChild(document.createTextNode('Turns '));
-      nextEl.appendChild(make('b', null, String(nb.turning)));
-      nextEl.appendChild(document.createTextNode(' on '));
-      nextEl.appendChild(make('b', null, fmtDate(nb.next)));
-      var bar = document.createElement('div'); bar.className = 'bar';
-      var fill = document.createElement('i'); fill.style.width = pct + '%'; bar.appendChild(fill);
-      var foot = document.createElement('div'); foot.className = 'bday__foot';
-      foot.appendChild(make('span', null, Math.round(pct) + '% of the way there'));
-      foot.appendChild(make('span', null, fmtShort(nb.next)));
-      card.appendChild(glow); card.appendChild(top); card.appendChild(count);
-      card.appendChild(nextEl); card.appendChild(bar); card.appendChild(foot);
-      if (nb.isToday) card.appendChild(make('div', 'today-badge', '🎉 TODAY! HAPPY BIRTHDAY 🎉'));
-      grid.appendChild(card);
-    });
-  }
-
-  /* ═══ MAIN TABS ═══ */
-  var tabsWired = false;
-  function wireTabs(){
-    if (tabsWired) return;
-    tabsWired = true;
-    var tabs = document.getElementById('tabs');
-    if (!tabs) return;
-    tabs.addEventListener('click', function(e){
-      var btn = e.target.closest('button[data-tab]');
-      if (!btn) return;
-      Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      Array.prototype.forEach.call(document.querySelectorAll('.panel'), function(p){ p.classList.remove('active'); });
-      var panel = document.getElementById('panel-' + btn.dataset.tab);
-      if (panel) panel.classList.add('active');
-      if (btn.dataset.tab === 'birthdays') buildBirthdays();
-      if (btn.dataset.tab === 'gallery')   renderGallery();
-      if (btn.dataset.tab === 'messages' || btn.dataset.tab === 'letters') {
-        markActiveTabAsRead();
-        renderTimelines();
-      } else {
-        updateNotification();
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  /* ═══ LOCK BUTTON ═══ */
-  var lockBtnWired = false;
-  function wireLockButton(){
-    if (lockBtnWired) return;
-    lockBtnWired = true;
-    var lb = document.getElementById('lockBtn');
-    if (!lb) return;
-    lb.addEventListener('click', lockApp);
-  }
-
-  /* ═══ KICKOFF ═══ */
-  restoreRoomIfPossible();
-
-  console.log('[OLW] setup complete');
-})();
-</script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
